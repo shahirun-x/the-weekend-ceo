@@ -1,0 +1,57 @@
+/* ============================================
+   CARD COMPONENT STYLES
+   ============================================ */
+
+.card {
+    padding: var(--space-lg);
+    background-color: var(--bg-secondary);
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    transition: border-color var(--transition-base), transform var(--transition-base);
+}
+
+.card:hover {
+    border-color: var(--border-light);
+}
+
+.card__subtitle {
+    margin-bottom: var(--space-sm);
+}
+
+.card__title {
+    margin-bottom: var(--space-sm);
+}
+
+.card__description {
+    margin-bottom: var(--space-md);
+}
+
+/* Featured Variant */
+.card--featured {
+    background: linear-gradient(135deg,
+            var(--bg-secondary) 0%,
+            rgba(201, 135, 59, 0.08) 100%);
+    border-color: var(--accent-muted);
+}
+
+.card--featured:hover {
+    border-color: var(--accent);
+}
+
+/* Minimal Variant */
+.card--minimal {
+    background-color: transparent;
+    border: none;
+    padding: 0;
+}
+
+.card--minimal:hover {
+    transform: none;
+}
+
+/* Mobile adjustments */
+@media (max-width: 767px) {
+    .card:hover {
+        transform: none;
+    }
+}

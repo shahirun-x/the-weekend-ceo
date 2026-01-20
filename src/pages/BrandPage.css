@@ -1,0 +1,79 @@
+/* ============================================
+   BRAND PAGE STYLES
+   ============================================ */
+
+/* Story Section */
+.brand-story {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+}
+
+.brand-story__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.brand-story__content .text-h2 {
+    margin-bottom: var(--space-md);
+}
+
+/* Mindset Section */
+.brand-mindset {
+    max-width: var(--container-max);
+}
+
+.brand-mindset .text-h2 {
+    margin: var(--space-md) 0 var(--space-xl);
+}
+
+.brand-mindset__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.brand-mindset__item .text-h3 {
+    color: var(--accent);
+    margin-bottom: var(--space-sm);
+}
+
+/* Founder Section */
+.brand-founder {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    text-align: center;
+    padding: var(--space-xl) 0;
+}
+
+.brand-founder__quote {
+    display: block;
+    font-size: clamp(1.25rem, 2vw, 1.5rem);
+    line-height: 1.8;
+    margin-bottom: var(--space-lg);
+}
+
+.brand-founder__attribution {
+    opacity: 0.7;
+}
+
+/* CTA Section */
+.brand-cta-section {
+    padding: var(--space-3xl) 0;
+}
+
+.brand-cta {
+    text-align: center;
+}
+
+.brand-cta .text-h2 {
+    margin-bottom: var(--space-lg);
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .brand-mindset__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}

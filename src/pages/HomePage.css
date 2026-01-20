@@ -1,0 +1,210 @@
+/* ============================================
+   HOME PAGE STYLES
+   ============================================ */
+
+/* Hero CTA */
+.hero__cta {
+    opacity: 0;
+    animation: heroFadeIn 1s ease forwards 0.9s;
+}
+
+/* Philosophy Section */
+.home-philosophy {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.home-philosophy__title {
+    margin: var(--space-md) 0 var(--space-xl);
+}
+
+.home-philosophy__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-lg);
+}
+
+.home-philosophy__quote {
+    display: block;
+    max-width: 500px;
+    margin: var(--space-md) auto 0;
+    padding: var(--space-md);
+    border-left: 2px solid var(--accent);
+    text-align: left;
+}
+
+/* Craftsmanship Section */
+.home-craftsmanship__header {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.home-craftsmanship__header .text-h2 {
+    margin-top: var(--space-md);
+}
+
+.home-craftsmanship__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-xl);
+}
+
+.home-craftsmanship__grid .text-h3 {
+    margin-bottom: var(--space-sm);
+    color: var(--accent);
+}
+
+/* Standard Section */
+.home-standard {
+    text-align: center;
+}
+
+.home-standard__title {
+    margin: var(--space-md) 0 var(--space-2xl);
+}
+
+.home-standard__stats {
+    display: flex;
+    justify-content: center;
+    gap: var(--space-3xl);
+}
+
+.home-standard__stat {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-xs);
+}
+
+.home-standard__number {
+    font-family: var(--font-heading);
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    color: var(--accent);
+    line-height: 1;
+}
+
+/* Services Preview */
+.home-services {
+    text-align: center;
+}
+
+.home-services .text-h2 {
+    margin: var(--space-md) 0 var(--space-xl);
+}
+
+.home-services__cards {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.home-services__card {
+    text-align: left;
+    display: flex;
+    flex-direction: column;
+}
+
+.home-services__card .text-h3 {
+    margin-bottom: var(--space-sm);
+}
+
+.home-services__card .button--ghost {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* Audience Section */
+.home-audience {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-2xl);
+    max-width: 1000px;
+    margin: 0 auto;
+}
+
+.home-audience__column .text-eyebrow {
+    display: block;
+    margin-bottom: var(--space-md);
+}
+
+.home-audience__list {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.home-audience__list li {
+    position: relative;
+    padding-left: var(--space-md);
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.6;
+}
+
+.home-audience__list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.5em;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+}
+
+.home-audience__list--positive li::before {
+    background-color: var(--accent);
+}
+
+.home-audience__list--negative li::before {
+    background-color: var(--text-muted);
+}
+
+/* CTA Section */
+.home-cta-section {
+    padding: var(--space-3xl) 0;
+}
+
+.home-cta {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.home-cta__pre {
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.home-cta .text-h2 {
+    margin-bottom: var(--space-md);
+}
+
+.home-cta__desc {
+    margin-bottom: var(--space-xl);
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .home-craftsmanship__grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+
+    .home-standard__stats {
+        flex-direction: column;
+        gap: var(--space-xl);
+    }
+
+    .home-services__cards {
+        grid-template-columns: 1fr;
+    }
+
+    .home-audience {
+        grid-template-columns: 1fr;
+        gap: var(--space-xl);
+    }
+}

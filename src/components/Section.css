@@ -1,0 +1,18 @@
+/* ============================================
+   SECTION COMPONENT STYLES
+   ============================================ */
+
+.section {
+    padding: var(--section-padding) 0;
+    background-color: var(--bg-primary);
+}
+
+.section--dark {
+    background-color: var(--bg-secondary);
+}
+
+.section__container {
+    max-width: var(--container-max);
+    margin: 0 auto;
+    padding: 0 var(--space-lg);
+}

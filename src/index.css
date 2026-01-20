@@ -1,0 +1,205 @@
+/* ============================================
+   THE WEEKEND CEO - DESIGN SYSTEM
+   Premium Automotive Detailing
+   ============================================ */
+
+/* CSS Reset & Base */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  font-size: 16px;
+}
+
+/* ============================================
+   DESIGN TOKENS
+   ============================================ */
+:root {
+  /* Colors */
+  --bg-primary: #0d0d0d;
+  --bg-secondary: #1a1a1a;
+  --bg-tertiary: #141414;
+  --accent: #c9873b;
+  --accent-muted: #a06a2c;
+  --accent-light: #d9a65d;
+  --text-primary: #f5f2ed;
+  --text-secondary: #9a9590;
+  --text-muted: #6b6560;
+  --border: #2a2825;
+  --border-light: #3a3835;
+
+  /* Typography */
+  --font-heading: 'DM Serif Display', serif;
+  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  --font-accent: 'Cormorant Garamond', serif;
+
+  /* Spacing */
+  --space-xs: 0.5rem;
+  --space-sm: 1rem;
+  --space-md: 1.5rem;
+  --space-lg: 2.5rem;
+  --space-xl: 4rem;
+  --space-2xl: 6rem;
+  --space-3xl: 10rem;
+
+  /* Layout */
+  --container-max: 1400px;
+  --container-narrow: 900px;
+  --section-padding: clamp(4rem, 10vw, 8rem);
+
+  /* Animation */
+  --transition-fast: 0.2s ease;
+  --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* ============================================
+   GLOBAL STYLES
+   ============================================ */
+body {
+  font-family: var(--font-body);
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  line-height: 1.7;
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  overflow-x: hidden;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+  border: none;
+  background: none;
+}
+
+/* ============================================
+   UTILITY CLASSES
+   ============================================ */
+.container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin: 0 auto;
+  padding: 0 var(--space-lg);
+}
+
+.container--narrow {
+  max-width: var(--container-narrow);
+}
+
+.section {
+  padding: var(--section-padding) 0;
+}
+
+.text-accent {
+  color: var(--accent);
+}
+
+.text-muted {
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
+   ============================================ */
+.reveal {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Mobile: Reduced motion */
+@media (max-width: 767px) {
+  .reveal {
+    transform: none;
+    transition: opacity var(--transition-base);
+  }
+}
+
+/* Respect user preference */
+@media (prefers-reduced-motion: reduce) {
+  .reveal {
+    opacity: 1;
+    transform: none;
+    transition: none;
+  }
+}
+
+/* ============================================
+   PARALLAX (Desktop only)
+   ============================================ */
+.parallax {
+  will-change: transform;
+}
+
+@media (max-width: 767px) {
+  .parallax {
+    transform: none !important;
+    will-change: auto;
+  }
+}
+
+/* ============================================
+   SCROLLBAR STYLING
+   ============================================ */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--border-light);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--accent-muted);
+}
+
+/* ============================================
+   SELECTION STYLING
+   ============================================ */
+::selection {
+  background: var(--accent);
+  color: var(--bg-primary);
+}
+
+/* ============================================
+   RESPONSIVE ADJUSTMENTS
+   ============================================ */
+@media (max-width: 767px) {
+  :root {
+    --section-padding: clamp(3rem, 8vw, 5rem);
+    --space-lg: 1.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  html {
+    font-size: 14px;
+  }
+}

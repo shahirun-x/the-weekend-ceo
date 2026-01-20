@@ -1,0 +1,154 @@
+/* ============================================
+   SERVICES PAGE STYLES
+   ============================================ */
+
+/* Philosophy Section */
+.services-philosophy {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.services-philosophy .text-h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.services-philosophy__highlight {
+    display: block;
+    margin-top: var(--space-md);
+    padding: var(--space-md);
+    border-left: 2px solid var(--accent);
+}
+
+/* Service Packs */
+.services-packs__intro {
+    text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.services-packs__intro .text-h2 {
+    margin-top: var(--space-md);
+}
+
+.services-packs__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+/* Individual Pack */
+.services-pack {
+    position: relative;
+    background-color: var(--bg-tertiary);
+    border: 1px solid var(--border);
+    border-radius: 6px;
+    padding: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+}
+
+.services-pack--featured {
+    background: linear-gradient(135deg,
+            var(--bg-tertiary) 0%,
+            rgba(201, 135, 59, 0.1) 100%);
+    border-color: var(--accent-muted);
+}
+
+.services-pack__badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    font-family: var(--font-body);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    padding: 0.35em 0.8em;
+    border-radius: 2px;
+}
+
+.services-pack__header {
+    margin-bottom: var(--space-lg);
+}
+
+.services-pack__title {
+    margin-top: var(--space-sm);
+    color: var(--text-primary);
+}
+
+.services-pack__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.services-pack__highlights {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+    padding: var(--space-md) 0;
+    border-top: 1px solid var(--border);
+    border-bottom: 1px solid var(--border);
+}
+
+.services-pack__highlight {
+    color: var(--text-secondary);
+    padding-left: var(--space-sm);
+}
+
+.services-pack__note {
+    margin-top: auto;
+    padding-top: var(--space-md);
+}
+
+/* Process Section */
+.services-process {
+    max-width: var(--container-narrow);
+    margin: 0 auto;
+    text-align: center;
+}
+
+.services-process .text-h2 {
+    margin-bottom: var(--space-md);
+}
+
+/* CTA Section */
+.services-cta-section {
+    padding: var(--space-3xl) 0;
+}
+
+.services-cta {
+    text-align: center;
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.services-cta .text-accent {
+    display: block;
+    margin-bottom: var(--space-sm);
+}
+
+.services-cta .text-h2 {
+    margin-bottom: var(--space-md);
+}
+
+.services-cta__desc {
+    margin-bottom: var(--space-xl);
+}
+
+/* Mobile Styles */
+@media (max-width: 767px) {
+    .services-packs__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .services-pack {
+        padding: var(--space-lg);
+    }
+}
