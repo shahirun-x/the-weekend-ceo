@@ -12,168 +12,182 @@ function HomePage() {
             {/* Hero Section */}
             <Hero
                 eyebrow="Premium Automotive Detailing"
-                title="No ordinary touches. Only the CEO's touch."
-                subtitle="For those who refuse the ordinary. We deliver leadership-level attention to premium vehicles—craftsmanship over convenience, always."
+                title="No Ordinary"
+                titleAccent="Touches."
+                subtitle="For those who refuse the ordinary. Founder-led craftsmanship delivered to your doorstep."
             >
-                <Button to="/appointment" variant="secondary" className="hero__cta">
-                    Request an Appointment
-                </Button>
+                <Button to="/appointment" variant="primary">Book Your Spot</Button>
+                <Button to="/services" variant="secondary">See Services</Button>
             </Hero>
 
-            {/* Brand Philosophy */}
-            <Section id="philosophy">
-                <div className="home-philosophy">
-                    <ScrollReveal>
-                        <Text variant="eyebrow">Our Philosophy</Text>
-                        <Text variant="h2" className="home-philosophy__title">
-                            Craftsmanship is not a service.<br />It's a discipline.
+            {/* Brand Statement */}
+            <Section variant="charcoal" id="statement">
+                <ScrollReveal direction="up">
+                    <div className="home-statement">
+                        <Text variant="h2" className="home-statement__title">
+                            Only the <span className="text-yellow">CEO's</span> touch.
                         </Text>
-                    </ScrollReveal>
-                    <ScrollReveal delay={200}>
-                        <div className="home-philosophy__content">
-                            <Text variant="body">
-                                We don't work on volume. We work on vehicles that deserve more than ordinary attention.
-                                Every car we accept is treated with the same care a CEO brings to their most important decisions—deliberate, precise, and uncompromising.
-                            </Text>
-                            <Text variant="accent" className="home-philosophy__quote">
-                                "The difference between good and exceptional is restraint.
-                                It's knowing when to stop. It's caring enough to do less, better."
+                        <Text className="home-statement__desc">
+                            We don't work on volume. We work on vehicles that deserve more than ordinary attention.
+                            Every car we accept is treated with the same care a CEO brings to their most important decisions.
+                        </Text>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* Why Different - Asymmetric */}
+            <Section variant="cream" id="different" asymmetric>
+                <div className="home-different">
+                    <ScrollReveal direction="left">
+                        <div className="home-different__content">
+                            <Text variant="eyebrow">Why We're Different</Text>
+                            <Text variant="h2">Craftsmanship Over Convenience</Text>
+                            <Text variant="body" className="home-different__text">
+                                This isn't a car wash. This is a statement. Every vehicle we touch undergoes a
+                                transformation guided by obsessive attention to detail and a refusal to cut corners.
                             </Text>
                         </div>
                     </ScrollReveal>
+
+                    <div className="home-different__cards">
+                        <ScrollReveal direction="right" delay={100}>
+                            <Card
+                                variant="yellow"
+                                number="01"
+                                title="Limited Capacity"
+                                description="Maximum 8 vehicles per month. We don't scale. We perfect."
+                            />
+                        </ScrollReveal>
+                        <ScrollReveal direction="right" delay={200}>
+                            <Card
+                                variant="bordered"
+                                number="02"
+                                title="Founder-Led"
+                                description="The founder personally oversees and executes every detail. No handoffs."
+                            />
+                        </ScrollReveal>
+                        <ScrollReveal direction="right" delay={300}>
+                            <Card
+                                variant="default"
+                                number="03"
+                                title="Doorstep Service"
+                                description="We come to you. Your driveway becomes our studio."
+                            />
+                        </ScrollReveal>
+                    </div>
                 </div>
             </Section>
 
-            {/* Craftsmanship Over Convenience */}
-            <Section dark id="craftsmanship">
-                <ScrollReveal>
-                    <div className="home-craftsmanship">
-                        <div className="home-craftsmanship__header">
-                            <Text variant="eyebrow">Why The Weekend CEO</Text>
-                            <Text variant="h2">Craftsmanship Over Convenience</Text>
+            {/* Stats Section */}
+            <Section variant="gradient" id="stats">
+                <ScrollReveal direction="scale">
+                    <div className="home-stats">
+                        <div className="home-stats__item">
+                            <span className="home-stats__number">5-8</span>
+                            <span className="home-stats__label">Cars monthly, max</span>
                         </div>
-                        <div className="home-craftsmanship__grid">
-                            <Card variant="minimal">
-                                <Text variant="h3">Limited Capacity</Text>
-                                <Text variant="body">
-                                    We accept only a handful of vehicles each month. This isn't limitation—it's intention.
-                                    Every car receives the attention it deserves.
-                                </Text>
-                            </Card>
-                            <Card variant="minimal">
-                                <Text variant="h3">Founder-Led</Text>
-                                <Text variant="body">
-                                    The founder personally oversees and executes every detail.
-                                    No handoffs. No delegation of what matters.
-                                </Text>
-                            </Card>
-                            <Card variant="minimal">
-                                <Text variant="h3">Doorstep Delivery</Text>
-                                <Text variant="body">
-                                    We come to you. Premium service shouldn't require you to go anywhere.
-                                    Your driveway becomes our studio.
-                                </Text>
-                            </Card>
+                        <div className="home-stats__divider"></div>
+                        <div className="home-stats__item">
+                            <span className="home-stats__number">100%</span>
+                            <span className="home-stats__label">Founder involvement</span>
+                        </div>
+                        <div className="home-stats__divider"></div>
+                        <div className="home-stats__item">
+                            <span className="home-stats__number">35</span>
+                            <span className="home-stats__label">Step signature process</span>
                         </div>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* The Weekend CEO Standard */}
-            <Section id="standard">
-                <ScrollReveal>
-                    <div className="home-standard">
-                        <Text variant="eyebrow">The Standard</Text>
-                        <Text variant="h2" className="home-standard__title">
-                            Every vehicle.<br />Leadership-level attention.
-                        </Text>
-                        <div className="home-standard__stats">
-                            <div className="home-standard__stat">
-                                <span className="home-standard__number">5-8</span>
-                                <Text variant="caption">Cars per month, maximum</Text>
-                            </div>
-                            <div className="home-standard__stat">
-                                <span className="home-standard__number">100%</span>
-                                <Text variant="caption">Founder involvement</Text>
-                            </div>
-                            <div className="home-standard__stat">
-                                <span className="home-standard__number">35</span>
-                                <Text variant="caption">Steps in our signature process</Text>
-                            </div>
+            {/* Services Preview */}
+            <Section variant="cream" id="services-preview">
+                <div className="home-services">
+                    <ScrollReveal direction="up">
+                        <div className="home-services__header">
+                            <Text variant="eyebrow">Our Services</Text>
+                            <Text variant="h2">Two Paths. <span className="text-teal">One Standard.</span></Text>
                         </div>
-                    </div>
-                </ScrollReveal>
-            </Section>
+                    </ScrollReveal>
 
-            {/* Service Packs Teaser */}
-            <Section dark id="services-preview">
-                <ScrollReveal>
-                    <div className="home-services">
-                        <Text variant="eyebrow">Our Service Packs</Text>
-                        <Text variant="h2">Two paths. One standard.</Text>
-                        <div className="home-services__cards">
-                            <Card variant="default" className="home-services__card">
-                                <Text variant="eyebrow">Luxury Pro Pack</Text>
-                                <Text variant="h3">The Refined Experience</Text>
+                    <div className="home-services__grid">
+                        <ScrollReveal direction="left" delay={100}>
+                            <Card className="home-services__card">
+                                <div className="home-services__card-header">
+                                    <Text variant="eyebrow">Luxury Pro Pack</Text>
+                                    <Text variant="h3">The Refined Experience</Text>
+                                </div>
                                 <Text variant="body">
-                                    15 deliberate steps designed for vehicles that deserve more than the ordinary wash.
-                                    Protection. Restoration. Refinement.
+                                    15 deliberate steps designed for vehicles that deserve consistent, premium care.
                                 </Text>
-                                <Button to="/services" variant="ghost">Learn More</Button>
+                                <Button to="/services" variant="ghost">Explore</Button>
                             </Card>
+                        </ScrollReveal>
+
+                        <ScrollReveal direction="right" delay={200}>
                             <Card variant="featured" className="home-services__card">
-                                <Text variant="eyebrow">CEO's Signature</Text>
-                                <Text variant="h3">The Complete Transformation</Text>
+                                <div className="home-services__card-header">
+                                    <Text variant="eyebrow">CEO's Signature</Text>
+                                    <Text variant="h3">The Complete Transformation</Text>
+                                </div>
                                 <Text variant="body">
-                                    35 intensive steps that leave nothing untouched. This is the full expression of what
-                                    craftsmanship-driven detailing can achieve.
+                                    35 intensive steps that leave nothing untouched. This is the full expression of
+                                    what craftsmanship-driven detailing can achieve.
                                 </Text>
-                                <Button to="/services" variant="ghost">Learn More</Button>
+                                <Button to="/services" variant="ghost" className="text-white">Explore</Button>
                             </Card>
-                        </div>
+                        </ScrollReveal>
                     </div>
-                </ScrollReveal>
+                </div>
             </Section>
 
-            {/* Who This Is For */}
-            <Section id="for-who">
-                <ScrollReveal>
+            {/* For Who Section */}
+            <Section variant="yellow" id="audience">
+                <ScrollReveal direction="up">
                     <div className="home-audience">
-                        <div className="home-audience__column">
-                            <Text variant="eyebrow">This is for</Text>
-                            <ul className="home-audience__list home-audience__list--positive">
-                                <li>Owners who see their vehicle as an extension of themselves</li>
-                                <li>Those who value craftsmanship over speed</li>
-                                <li>People who understand that premium means selective</li>
-                                <li>Vehicles that have earned more than ordinary treatment</li>
-                            </ul>
-                        </div>
-                        <div className="home-audience__column">
-                            <Text variant="eyebrow">This is not for</Text>
-                            <ul className="home-audience__list home-audience__list--negative">
-                                <li>Those seeking the cheapest option</li>
-                                <li>Anyone in a rush</li>
-                                <li>Volume expectations</li>
-                                <li>Ordinary cars that need ordinary washes</li>
-                            </ul>
+                        <Text variant="h2" className="home-audience__title">
+                            This Is <span className="text-teal">For</span> You If...
+                        </Text>
+                        <div className="home-audience__grid">
+                            <div className="home-audience__item home-audience__item--yes">
+                                <span className="home-audience__icon">✓</span>
+                                <Text>You see your vehicle as an extension of yourself</Text>
+                            </div>
+                            <div className="home-audience__item home-audience__item--yes">
+                                <span className="home-audience__icon">✓</span>
+                                <Text>You value craftsmanship over speed</Text>
+                            </div>
+                            <div className="home-audience__item home-audience__item--yes">
+                                <span className="home-audience__icon">✓</span>
+                                <Text>You understand that premium means selective</Text>
+                            </div>
+                            <div className="home-audience__item home-audience__item--no">
+                                <span className="home-audience__icon">✗</span>
+                                <Text>You're looking for the cheapest option</Text>
+                            </div>
+                            <div className="home-audience__item home-audience__item--no">
+                                <span className="home-audience__icon">✗</span>
+                                <Text>You need it done yesterday</Text>
+                            </div>
+                            <div className="home-audience__item home-audience__item--no">
+                                <span className="home-audience__icon">✗</span>
+                                <Text>You want volume, not quality</Text>
+                            </div>
                         </div>
                     </div>
                 </ScrollReveal>
             </Section>
 
             {/* Final CTA */}
-            <Section dark className="home-cta-section">
-                <ScrollReveal>
+            <Section variant="teal" id="cta">
+                <ScrollReveal direction="scale">
                     <div className="home-cta">
-                        <Text variant="accent" className="home-cta__pre">
-                            Ready to experience the difference?
+                        <Text variant="h2" className="text-white">Ready to Refuse the Ordinary?</Text>
+                        <Text className="home-cta__desc">
+                            We review every request personally. Space is limited.
                         </Text>
-                        <Text variant="h2">Request an Appointment</Text>
-                        <Text variant="body" className="home-cta__desc">
-                            We review every request personally. Not every vehicle is accepted—but every inquiry is considered with care.
-                        </Text>
-                        <Button to="/appointment" variant="primary" className="button--large">
-                            Request Appointment
+                        <Button to="/appointment" variant="yellow" className="button--large">
+                            Request Your Spot
                         </Button>
                     </div>
                 </ScrollReveal>

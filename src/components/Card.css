@@ -1,56 +1,111 @@
 /* ============================================
-   CARD COMPONENT STYLES
+   CARD — BOLD CREATIVE STYLE
    ============================================ */
 
 .card {
-    padding: var(--space-lg);
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    transition: border-color var(--transition-base), transform var(--transition-base);
+    position: relative;
+    padding: var(--space-xl);
+    background-color: var(--white);
+    border-radius: 16px;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+    overflow: hidden;
 }
 
 .card:hover {
-    border-color: var(--border-light);
+    transform: translateY(-8px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.1);
 }
 
-.card__subtitle {
+.card__eyebrow {
+    font-family: var(--font-heading);
+    font-size: 0.75rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--teal);
     margin-bottom: var(--space-sm);
 }
 
 .card__title {
+    font-family: var(--font-heading);
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--charcoal);
     margin-bottom: var(--space-sm);
 }
 
 .card__description {
-    margin-bottom: var(--space-md);
+    color: var(--slate);
+    line-height: 1.7;
 }
 
 /* Featured Variant */
 .card--featured {
-    background: linear-gradient(135deg,
-            var(--bg-secondary) 0%,
-            rgba(201, 135, 59, 0.08) 100%);
-    border-color: var(--accent-muted);
+    background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
+    color: var(--white);
 }
 
-.card--featured:hover {
-    border-color: var(--accent);
+.card--featured .card__eyebrow {
+    color: var(--yellow);
 }
 
-/* Minimal Variant */
-.card--minimal {
+.card--featured .card__title {
+    color: var(--white);
+}
+
+.card--featured .card__description {
+    color: rgba(255, 255, 255, 0.85);
+}
+
+/* Yellow Variant */
+.card--yellow {
+    background-color: var(--yellow);
+}
+
+.card--yellow:hover {
+    background-color: var(--yellow-bright);
+}
+
+/* Bordered Variant */
+.card--bordered {
     background-color: transparent;
-    border: none;
-    padding: 0;
+    border: 2px solid var(--charcoal);
 }
 
-.card--minimal:hover {
-    transform: none;
+.card--bordered:hover {
+    background-color: var(--charcoal);
+    color: var(--white);
 }
 
-/* Mobile adjustments */
+.card--bordered:hover .card__title,
+.card--bordered:hover .card__description {
+    color: var(--white);
+}
+
+/* Number Badge */
+.card__number {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: 4rem;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--yellow);
+    opacity: 0.3;
+}
+
+.card--featured .card__number {
+    color: var(--white);
+    opacity: 0.2;
+}
+
+/* Mobile */
 @media (max-width: 767px) {
+    .card {
+        padding: var(--space-lg);
+    }
+
     .card:hover {
         transform: none;
     }

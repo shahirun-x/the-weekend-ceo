@@ -1,10 +1,12 @@
 /* ============================================
-   THE WEEKEND CEO - DESIGN SYSTEM
-   Premium Automotive Detailing
+   THE WEEKEND CEO - BOLD CREATIVE DESIGN SYSTEM
+   High-Fashion Automotive × Creative Studio
    ============================================ */
 
 /* CSS Reset & Base */
-*, *::before, *::after {
+*,
+*::before,
+*::after {
   box-sizing: border-box;
   margin: 0;
   padding: 0;
@@ -16,26 +18,38 @@ html {
 }
 
 /* ============================================
-   DESIGN TOKENS
+   DESIGN TOKENS — LOGO-DRIVEN PALETTE
    ============================================ */
 :root {
-  /* Colors */
-  --bg-primary: #0d0d0d;
-  --bg-secondary: #1a1a1a;
-  --bg-tertiary: #141414;
-  --accent: #c9873b;
-  --accent-muted: #a06a2c;
-  --accent-light: #d9a65d;
-  --text-primary: #f5f2ed;
-  --text-secondary: #9a9590;
-  --text-muted: #6b6560;
-  --border: #2a2825;
-  --border-light: #3a3835;
+  /* Core Colors */
+  --cream: #FDF6E3;
+  --cream-dark: #F5ECD3;
+  --yellow: #F7D94C;
+  --yellow-bright: #FFE135;
+  --yellow-muted: #E8C93A;
+  --teal: #2FB8AC;
+  --teal-dark: #1E9A8F;
+  --teal-light: #5CCDC3;
+  --magenta: #E91E8C;
+  --magenta-light: #FF4DA6;
+  --charcoal: #3D3D3D;
+  --slate: #5A5A5A;
+  --slate-light: #7A7A7A;
+  --white: #FFFFFF;
+
+  /* Functional Colors */
+  --bg-primary: var(--cream);
+  --bg-secondary: var(--yellow);
+  --bg-accent: var(--teal);
+  --text-primary: var(--charcoal);
+  --text-secondary: var(--slate);
+  --text-light: var(--white);
+  --accent: var(--teal);
+  --accent-alt: var(--magenta);
 
   /* Typography */
-  --font-heading: 'DM Serif Display', serif;
-  --font-body: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-  --font-accent: 'Cormorant Garamond', serif;
+  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-body: 'Inter', -apple-system, sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;
@@ -47,14 +61,15 @@ html {
   --space-3xl: 10rem;
 
   /* Layout */
-  --container-max: 1400px;
+  --container-max: 1440px;
   --container-narrow: 900px;
-  --section-padding: clamp(4rem, 10vw, 8rem);
+  --section-padding: clamp(5rem, 12vw, 10rem);
 
   /* Animation */
   --transition-fast: 0.2s ease;
   --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
 }
 
 /* ============================================
@@ -64,7 +79,7 @@ body {
   font-family: var(--font-body);
   background-color: var(--bg-primary);
   color: var(--text-primary);
-  line-height: 1.7;
+  line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -90,7 +105,91 @@ button {
 }
 
 /* ============================================
-   UTILITY CLASSES
+   TYPOGRAPHY UTILITIES
+   ============================================ */
+.heading-xl {
+  font-family: var(--font-heading);
+  font-size: clamp(3.5rem, 10vw, 8rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+  text-transform: uppercase;
+}
+
+.heading-lg {
+  font-family: var(--font-heading);
+  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.heading-md {
+  font-family: var(--font-heading);
+  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-weight: 600;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+}
+
+.heading-sm {
+  font-family: var(--font-heading);
+  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-weight: 600;
+  line-height: 1.2;
+}
+
+.text-body {
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.7;
+}
+
+.text-large {
+  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+  line-height: 1.6;
+}
+
+/* ============================================
+   COLOR UTILITIES
+   ============================================ */
+.text-teal {
+  color: var(--teal);
+}
+
+.text-magenta {
+  color: var(--magenta);
+}
+
+.text-yellow {
+  color: var(--yellow-muted);
+}
+
+.text-charcoal {
+  color: var(--charcoal);
+}
+
+.text-white {
+  color: var(--white);
+}
+
+.bg-cream {
+  background-color: var(--cream);
+}
+
+.bg-yellow {
+  background-color: var(--yellow);
+}
+
+.bg-teal {
+  background-color: var(--teal);
+}
+
+.bg-charcoal {
+  background-color: var(--charcoal);
+}
+
+/* ============================================
+   LAYOUT UTILITIES
    ============================================ */
 .container {
   width: 100%;
@@ -103,97 +202,106 @@ button {
   max-width: var(--container-narrow);
 }
 
-.section {
-  padding: var(--section-padding) 0;
-}
-
-.text-accent {
-  color: var(--accent);
-}
-
-.text-muted {
-  color: var(--text-secondary);
-}
-
 /* ============================================
-   SCROLL REVEAL ANIMATIONS
+   SCROLL REVEAL ANIMATIONS — DIRECTIONAL
    ============================================ */
 .reveal {
   opacity: 0;
-  transform: translateY(30px);
   transition: opacity var(--transition-slow), transform var(--transition-slow);
+}
+
+.reveal--up {
+  transform: translateY(60px);
+}
+
+.reveal--left {
+  transform: translateX(-60px);
+}
+
+.reveal--right {
+  transform: translateX(60px);
+}
+
+.reveal--scale {
+  transform: scale(0.9);
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate(0) scale(1);
 }
 
 /* Mobile: Reduced motion */
 @media (max-width: 767px) {
   .reveal {
-    transform: none;
+    transform: none !important;
     transition: opacity var(--transition-base);
   }
 }
 
-/* Respect user preference */
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
-    transform: none;
+    transform: none !important;
     transition: none;
   }
 }
 
 /* ============================================
-   PARALLAX (Desktop only)
+   DECORATIVE ELEMENTS
    ============================================ */
-.parallax {
-  will-change: transform;
+.circle-motif {
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
 }
 
-@media (max-width: 767px) {
-  .parallax {
-    transform: none !important;
-    will-change: auto;
-  }
+.circle-motif--yellow {
+  background: var(--yellow);
+  opacity: 0.3;
+}
+
+.circle-motif--teal {
+  background: var(--teal);
+  opacity: 0.2;
+}
+
+.circle-motif--magenta {
+  background: var(--magenta);
+  opacity: 0.15;
 }
 
 /* ============================================
-   SCROLLBAR STYLING
+   SELECTION & SCROLLBAR
    ============================================ */
+::selection {
+  background: var(--teal);
+  color: var(--white);
+}
+
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 10px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--bg-secondary);
+  background: var(--cream);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--border-light);
-  border-radius: 4px;
+  background: var(--yellow);
+  border-radius: 5px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-muted);
+  background: var(--teal);
 }
 
 /* ============================================
-   SELECTION STYLING
-   ============================================ */
-::selection {
-  background: var(--accent);
-  color: var(--bg-primary);
-}
-
-/* ============================================
-   RESPONSIVE ADJUSTMENTS
+   RESPONSIVE BASE
    ============================================ */
 @media (max-width: 767px) {
   :root {
-    --section-padding: clamp(3rem, 8vw, 5rem);
+    --section-padding: clamp(3rem, 10vw, 6rem);
     --space-lg: 1.5rem;
   }
 }

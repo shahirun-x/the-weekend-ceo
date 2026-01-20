@@ -1,47 +1,29 @@
 /* ============================================
-   GALLERY PAGE STYLES
+   GALLERY PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Gallery Notice */
-.gallery-notice {
-    max-width: var(--container-narrow);
+/* Header */
+.gallery-header {
+    margin-bottom: var(--space-2xl);
+}
+
+.gallery-header .text-h2 {
+    margin-top: var(--space-sm);
+}
+
+/* Note */
+.gallery-note {
+    text-align: center;
+    max-width: 600px;
     margin: 0 auto;
-    text-align: center;
 }
 
-/* Main Gallery Section */
-.gallery-section {
-    text-align: center;
-}
-
-.gallery-section .text-h2 {
-    margin: var(--space-md) 0 var(--space-2xl);
-}
-
-.gallery-main {
-    margin-top: var(--space-lg);
-}
-
-/* Disclaimer */
-.gallery-disclaimer {
-    max-width: var(--container-narrow);
-    margin: 0 auto;
-    text-align: center;
-}
-
-.gallery-disclaimer .text-accent {
-    display: block;
-}
-
-/* CTA Section */
-.gallery-cta-section {
-    padding: var(--space-3xl) 0;
-}
-
+/* CTA */
 .gallery-cta {
     text-align: center;
+    padding: var(--space-xl) 0;
 }
 
 .gallery-cta .text-h2 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
 }

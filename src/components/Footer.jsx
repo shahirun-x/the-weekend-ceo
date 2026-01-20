@@ -1,5 +1,4 @@
 import { Link } from 'react-router-dom'
-import Text from './Text'
 import './Footer.css'
 
 function Footer() {
@@ -11,37 +10,38 @@ function Footer() {
                 <div className="footer__top">
                     <div className="footer__brand">
                         <div className="footer__logo">
-                            <span className="footer__logo-text">The Weekend</span>
-                            <span className="footer__logo-accent">CEO</span>
+                            <img src="/logo.jpg" alt="The Weekend CEO" className="footer__logo-img" />
+                            <span className="footer__logo-text">The Weekend <span>CEO</span></span>
                         </div>
-                        <Text variant="accent" className="footer__tagline">
-                            No ordinary touches. Only the CEO's touch.
-                        </Text>
+                        <p className="footer__tagline">
+                            No ordinary touches. Only the CEO's touch. For those who refuse the ordinary.
+                        </p>
                     </div>
 
-                    <nav className="footer__nav">
-                        <div className="footer__nav-group">
-                            <Text variant="eyebrow" className="footer__nav-title">Navigate</Text>
-                            <Link to="/" className="footer__link">Home</Link>
-                            <Link to="/brand" className="footer__link">Brand</Link>
-                            <Link to="/services" className="footer__link">Services</Link>
-                        </div>
-                        <div className="footer__nav-group">
-                            <Text variant="eyebrow" className="footer__nav-title">Explore</Text>
-                            <Link to="/areas" className="footer__link">Service Areas</Link>
-                            <Link to="/gallery" className="footer__link">Gallery</Link>
-                            <Link to="/appointment" className="footer__link">Request Appointment</Link>
-                        </div>
-                    </nav>
+                    <div className="footer__nav-group">
+                        <span className="footer__nav-title">Navigate</span>
+                        <Link to="/" className="footer__link">Home</Link>
+                        <Link to="/brand" className="footer__link">Brand</Link>
+                        <Link to="/services" className="footer__link">Services</Link>
+                        <Link to="/gallery" className="footer__link">Gallery</Link>
+                    </div>
+
+                    <div className="footer__nav-group">
+                        <span className="footer__nav-title">Connect</span>
+                        <Link to="/areas" className="footer__link">Service Areas</Link>
+                        <Link to="/appointment" className="footer__link">Book Appointment</Link>
+                        <a href="mailto:hello@theweekendceo.in" className="footer__link">Email Us</a>
+                    </div>
                 </div>
 
                 <div className="footer__bottom">
-                    <Text variant="caption">
+                    <span className="footer__copyright">
                         © {currentYear} The Weekend CEO. All rights reserved.
-                    </Text>
-                    <Text variant="caption">
-                        Premium Automotive Detailing
-                    </Text>
+                    </span>
+                    <div className="footer__social">
+                        <a href="#" className="footer__social-link" aria-label="Instagram">📸</a>
+                        <a href="#" className="footer__social-link" aria-label="YouTube">▶️</a>
+                    </div>
                 </div>
             </div>
         </footer>

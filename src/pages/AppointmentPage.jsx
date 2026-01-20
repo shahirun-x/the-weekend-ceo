@@ -28,7 +28,6 @@ function AppointmentPage() {
 
     const handleSubmit = (e) => {
         e.preventDefault()
-        // In production, this would send to a backend
         console.log('Form submitted:', formData)
         setIsSubmitted(true)
     }
@@ -38,31 +37,31 @@ function AppointmentPage() {
             {/* Hero */}
             <Hero
                 eyebrow="Request an Appointment"
-                title="Begin the conversation."
-                subtitle="This is not a checkout. It's an application. We review every request personally to ensure we can deliver the experience your vehicle deserves."
-                fullHeight={false}
+                title="Begin The"
+                titleAccent="Conversation."
+                subtitle="This is not a checkout. It's an application. We review every request personally."
+                short
             />
 
             {/* Form Section */}
-            <Section id="application">
-                <ScrollReveal>
+            <Section variant="cream" id="application">
+                <ScrollReveal direction="up">
                     <div className="appointment-content">
                         {!isSubmitted ? (
                             <>
                                 <div className="appointment-intro">
+                                    <Text variant="h3">Tell us about you & your vehicle</Text>
                                     <Text variant="body">
-                                        Please provide details about yourself and your vehicle. The more information
-                                        you share, the better we can assess whether we're the right fit for your needs.
+                                        The more information you share, the better we can assess if we're the right fit.
                                     </Text>
                                 </div>
 
                                 <form className="appointment-form" onSubmit={handleSubmit}>
-                                    {/* Personal Information */}
+                                    {/* Personal */}
                                     <div className="form-section">
                                         <Text variant="eyebrow" className="form-section__title">Your Information</Text>
-
-                                        <div className="form-row">
-                                            <div className="form-group">
+                                        <div className="form-grid">
+                                            <div className="form-group form-group--full">
                                                 <label htmlFor="name">Full Name</label>
                                                 <input
                                                     type="text"
@@ -74,9 +73,6 @@ function AppointmentPage() {
                                                     placeholder="Your name"
                                                 />
                                             </div>
-                                        </div>
-
-                                        <div className="form-row form-row--two">
                                             <div className="form-group">
                                                 <label htmlFor="email">Email</label>
                                                 <input
@@ -104,11 +100,10 @@ function AppointmentPage() {
                                         </div>
                                     </div>
 
-                                    {/* Vehicle Information */}
+                                    {/* Vehicle */}
                                     <div className="form-section">
                                         <Text variant="eyebrow" className="form-section__title">Vehicle Details</Text>
-
-                                        <div className="form-row form-row--three">
+                                        <div className="form-grid form-grid--three">
                                             <div className="form-group">
                                                 <label htmlFor="vehicleMake">Make</label>
                                                 <input
@@ -151,10 +146,9 @@ function AppointmentPage() {
                                     {/* Service Interest */}
                                     <div className="form-section">
                                         <Text variant="eyebrow" className="form-section__title">Service Interest</Text>
-
-                                        <div className="form-row">
+                                        <div className="form-grid">
                                             <div className="form-group">
-                                                <label htmlFor="serviceInterest">Which service interests you?</label>
+                                                <label htmlFor="serviceInterest">Which experience interests you?</label>
                                                 <select
                                                     id="serviceInterest"
                                                     name="serviceInterest"
@@ -162,17 +156,14 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                 >
-                                                    <option value="">Select a service pack</option>
+                                                    <option value="">Select an option</option>
                                                     <option value="luxury-pro">Luxury Pro Pack</option>
                                                     <option value="ceo-signature">CEO's Premium Signature Pack</option>
-                                                    <option value="undecided">Not sure yet — need guidance</option>
+                                                    <option value="undecided">Not sure yet</option>
                                                 </select>
                                             </div>
-                                        </div>
-
-                                        <div className="form-row">
                                             <div className="form-group">
-                                                <label htmlFor="location">Service Location (City/Area)</label>
+                                                <label htmlFor="location">Service Location</label>
                                                 <input
                                                     type="text"
                                                     id="location"
@@ -186,22 +177,18 @@ function AppointmentPage() {
                                         </div>
                                     </div>
 
-                                    {/* Additional Notes */}
+                                    {/* Message */}
                                     <div className="form-section">
-                                        <Text variant="eyebrow" className="form-section__title">Additional Notes</Text>
-
-                                        <div className="form-row">
-                                            <div className="form-group">
-                                                <label htmlFor="message">Anything else we should know?</label>
-                                                <textarea
-                                                    id="message"
-                                                    name="message"
-                                                    value={formData.message}
-                                                    onChange={handleChange}
-                                                    rows="4"
-                                                    placeholder="Tell us about your vehicle's current condition, any specific concerns, or what you're hoping to achieve..."
-                                                ></textarea>
-                                            </div>
+                                        <Text variant="eyebrow" className="form-section__title">Anything Else?</Text>
+                                        <div className="form-group form-group--full">
+                                            <textarea
+                                                id="message"
+                                                name="message"
+                                                value={formData.message}
+                                                onChange={handleChange}
+                                                rows="4"
+                                                placeholder="Tell us about your vehicle's current condition, any specific concerns..."
+                                            ></textarea>
                                         </div>
                                     </div>
 
@@ -210,22 +197,18 @@ function AppointmentPage() {
                                             Submit Request
                                         </Button>
                                         <Text variant="caption" className="form-disclaimer">
-                                            Submitting this form does not guarantee an appointment. We will review your
-                                            request and respond within 48 hours.
+                                            Submitting this form does not guarantee an appointment. We will respond within 48 hours.
                                         </Text>
                                     </div>
                                 </form>
                             </>
                         ) : (
                             <div className="appointment-success">
-                                <Text variant="h2">Request Received</Text>
+                                <div className="appointment-success__icon">✓</div>
+                                <Text variant="h2">Request <span className="text-teal">Received</span></Text>
                                 <Text variant="body">
                                     Thank you for your interest in The Weekend CEO. We've received your request
                                     and will review it personally. Expect to hear from us within 48 hours.
-                                </Text>
-                                <Text variant="accent" className="appointment-success__note">
-                                    In the meantime, we invite you to explore our gallery and learn more about
-                                    our approach.
                                 </Text>
                                 <div className="appointment-success__actions">
                                     <Button to="/gallery" variant="secondary">View Gallery</Button>

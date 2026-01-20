@@ -1,5 +1,5 @@
 /* ============================================
-   HEADER COMPONENT STYLES
+   HEADER — BOLD CREATIVE STYLE
    ============================================ */
 
 .header {
@@ -13,10 +13,10 @@
 }
 
 .header--scrolled {
-    background-color: rgba(13, 13, 13, 0.95);
+    background-color: rgba(253, 246, 227, 0.95);
     backdrop-filter: blur(10px);
     padding: var(--space-sm) 0;
-    border-bottom: 1px solid var(--border);
+    box-shadow: 0 4px 30px rgba(0, 0, 0, 0.05);
 }
 
 .header__container {
@@ -31,24 +31,30 @@
 /* Logo */
 .header__logo {
     display: flex;
-    flex-direction: column;
-    line-height: 1;
-    gap: 2px;
+    align-items: center;
+    gap: var(--space-sm);
+    z-index: 1001;
+}
+
+.header__logo-img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid var(--yellow);
 }
 
 .header__logo-text {
-    font-family: var(--font-body);
-    font-size: 0.7rem;
-    font-weight: 500;
+    font-family: var(--font-heading);
+    font-size: 1.1rem;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.2em;
-    color: var(--text-secondary);
+    letter-spacing: 0.05em;
+    color: var(--charcoal);
 }
 
-.header__logo-accent {
-    font-family: var(--font-heading);
-    font-size: 1.5rem;
-    color: var(--accent);
+.header__logo-text span {
+    color: var(--teal);
 }
 
 /* Navigation */
@@ -59,11 +65,12 @@
 }
 
 .header__link {
-    font-family: var(--font-body);
-    font-size: 0.85rem;
-    font-weight: 400;
-    letter-spacing: 0.05em;
-    color: var(--text-secondary);
+    font-family: var(--font-heading);
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+    color: var(--charcoal);
     transition: color var(--transition-fast);
     position: relative;
 }
@@ -74,14 +81,14 @@
     bottom: -4px;
     left: 0;
     width: 0;
-    height: 1px;
-    background-color: var(--accent);
+    height: 3px;
+    background-color: var(--teal);
     transition: width var(--transition-base);
+    border-radius: 2px;
 }
 
-.header__link:hover,
-.header__link--active {
-    color: var(--text-primary);
+.header__link:hover {
+    color: var(--teal);
 }
 
 .header__link:hover::after,
@@ -89,27 +96,53 @@
     width: 100%;
 }
 
+.header__link--active {
+    color: var(--teal);
+}
+
+/* CTA Button in Header */
+.header__cta {
+    background-color: var(--teal);
+    color: var(--white);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    font-family: var(--font-heading);
+    font-size: 0.85rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: all var(--transition-base);
+}
+
+.header__cta:hover {
+    background-color: var(--teal-dark);
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(47, 184, 172, 0.3);
+}
+
 /* Mobile Toggle */
 .header__mobile-toggle {
     display: none;
     flex-direction: column;
     justify-content: center;
-    gap: 5px;
-    width: 28px;
-    height: 28px;
+    gap: 6px;
+    width: 32px;
+    height: 32px;
     padding: 0;
+    z-index: 1001;
 }
 
 .header__mobile-toggle span {
     display: block;
     width: 100%;
-    height: 1.5px;
-    background-color: var(--text-primary);
+    height: 3px;
+    background-color: var(--charcoal);
+    border-radius: 2px;
     transition: transform var(--transition-base), opacity var(--transition-base);
 }
 
 .header__mobile-toggle--open span:nth-child(1) {
-    transform: translateY(6.5px) rotate(45deg);
+    transform: translateY(9px) rotate(45deg);
 }
 
 .header__mobile-toggle--open span:nth-child(2) {
@@ -117,11 +150,11 @@
 }
 
 .header__mobile-toggle--open span:nth-child(3) {
-    transform: translateY(-6.5px) rotate(-45deg);
+    transform: translateY(-9px) rotate(-45deg);
 }
 
 /* Mobile Styles */
-@media (max-width: 767px) {
+@media (max-width: 900px) {
     .header__mobile-toggle {
         display: flex;
     }
@@ -135,7 +168,7 @@
         flex-direction: column;
         justify-content: center;
         gap: var(--space-lg);
-        background-color: var(--bg-primary);
+        background: linear-gradient(135deg, var(--yellow) 0%, var(--cream) 100%);
         opacity: 0;
         visibility: hidden;
         transition: opacity var(--transition-base), visibility var(--transition-base);
@@ -147,7 +180,12 @@
     }
 
     .header__link {
-        font-size: 1.5rem;
-        font-family: var(--font-heading);
+        font-size: 1.75rem;
+        color: var(--charcoal);
+    }
+
+    .header__cta {
+        font-size: 1rem;
+        padding: 1rem 2rem;
     }
 }

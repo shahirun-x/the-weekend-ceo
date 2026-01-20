@@ -1,16 +1,20 @@
 /* ============================================
-   APPOINTMENT PAGE STYLES
+   APPOINTMENT PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
 /* Content Container */
 .appointment-content {
-    max-width: 700px;
+    max-width: 800px;
     margin: 0 auto;
 }
 
 .appointment-intro {
-    margin-bottom: var(--space-xl);
     text-align: center;
+    margin-bottom: var(--space-2xl);
+}
+
+.appointment-intro .text-h3 {
+    margin-bottom: var(--space-sm);
 }
 
 /* Form Styles */
@@ -20,45 +24,35 @@
     gap: var(--space-xl);
 }
 
-.form-section {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
 .form-section__title {
     display: block;
-    padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--border);
-    margin-bottom: var(--space-xs);
+    margin-bottom: var(--space-md);
 }
 
-.form-row {
-    display: flex;
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-md);
 }
 
-.form-row--two {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-}
-
-.form-row--three {
-    display: grid;
+.form-grid--three {
     grid-template-columns: repeat(3, 1fr);
 }
 
 .form-group {
     display: flex;
     flex-direction: column;
-    flex: 1;
+}
+
+.form-group--full {
+    grid-column: span 2;
 }
 
 .form-group label {
-    font-family: var(--font-body);
+    font-family: var(--font-heading);
     font-size: 0.85rem;
-    font-weight: 500;
-    color: var(--text-secondary);
+    font-weight: 600;
+    color: var(--charcoal);
     margin-bottom: var(--space-xs);
 }
 
@@ -67,34 +61,34 @@
 .form-group textarea {
     font-family: var(--font-body);
     font-size: 1rem;
-    color: var(--text-primary);
-    background-color: var(--bg-secondary);
-    border: 1px solid var(--border);
-    border-radius: 4px;
-    padding: var(--space-sm) var(--space-md);
-    transition: border-color var(--transition-fast), background-color var(--transition-fast);
+    color: var(--charcoal);
+    background-color: var(--white);
+    border: 2px solid var(--charcoal);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    transition: border-color var(--transition-fast), box-shadow var(--transition-fast);
 }
 
 .form-group input::placeholder,
 .form-group textarea::placeholder {
-    color: var(--text-muted);
+    color: var(--slate-light);
 }
 
 .form-group input:focus,
 .form-group select:focus,
 .form-group textarea:focus {
     outline: none;
-    border-color: var(--accent);
-    background-color: var(--bg-tertiary);
+    border-color: var(--teal);
+    box-shadow: 0 0 0 4px rgba(47, 184, 172, 0.15);
 }
 
 .form-group select {
     cursor: pointer;
     appearance: none;
-    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%239a9590' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' fill='%233D3D3D' viewBox='0 0 16 16'%3E%3Cpath d='M8 11L3 6h10l-5 5z'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right var(--space-md) center;
-    padding-right: var(--space-xl);
+    background-position: right 1.25rem center;
+    padding-right: 3rem;
 }
 
 .form-group textarea {
@@ -122,18 +116,27 @@
     padding: var(--space-2xl) 0;
 }
 
+.appointment-success__icon {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    background-color: var(--teal);
+    color: var(--white);
+    font-size: 2.5rem;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto var(--space-lg);
+}
+
 .appointment-success .text-h2 {
     margin-bottom: var(--space-md);
-    color: var(--accent);
 }
 
 .appointment-success .text-body {
-    margin-bottom: var(--space-md);
-}
-
-.appointment-success__note {
-    display: block;
-    margin-bottom: var(--space-xl);
+    max-width: 500px;
+    margin: 0 auto var(--space-xl);
 }
 
 .appointment-success__actions {
@@ -145,9 +148,13 @@
 /* Mobile Styles */
 @media (max-width: 767px) {
 
-    .form-row--two,
-    .form-row--three {
+    .form-grid,
+    .form-grid--three {
         grid-template-columns: 1fr;
+    }
+
+    .form-group--full {
+        grid-column: span 1;
     }
 
     .appointment-success__actions {

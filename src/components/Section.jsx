@@ -3,14 +3,15 @@ import './Section.css'
 function Section({
     children,
     className = '',
-    dark = false,
+    variant = 'cream',
+    asymmetric = false,
     id,
     ...props
 }) {
     return (
         <section
             id={id}
-            className={`section ${dark ? 'section--dark' : ''} ${className}`}
+            className={`section section--${variant} ${asymmetric ? 'section--asymmetric' : ''} ${className}`}
             {...props}
         >
             <div className="section__container">

@@ -1,94 +1,90 @@
 /* ============================================
-   AREAS PAGE STYLES
+   AREAS PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Notice Section */
-.areas-notice {
-    max-width: var(--container-narrow);
-    margin: 0 auto;
-    text-align: center;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+/* Header */
+.areas-header {
+    margin-bottom: var(--space-2xl);
 }
 
-.areas-notice__highlight {
-    display: block;
+.areas-header .text-h2 {
     margin-top: var(--space-sm);
 }
 
-/* Areas Grid Section */
-.areas-grid-section {
-    text-align: center;
-}
-
-.areas-grid-section .text-h2 {
-    margin: var(--space-md) 0 var(--space-2xl);
-}
-
+/* Grid */
 .areas-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
-    text-align: left;
+    gap: var(--space-md);
 }
 
-.areas-region {
-    padding: var(--space-lg);
-    background-color: var(--bg-tertiary);
-    border: 1px solid var(--border);
-    border-radius: 4px;
+/* Card */
+.areas-card {
+    background-color: var(--white);
+    padding: var(--space-xl);
+    border-radius: 16px;
+    border: 2px solid transparent;
+    transition: all var(--transition-base);
 }
 
-.areas-region__title {
-    color: var(--accent);
+.areas-card:hover {
+    border-color: var(--teal);
+    transform: translateY(-5px);
+}
+
+.areas-card--featured {
+    background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-bright) 100%);
+}
+
+.areas-card__title {
+    color: var(--teal);
     margin-bottom: var(--space-md);
     padding-bottom: var(--space-sm);
-    border-bottom: 1px solid var(--border);
+    border-bottom: 2px solid var(--charcoal);
 }
 
-.areas-region__list {
+.areas-card--featured .areas-card__title {
+    border-color: var(--teal);
+}
+
+.areas-card__list {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: var(--space-xs);
 }
 
-.areas-region__list li {
-    color: var(--text-secondary);
+.areas-card__list li {
+    color: var(--slate);
     font-size: 0.95rem;
-    padding-left: var(--space-sm);
     position: relative;
+    padding-left: var(--space-md);
 }
 
-.areas-region__list li::before {
-    content: '—';
+.areas-card__list li::before {
+    content: '•';
     position: absolute;
     left: 0;
-    color: var(--text-muted);
-    font-size: 0.8em;
+    color: var(--teal);
+    font-weight: 700;
 }
 
-/* CTA Section */
-.areas-cta-section {
-    padding: var(--space-3xl) 0;
-}
-
-.areas-cta {
+/* Note */
+.areas-note {
     text-align: center;
     max-width: 500px;
     margin: 0 auto;
 }
 
-.areas-cta .text-h2 {
-    margin-bottom: var(--space-md);
+.areas-note .text-h3 {
+    margin-bottom: var(--space-sm);
 }
 
-.areas-cta .text-body {
-    margin-bottom: var(--space-xl);
+.areas-note .text-body {
+    margin-bottom: var(--space-lg);
 }
 
-/* Mobile Styles */
+/* Mobile */
 @media (max-width: 1024px) {
     .areas-grid {
         grid-template-columns: repeat(2, 1fr);
@@ -98,6 +94,9 @@
 @media (max-width: 767px) {
     .areas-grid {
         grid-template-columns: 1fr;
-        gap: var(--space-md);
+    }
+
+    .areas-card:hover {
+        transform: none;
     }
 }

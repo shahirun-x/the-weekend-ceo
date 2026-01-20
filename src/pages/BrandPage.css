@@ -1,79 +1,116 @@
 /* ============================================
-   BRAND PAGE STYLES
+   BRAND PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Story Section */
-.brand-story {
-    max-width: var(--container-narrow);
-    margin: 0 auto;
+/* Origin Section */
+.brand-origin {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-xl);
+    align-items: center;
+    min-height: 50vh;
 }
 
-.brand-story__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
+.brand-origin__headline .text-h2 {
+    font-size: clamp(2rem, 4vw, 3rem);
 }
 
-.brand-story__content .text-h2 {
-    margin-bottom: var(--space-md);
+.brand-origin__big-text {
+    font-family: var(--font-heading);
+    font-size: clamp(2.5rem, 5vw, 4rem);
+    font-weight: 700;
+    line-height: 1.1;
+    color: var(--charcoal);
 }
 
-/* Mindset Section */
-.brand-mindset {
-    max-width: var(--container-max);
+/* Philosophy Section */
+.brand-philosophy__title {
+    margin: var(--space-sm) 0 var(--space-2xl);
 }
 
-.brand-mindset .text-h2 {
-    margin: var(--space-md) 0 var(--space-xl);
-}
-
-.brand-mindset__grid {
+.brand-philosophy__grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-xl);
+    gap: var(--space-lg);
 }
 
-.brand-mindset__item .text-h3 {
-    color: var(--accent);
+.brand-philosophy__item {
+    background-color: var(--white);
+    padding: var(--space-xl);
+    border-radius: 16px;
+    position: relative;
+}
+
+.brand-philosophy__number {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    font-family: var(--font-heading);
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--yellow);
+    opacity: 0.5;
+    line-height: 1;
+}
+
+.brand-philosophy__item .text-h3 {
     margin-bottom: var(--space-sm);
+    color: var(--teal);
 }
 
 /* Founder Section */
 .brand-founder {
-    max-width: var(--container-narrow);
+    text-align: center;
+    max-width: 900px;
     margin: 0 auto;
+    padding: var(--space-xl) 0;
+}
+
+.brand-founder__quote-mark {
+    font-family: var(--font-heading);
+    font-size: 10rem;
+    font-weight: 700;
+    color: var(--teal);
+    line-height: 0.5;
+    opacity: 0.5;
+}
+
+.brand-founder__quote {
+    color: var(--cream);
+    margin: var(--space-lg) 0;
+}
+
+.brand-founder__attribution {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+}
+
+.brand-founder__line {
+    width: 60px;
+    height: 2px;
+    background-color: var(--teal);
+}
+
+/* CTA */
+.brand-cta {
     text-align: center;
     padding: var(--space-xl) 0;
 }
 
-.brand-founder__quote {
-    display: block;
-    font-size: clamp(1.25rem, 2vw, 1.5rem);
-    line-height: 1.8;
-    margin-bottom: var(--space-lg);
-}
-
-.brand-founder__attribution {
-    opacity: 0.7;
-}
-
-/* CTA Section */
-.brand-cta-section {
-    padding: var(--space-3xl) 0;
-}
-
-.brand-cta {
-    text-align: center;
-}
-
 .brand-cta .text-h2 {
-    margin-bottom: var(--space-lg);
+    margin-bottom: var(--space-xl);
 }
 
-/* Mobile Styles */
-@media (max-width: 767px) {
-    .brand-mindset__grid {
+/* Mobile */
+@media (max-width: 900px) {
+    .brand-origin {
         grid-template-columns: 1fr;
-        gap: var(--space-lg);
+        min-height: auto;
+    }
+
+    .brand-philosophy__grid {
+        grid-template-columns: 1fr;
     }
 }

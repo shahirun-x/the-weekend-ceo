@@ -8,14 +8,16 @@ const variantConfig = {
     accent: { tag: 'span', className: 'text-accent-style' },
     caption: { tag: 'span', className: 'text-caption' },
     eyebrow: { tag: 'span', className: 'text-eyebrow' },
+    impact: { tag: 'span', className: 'text-impact' },
 }
 
-function Text({ variant = 'body', children, className = '', as, ...props }) {
+function Text({ variant = 'body', children, className = '', as, color, ...props }) {
     const config = variantConfig[variant] || variantConfig.body
     const Tag = as || config.tag
+    const colorClass = color ? `text-${color}` : ''
 
     return (
-        <Tag className={`${config.className} ${className}`} {...props}>
+        <Tag className={`${config.className} ${colorClass} ${className}`} {...props}>
             {children}
         </Tag>
     )

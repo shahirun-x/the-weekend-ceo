@@ -8,7 +8,6 @@ const navLinks = [
     { path: '/services', label: 'Services' },
     { path: '/areas', label: 'Areas' },
     { path: '/gallery', label: 'Gallery' },
-    { path: '/appointment', label: 'Request' },
 ]
 
 function Header() {
@@ -32,8 +31,8 @@ function Header() {
         <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
             <div className="header__container">
                 <Link to="/" className="header__logo">
-                    <span className="header__logo-text">The Weekend</span>
-                    <span className="header__logo-accent">CEO</span>
+                    <img src="/logo.jpg" alt="The Weekend CEO" className="header__logo-img" />
+                    <span className="header__logo-text">The Weekend <span>CEO</span></span>
                 </Link>
 
                 <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
@@ -46,6 +45,9 @@ function Header() {
                             {link.label}
                         </Link>
                     ))}
+                    <Link to="/appointment" className="header__cta">
+                        Book Now
+                    </Link>
                 </nav>
 
                 <button

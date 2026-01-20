@@ -6,49 +6,56 @@ import ScrollReveal from '../components/ScrollReveal'
 import Button from '../components/Button'
 import './GalleryPage.css'
 
-// Placeholder gallery items - in production, these would come from a CMS or API
 const galleryItems = [
     {
         src: 'https://images.unsplash.com/photo-1503376780353-7e6692767b70?w=800&q=80',
         alt: 'Luxury sports car detailing',
         title: 'Porsche 911 GT3',
+        subtitle: 'CEO Signature Pack',
         featured: true
     },
     {
         src: 'https://images.unsplash.com/photo-1544636331-e26879cd4d9b?w=600&q=80',
         alt: 'Premium sedan restoration',
-        title: 'Mercedes-AMG GT'
+        title: 'Mercedes-AMG GT',
+        subtitle: 'Luxury Pro Pack'
     },
     {
         src: 'https://images.unsplash.com/photo-1555215695-3004980ad54e?w=600&q=80',
         alt: 'Executive vehicle care',
-        title: 'BMW M5'
+        title: 'BMW M5',
+        subtitle: 'CEO Signature Pack'
     },
     {
         src: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?w=600&q=80',
-        alt: 'Classic car restoration',
-        title: 'Audi RS e-tron GT'
+        alt: 'Electric vehicle care',
+        title: 'Audi RS e-tron GT',
+        subtitle: 'Luxury Pro Pack'
     },
     {
         src: 'https://images.unsplash.com/photo-1618843479313-40f8afb4b4d8?w=600&q=80',
         alt: 'Supercar detailing',
-        title: 'Ferrari F8 Tributo'
+        title: 'Ferrari F8 Tributo',
+        subtitle: 'CEO Signature Pack'
     },
     {
         src: 'https://images.unsplash.com/photo-1494976388531-d1058494cdd8?w=800&q=80',
         alt: 'Luxury SUV treatment',
         title: 'Range Rover Sport',
+        subtitle: 'CEO Signature Pack',
         featured: true
     },
     {
         src: 'https://images.unsplash.com/photo-1502877338535-766e1452684a?w=600&q=80',
         alt: 'Sports coupe finish',
-        title: 'Jaguar F-Type'
+        title: 'Jaguar F-Type',
+        subtitle: 'Luxury Pro Pack'
     },
     {
         src: 'https://images.unsplash.com/photo-1606664515524-ed2f786a0bd6?w=600&q=80',
         alt: 'EV premium care',
-        title: 'Tesla Model S Plaid'
+        title: 'Tesla Model S',
+        subtitle: 'Luxury Pro Pack'
     }
 ]
 
@@ -58,39 +65,30 @@ function GalleryPage() {
             {/* Hero */}
             <Hero
                 eyebrow="Our Work"
-                title="Craftsmanship in frame."
-                subtitle="Every vehicle tells a story. These are some of the transformations we've had the privilege to deliver."
-                fullHeight={false}
+                title="Craft In"
+                titleAccent="Frame."
+                subtitle="Every vehicle tells a story. These are the transformations we've delivered."
+                short
             />
 
-            {/* Gallery Notice */}
-            <Section id="gallery-intro">
-                <ScrollReveal>
-                    <div className="gallery-notice">
-                        <Text variant="body">
-                            What you see here represents vehicles we've treated with complete transparency
-                            from their owners. We don't photograph every car—only those where the transformation
-                            speaks for itself.
-                        </Text>
+            {/* Gallery */}
+            <Section variant="charcoal" id="portfolio">
+                <ScrollReveal direction="up">
+                    <div className="gallery-header">
+                        <Text variant="eyebrow" className="text-yellow">Portfolio</Text>
+                        <Text variant="h2" className="text-white">Selected Works</Text>
                     </div>
                 </ScrollReveal>
-            </Section>
 
-            {/* Main Gallery */}
-            <Section dark id="portfolio">
-                <ScrollReveal>
-                    <div className="gallery-section">
-                        <Text variant="eyebrow">Portfolio</Text>
-                        <Text variant="h2">Selected Works</Text>
-                        <MediaGrid items={galleryItems} className="gallery-main" />
-                    </div>
+                <ScrollReveal direction="scale" delay={200}>
+                    <MediaGrid items={galleryItems} />
                 </ScrollReveal>
             </Section>
 
             {/* Note */}
-            <Section id="gallery-note">
-                <ScrollReveal>
-                    <div className="gallery-disclaimer">
+            <Section variant="cream" id="note">
+                <ScrollReveal direction="up">
+                    <div className="gallery-note">
                         <Text variant="accent">
                             All images represent actual work performed by The Weekend CEO.
                             No stock photography. No filters. Just craft.
@@ -100,12 +98,12 @@ function GalleryPage() {
             </Section>
 
             {/* CTA */}
-            <Section dark className="gallery-cta-section">
-                <ScrollReveal>
+            <Section variant="teal" id="cta">
+                <ScrollReveal direction="scale">
                     <div className="gallery-cta">
-                        <Text variant="h2">Your vehicle could be next.</Text>
-                        <Button to="/appointment" variant="primary" className="button--large">
-                            Request Appointment
+                        <Text variant="h2" className="text-white">Your Vehicle Could Be Next.</Text>
+                        <Button to="/appointment" variant="yellow" className="button--large">
+                            Request Your Spot
                         </Button>
                     </div>
                 </ScrollReveal>

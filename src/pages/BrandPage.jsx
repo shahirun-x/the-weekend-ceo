@@ -11,89 +11,97 @@ function BrandPage() {
             {/* Hero */}
             <Hero
                 eyebrow="The Brand"
-                title="Built on restraint. Driven by craft."
+                title="Built on"
+                titleAccent="Obsession."
                 subtitle="We didn't build The Weekend CEO to scale. We built it to matter."
-                fullHeight={false}
+                short
             />
 
-            {/* Origin Story */}
-            <Section id="origin">
-                <ScrollReveal>
-                    <div className="brand-story">
-                        <div className="brand-story__content">
-                            <Text variant="eyebrow">The Origin</Text>
-                            <Text variant="h2">Why The Weekend CEO Exists</Text>
-                            <Text variant="body">
-                                This company was born from a simple observation: premium vehicles deserve more than
-                                assembly-line treatment. Every car wash chain promises quality. Every mobile detailer
-                                claims excellence. But genuine craftsmanship requires something they cannot offer—restraint.
-                            </Text>
-                            <Text variant="body">
-                                We choose to remain small because excellence cannot be mass-produced. The founder
-                                personally touches every vehicle not because there's no one else to do it, but because
-                                delegation dilutes what makes this work meaningful.
+            {/* Origin - Big Type */}
+            <Section variant="cream" id="origin">
+                <div className="brand-origin">
+                    <ScrollReveal direction="left">
+                        <div className="brand-origin__headline">
+                            <Text variant="h2">
+                                This company was born from a simple observation:
                             </Text>
                         </div>
-                    </div>
-                </ScrollReveal>
-            </Section>
-
-            {/* Philosophy */}
-            <Section dark id="mindset">
-                <ScrollReveal>
-                    <div className="brand-mindset">
-                        <Text variant="eyebrow">The Mindset</Text>
-                        <Text variant="h2">Leadership Applied to Craft</Text>
-                        <div className="brand-mindset__grid">
-                            <div className="brand-mindset__item">
-                                <Text variant="h3">Intent Over Speed</Text>
-                                <Text variant="body">
-                                    We don't rush. Every decision is deliberate. Every motion is purposeful.
-                                    The result is work that reflects thought, not just effort.
-                                </Text>
-                            </div>
-                            <div className="brand-mindset__item">
-                                <Text variant="h3">Selection Over Volume</Text>
-                                <Text variant="body">
-                                    We say no more than we say yes. This selectivity isn't about exclusivity for
-                                    its own sake—it's about protecting the quality of what we deliver.
-                                </Text>
-                            </div>
-                            <div className="brand-mindset__item">
-                                <Text variant="h3">Discipline Over Convenience</Text>
-                                <Text variant="body">
-                                    The easy path is rarely the right one. We hold ourselves to standards that
-                                    most would call excessive. We call them necessary.
-                                </Text>
-                            </div>
+                    </ScrollReveal>
+                    <ScrollReveal direction="right" delay={200}>
+                        <div className="brand-origin__statement">
+                            <Text className="brand-origin__big-text">
+                                Premium vehicles deserve more than <span className="text-teal">assembly-line treatment.</span>
+                            </Text>
                         </div>
-                    </div>
-                </ScrollReveal>
+                    </ScrollReveal>
+                </div>
             </Section>
 
-            {/* Founder Note */}
-            <Section id="founder">
-                <ScrollReveal>
+            {/* Philosophy Grid */}
+            <Section variant="yellow" id="philosophy">
+                <ScrollReveal direction="up">
+                    <Text variant="eyebrow" className="text-charcoal">Our Philosophy</Text>
+                    <Text variant="h2" className="brand-philosophy__title">
+                        We Choose <span className="text-teal">Restraint</span>
+                    </Text>
+                </ScrollReveal>
+
+                <div className="brand-philosophy__grid">
+                    <ScrollReveal direction="left" delay={100}>
+                        <div className="brand-philosophy__item">
+                            <span className="brand-philosophy__number">01</span>
+                            <Text variant="h3">Intent Over Speed</Text>
+                            <Text variant="body">
+                                Every decision is deliberate. Every motion is purposeful.
+                                The result is work that reflects thought, not just effort.
+                            </Text>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal direction="up" delay={200}>
+                        <div className="brand-philosophy__item">
+                            <span className="brand-philosophy__number">02</span>
+                            <Text variant="h3">Selection Over Volume</Text>
+                            <Text variant="body">
+                                We say no more than we say yes. This selectivity protects the quality of what we deliver.
+                            </Text>
+                        </div>
+                    </ScrollReveal>
+                    <ScrollReveal direction="right" delay={300}>
+                        <div className="brand-philosophy__item">
+                            <span className="brand-philosophy__number">03</span>
+                            <Text variant="h3">Discipline Over Convenience</Text>
+                            <Text variant="body">
+                                The easy path is rarely the right one. We hold ourselves to standards that most
+                                would call excessive.
+                            </Text>
+                        </div>
+                    </ScrollReveal>
+                </div>
+            </Section>
+
+            {/* Founder Quote - Full Width */}
+            <Section variant="charcoal" id="founder">
+                <ScrollReveal direction="scale">
                     <div className="brand-founder">
-                        <Text variant="accent" className="brand-founder__quote">
-                            "I didn't start The Weekend CEO to build a business. I started it to prove that
-                            craftsmanship still has a place in a world obsessed with efficiency. Every car I
-                            work on is a statement: quality matters more than quantity. Always."
+                        <div className="brand-founder__quote-mark">"</div>
+                        <Text variant="h2" className="brand-founder__quote">
+                            I started this to prove that craftsmanship still has a place in a world obsessed with efficiency.
                         </Text>
                         <div className="brand-founder__attribution">
-                            <Text variant="caption">— The Founder, The Weekend CEO</Text>
+                            <span className="brand-founder__line"></span>
+                            <Text variant="caption" className="text-white">The Founder</Text>
                         </div>
                     </div>
                 </ScrollReveal>
             </Section>
 
             {/* CTA */}
-            <Section dark className="brand-cta-section">
-                <ScrollReveal>
+            <Section variant="gradient" id="cta">
+                <ScrollReveal direction="up">
                     <div className="brand-cta">
-                        <Text variant="h2">Experience the difference.</Text>
+                        <Text variant="h2">Experience the <span className="text-teal">Difference.</span></Text>
                         <Button to="/appointment" variant="primary" className="button--large">
-                            Request Appointment
+                            Book Your Spot
                         </Button>
                     </div>
                 </ScrollReveal>

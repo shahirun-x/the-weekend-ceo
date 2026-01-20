@@ -1,18 +1,53 @@
 /* ============================================
-   SECTION COMPONENT STYLES
+   SECTION — BOLD LAYOUTS
    ============================================ */
 
 .section {
+    position: relative;
     padding: var(--section-padding) 0;
-    background-color: var(--bg-primary);
+    overflow: hidden;
 }
 
-.section--dark {
-    background-color: var(--bg-secondary);
+.section--cream {
+    background-color: var(--cream);
+}
+
+.section--yellow {
+    background-color: var(--yellow);
+}
+
+.section--teal {
+    background-color: var(--teal);
+    color: var(--white);
+}
+
+.section--charcoal {
+    background-color: var(--charcoal);
+    color: var(--cream);
+}
+
+.section--gradient {
+    background: linear-gradient(180deg, var(--cream) 0%, var(--yellow) 100%);
 }
 
 .section__container {
+    position: relative;
+    z-index: 1;
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--space-lg);
+}
+
+/* Asymmetrical option */
+.section--asymmetric .section__container {
+    max-width: none;
+    padding-left: 10%;
+    padding-right: 5%;
+}
+
+@media (max-width: 767px) {
+    .section--asymmetric .section__container {
+        padding-left: var(--space-lg);
+        padding-right: var(--space-lg);
+    }
 }
