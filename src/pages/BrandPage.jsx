@@ -11,97 +11,184 @@ function BrandPage() {
             {/* Hero */}
             <Hero
                 eyebrow="The Brand"
-                title="Built on"
-                titleAccent="Obsession."
-                subtitle="We didn't build The Weekend CEO to scale. We built it to matter."
+                title="The Idea Behind"
+                titleAccent="The Weekend CEO"
+                subtitle="Where entrepreneurship, ownership, and a lifelong passion for cars converge."
                 short
             />
 
-            {/* Origin - Big Type */}
-            <Section variant="cream" id="origin">
-                <div className="brand-origin">
-                    <ScrollReveal direction="left">
-                        <div className="brand-origin__headline">
-                            <Text variant="h2">
-                                This company was born from a simple observation:
-                            </Text>
-                        </div>
-                    </ScrollReveal>
-                    <ScrollReveal direction="right" delay={200}>
-                        <div className="brand-origin__statement">
-                            <Text className="brand-origin__big-text">
-                                Premium vehicles deserve more than <span className="text-teal">assembly-line treatment.</span>
-                            </Text>
-                        </div>
-                    </ScrollReveal>
-                </div>
-            </Section>
-
-            {/* Philosophy Grid */}
-            <Section variant="yellow" id="philosophy">
+            {/* The Idea Behind */}
+            <Section variant="cream" id="idea">
                 <ScrollReveal direction="up">
-                    <Text variant="eyebrow" className="text-charcoal">Our Philosophy</Text>
-                    <Text variant="h2" className="brand-philosophy__title">
-                        We Choose <span className="text-teal">Restraint</span>
-                    </Text>
+                    <div className="brand-idea">
+                        <Text variant="body" className="brand-idea__text">
+                            By weekdays, the founder operates as a senior corporate leader — accountable for people,
+                            processes, performance, and outcomes, in an environment where standards are non-negotiable and
+                            time is the most valuable currency.
+                        </Text>
+                        <Text variant="body" className="brand-idea__text">
+                            By weekends, that same leadership becomes deeply personal.
+                        </Text>
+                        <Text variant="h3" className="brand-idea__highlight">
+                            The Weekend CEO is where entrepreneurship, ownership, and a lifelong passion for cars converge —
+                            guided by the same CEO mindset, now expressed through hands-on craftsmanship instead of
+                            boardrooms and presentations.
+                        </Text>
+                    </div>
                 </ScrollReveal>
-
-                <div className="brand-philosophy__grid">
-                    <ScrollReveal direction="left" delay={100}>
-                        <div className="brand-philosophy__item">
-                            <span className="brand-philosophy__number">01</span>
-                            <Text variant="h3">Intent Over Speed</Text>
-                            <Text variant="body">
-                                Every decision is deliberate. Every motion is purposeful.
-                                The result is work that reflects thought, not just effort.
-                            </Text>
-                        </div>
-                    </ScrollReveal>
-                    <ScrollReveal direction="up" delay={200}>
-                        <div className="brand-philosophy__item">
-                            <span className="brand-philosophy__number">02</span>
-                            <Text variant="h3">Selection Over Volume</Text>
-                            <Text variant="body">
-                                We say no more than we say yes. This selectivity protects the quality of what we deliver.
-                            </Text>
-                        </div>
-                    </ScrollReveal>
-                    <ScrollReveal direction="right" delay={300}>
-                        <div className="brand-philosophy__item">
-                            <span className="brand-philosophy__number">03</span>
-                            <Text variant="h3">Discipline Over Convenience</Text>
-                            <Text variant="body">
-                                The easy path is rarely the right one. We hold ourselves to standards that most
-                                would call excessive.
-                            </Text>
-                        </div>
-                    </ScrollReveal>
-                </div>
             </Section>
 
-            {/* Founder Quote - Full Width */}
-            <Section variant="charcoal" id="founder">
-                <ScrollReveal direction="scale">
-                    <div className="brand-founder">
-                        <div className="brand-founder__quote-mark">"</div>
-                        <Text variant="h2" className="brand-founder__quote">
-                            I started this to prove that craftsmanship still has a place in a world obsessed with efficiency.
+            {/* The Duality */}
+            <Section variant="yellow" id="duality">
+                <ScrollReveal direction="up">
+                    <div className="brand-duality">
+                        <Text variant="eyebrow">This duality is intentional.</Text>
+                        <div className="brand-duality__grid">
+                            <div className="brand-duality__item">
+                                <Text variant="h3">Corporate Leadership</Text>
+                                <Text variant="body">
+                                    Builds structure, systems, discipline, and respect for time.
+                                </Text>
+                            </div>
+                            <div className="brand-duality__item">
+                                <Text variant="h3">Entrepreneurship</Text>
+                                <Text variant="body">
+                                    Fuels obsession, pride, accountability, and care beyond obligation.
+                                </Text>
+                            </div>
+                        </div>
+                        <Text variant="accent" className="brand-duality__statement">
+                            The Weekend CEO exists at the intersection of both — where professional rigour meets personal
+                            passion, and where time is invested, not spent.
                         </Text>
-                        <div className="brand-founder__attribution">
-                            <span className="brand-founder__line"></span>
-                            <Text variant="caption" className="text-white">The Founder</Text>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* Not A Side Activity */}
+            <Section variant="charcoal" id="not-side">
+                <ScrollReveal direction="scale">
+                    <div className="brand-not-side">
+                        <Text variant="h2" className="text-white">This is not a side activity.</Text>
+                        <Text className="brand-not-side__desc">
+                            It is a founder-led boutique automotive brand, deliberately limited in scale, where every car receives
+                            undivided, CEO-level ownership and involvement — from the first touch to the final inspection.
+                        </Text>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* No Ordinary Touches */}
+            <Section variant="cream" id="no-ordinary">
+                <ScrollReveal direction="up">
+                    <div className="brand-no-ordinary">
+                        <Text variant="eyebrow">This is where we draw a clear line.</Text>
+                        <Text variant="h2">No Ordinary Touches</Text>
+                        <div className="brand-no-ordinary__content">
+                            <Text variant="body">
+                                There are no ordinary touches here.
+                            </Text>
+                            <Text variant="body">
+                                No generic routines.
+                            </Text>
+                            <Text variant="body">
+                                No mass-market habits.
+                            </Text>
+                            <Text variant="body">
+                                What your car receives is the CEO's touch — a mindset that values precision over shortcuts, time
+                                over volume, and accountability over convenience.
+                            </Text>
+                            <Text variant="body">
+                                A way of working where nothing is acceptable unless it meets a clearly defined standard.
+                            </Text>
+                            <Text variant="accent" className="brand-no-ordinary__result">
+                                That difference is visible in the finish, felt in the cabin, and immediately recognised by those who
+                                truly understand cars.
+                            </Text>
                         </div>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* CTA */}
-            <Section variant="gradient" id="cta">
+            {/* Our Philosophy */}
+            <Section variant="teal" id="philosophy">
                 <ScrollReveal direction="up">
+                    <div className="brand-philosophy">
+                        <Text variant="eyebrow" className="text-yellow">Our Philosophy</Text>
+                        <Text variant="h2" className="text-white">Why We Don't Offer Ceramic Coatings or PPF</Text>
+                        <div className="brand-philosophy__content">
+                            <Text className="brand-philosophy__intro">
+                                The Weekend CEO positions itself as one of India's most premium and expensive forms of
+                                automotive care — by choice, not by claim.
+                            </Text>
+                            <Text className="brand-philosophy__text">
+                                We do not believe in ceramic coatings, PPF installations, false longevity promises, or marketing-
+                                driven warranty statements.
+                            </Text>
+                            <Text className="brand-philosophy__text">
+                                Those services depend on controlled studios, mechanical environments, and volume-oriented
+                                execution — which conflicts with our philosophy.
+                            </Text>
+                            <Text className="brand-philosophy__text">
+                                Instead, we focus on detailing in its purest and most demanding form:
+                            </Text>
+                            <ul className="brand-philosophy__list">
+                                <li>Advanced paint correction and surface refinement</li>
+                                <li>Elite German waxes, sealants, and detailing systems applied by hand</li>
+                                <li>Techniques that prioritise depth, clarity, warmth, and tactile perfection</li>
+                            </ul>
+                            <Text className="brand-philosophy__conclusion">
+                                Our results are visible to the eye, felt by the hand, and understood by enthusiasts — not hidden
+                                behind claims or paperwork.
+                            </Text>
+                            <Text className="brand-philosophy__conclusion">
+                                This approach requires judgement, restraint, and time — and that is precisely why it cannot be mass-
+                                produced.
+                            </Text>
+                        </div>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* Why Clients Choose Us */}
+            <Section variant="cream" id="why-us">
+                <ScrollReveal direction="up">
+                    <div className="brand-why-us">
+                        <Text variant="eyebrow">Why Our Clients Choose Us</Text>
+                        <div className="brand-why-us__grid">
+                            <div className="brand-why-us__item">
+                                <Text variant="h3">CEO-level ownership</Text>
+                                <Text variant="body">Not technician-level execution</Text>
+                            </div>
+                            <div className="brand-why-us__item">
+                                <Text variant="h3">Craftsmanship-driven detailing</Text>
+                                <Text variant="body">Not checklist services</Text>
+                            </div>
+                            <div className="brand-why-us__item">
+                                <Text variant="h3">Doorstep convenience</Text>
+                                <Text variant="body">Without dilution of standards</Text>
+                            </div>
+                            <div className="brand-why-us__item">
+                                <Text variant="h3">Deliberate scarcity</Text>
+                                <Text variant="body">That protects quality, trust, and outcomes</Text>
+                            </div>
+                        </div>
+                        <Text variant="body" className="brand-why-us__pricing">
+                            Our pricing reflects time, discipline, craftsmanship, and accountability.
+                            It is not designed to compete.
+                            It is designed to deliver lasting value.
+                        </Text>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* CTA */}
+            <Section variant="yellow" id="cta">
+                <ScrollReveal direction="scale">
                     <div className="brand-cta">
                         <Text variant="h2">Experience the <span className="text-teal">Difference.</span></Text>
                         <Button to="/appointment" variant="primary" className="button--large">
-                            Book Your Spot
+                            Request Appointment
                         </Button>
                     </div>
                 </ScrollReveal>

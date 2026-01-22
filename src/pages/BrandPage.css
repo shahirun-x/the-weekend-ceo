@@ -2,95 +2,202 @@
    BRAND PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Origin Section */
-.brand-origin {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: var(--space-xl);
-    align-items: center;
-    min-height: 50vh;
+/* The Idea Section */
+.brand-idea {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
 }
 
-.brand-origin__headline .text-h2 {
-    font-size: clamp(2rem, 4vw, 3rem);
+.brand-idea__text {
+    font-size: 1.2rem;
+    margin-bottom: var(--space-md);
 }
 
-.brand-origin__big-text {
-    font-family: var(--font-heading);
-    font-size: clamp(2.5rem, 5vw, 4rem);
-    font-weight: 700;
-    line-height: 1.1;
-    color: var(--charcoal);
-}
-
-/* Philosophy Section */
-.brand-philosophy__title {
-    margin: var(--space-sm) 0 var(--space-2xl);
-}
-
-.brand-philosophy__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-}
-
-.brand-philosophy__item {
-    background-color: var(--white);
-    padding: var(--space-xl);
-    border-radius: 16px;
-    position: relative;
-}
-
-.brand-philosophy__number {
-    position: absolute;
-    top: var(--space-md);
-    right: var(--space-md);
-    font-family: var(--font-heading);
-    font-size: 3rem;
-    font-weight: 700;
-    color: var(--yellow);
-    opacity: 0.5;
-    line-height: 1;
-}
-
-.brand-philosophy__item .text-h3 {
-    margin-bottom: var(--space-sm);
+.brand-idea__highlight {
+    margin-top: var(--space-lg);
     color: var(--teal);
+    font-weight: 600;
 }
 
-/* Founder Section */
-.brand-founder {
+/* Duality Section */
+.brand-duality {
+    text-align: center;
+}
+
+.brand-duality .text-eyebrow {
+    font-size: 1.1rem;
+    margin-bottom: var(--space-xl);
+}
+
+.brand-duality__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: 800px;
+    margin: 0 auto var(--space-xl);
+}
+
+.brand-duality__item {
+    text-align: left;
+    padding: var(--space-lg);
+    background-color: var(--white);
+    border-radius: 16px;
+}
+
+.brand-duality__item .text-h3 {
+    color: var(--teal);
+    margin-bottom: var(--space-sm);
+}
+
+.brand-duality__statement {
+    font-size: 1.3rem;
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+/* Not A Side Activity */
+.brand-not-side {
     text-align: center;
     max-width: 900px;
     margin: 0 auto;
     padding: var(--space-xl) 0;
 }
 
-.brand-founder__quote-mark {
-    font-family: var(--font-heading);
-    font-size: 10rem;
-    font-weight: 700;
-    color: var(--teal);
-    line-height: 0.5;
-    opacity: 0.5;
+.brand-not-side .text-h2 {
+    margin-bottom: var(--space-lg);
 }
 
-.brand-founder__quote {
-    color: var(--cream);
-    margin: var(--space-lg) 0;
+.brand-not-side__desc {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
 }
 
-.brand-founder__attribution {
+/* No Ordinary Touches */
+.brand-no-ordinary {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.brand-no-ordinary .text-eyebrow {
+    margin-bottom: var(--space-sm);
+}
+
+.brand-no-ordinary .text-h2 {
+    margin-bottom: var(--space-xl);
+}
+
+.brand-no-ordinary__content {
     display: flex;
-    align-items: center;
-    justify-content: center;
+    flex-direction: column;
     gap: var(--space-md);
+    text-align: left;
 }
 
-.brand-founder__line {
-    width: 60px;
-    height: 2px;
-    background-color: var(--teal);
+.brand-no-ordinary__result {
+    margin-top: var(--space-md);
+    font-size: 1.2rem;
+    text-align: center;
+}
+
+/* Philosophy Section */
+.brand-philosophy {
+    max-width: 900px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.brand-philosophy .text-h2 {
+    margin: var(--space-sm) 0 var(--space-xl);
+}
+
+.brand-philosophy__content {
+    text-align: left;
+}
+
+.brand-philosophy__intro {
+    font-size: 1.2rem;
+    color: var(--white);
+    margin-bottom: var(--space-lg);
+    text-align: center;
+}
+
+.brand-philosophy__text {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-md);
+}
+
+.brand-philosophy__list {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-lg) 0;
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+}
+
+.brand-philosophy__list li {
+    position: relative;
+    padding-left: var(--space-lg);
+    color: var(--white);
+}
+
+.brand-philosophy__list li::before {
+    content: '→';
+    position: absolute;
+    left: 0;
+    color: var(--yellow);
+    font-weight: 700;
+}
+
+.brand-philosophy__conclusion {
+    color: rgba(255, 255, 255, 0.85);
+    margin-top: var(--space-md);
+}
+
+/* Why Us Section */
+.brand-why-us {
+    text-align: center;
+}
+
+.brand-why-us .text-eyebrow {
+    margin-bottom: var(--space-xl);
+}
+
+.brand-why-us__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto var(--space-xl);
+}
+
+.brand-why-us__item {
+    text-align: left;
+    padding: var(--space-lg);
+    background-color: var(--white);
+    border-radius: 12px;
+    border-left: 4px solid var(--teal);
+}
+
+.brand-why-us__item .text-h3 {
+    font-size: 1.1rem;
+    color: var(--teal);
+    margin-bottom: var(--space-xs);
+}
+
+.brand-why-us__item .text-body {
+    color: var(--slate);
+    font-size: 0.95rem;
+}
+
+.brand-why-us__pricing {
+    max-width: 600px;
+    margin: 0 auto;
+    font-style: italic;
+    color: var(--slate);
 }
 
 /* CTA */
@@ -105,12 +212,11 @@
 
 /* Mobile */
 @media (max-width: 900px) {
-    .brand-origin {
+    .brand-duality__grid {
         grid-template-columns: 1fr;
-        min-height: auto;
     }
 
-    .brand-philosophy__grid {
+    .brand-why-us__grid {
         grid-template-columns: 1fr;
     }
 }

@@ -2,6 +2,80 @@
    AREAS PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
+/* Standards Section */
+.areas-standards {
+    text-align: center;
+    max-width: 900px;
+    margin: 0 auto;
+}
+
+.areas-standards .text-h2 {
+    margin-bottom: var(--space-sm);
+}
+
+.areas-standards__subtitle {
+    font-size: 1.3rem;
+    color: rgba(255, 255, 255, 0.7);
+    margin-bottom: var(--space-xl);
+}
+
+.areas-standards__content {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-md);
+}
+
+.areas-standards__text {
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+}
+
+.areas-standards__highlight {
+    color: var(--yellow);
+    font-weight: 500;
+}
+
+/* Commitment Section */
+.areas-commitment {
+    text-align: center;
+}
+
+.areas-commitment .text-eyebrow {
+    font-size: 1rem;
+    margin-bottom: var(--space-xl);
+}
+
+.areas-commitment__grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: var(--space-lg);
+    max-width: 900px;
+    margin: 0 auto var(--space-xl);
+}
+
+.areas-commitment__item {
+    background-color: var(--white);
+    padding: var(--space-lg);
+    border-radius: 16px;
+    text-align: center;
+}
+
+.areas-commitment__number {
+    display: block;
+    font-family: var(--font-heading);
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: var(--teal);
+    margin-bottom: var(--space-sm);
+}
+
+.areas-commitment__note {
+    font-size: 1.1rem;
+    max-width: 700px;
+    margin: 0 auto;
+}
+
 /* Header */
 .areas-header {
     margin-bottom: var(--space-2xl);
@@ -72,22 +146,27 @@
 /* Note */
 .areas-note {
     text-align: center;
-    max-width: 500px;
+    max-width: 600px;
     margin: 0 auto;
 }
 
 .areas-note .text-h3 {
-    margin-bottom: var(--space-sm);
+    margin-bottom: var(--space-md);
 }
 
-.areas-note .text-body {
-    margin-bottom: var(--space-lg);
+.areas-note__text {
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-md);
 }
 
 /* Mobile */
 @media (max-width: 1024px) {
     .areas-grid {
         grid-template-columns: repeat(2, 1fr);
+    }
+
+    .areas-commitment__grid {
+        grid-template-columns: 1fr;
     }
 }
 

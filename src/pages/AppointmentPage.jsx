@@ -36,12 +36,60 @@ function AppointmentPage() {
         <div className="appointment-page">
             {/* Hero */}
             <Hero
-                eyebrow="Request an Appointment"
-                title="Begin The"
-                titleAccent="Conversation."
-                subtitle="This is not a checkout. It's an application. We review every request personally."
+                eyebrow="Appointments & Time Commitment"
+                title="By Appointment."
+                titleAccent="By Commitment."
+                subtitle="At The Weekend CEO, time is not managed — it is protected."
                 short
             />
+
+            {/* Time Statement */}
+            <Section variant="charcoal" id="time">
+                <ScrollReveal direction="up">
+                    <div className="appointment-time">
+                        <Text variant="h3" className="text-white">
+                            Most of our work is scheduled through advance pre-bookings.
+                        </Text>
+                        <Text className="appointment-time__text">
+                            As a result, there may be occasions where we are unable to meet your preferred dates or timelines.
+                        </Text>
+                        <Text className="appointment-time__text">
+                            We respectfully request your understanding in such cases.
+                        </Text>
+                        <div className="appointment-time__statement">
+                            <Text className="appointment-time__highlight">
+                                Craftsmanship cannot be rushed, rescheduled casually, or compressed without compromise.
+                            </Text>
+                            <Text className="appointment-time__highlight">
+                                Clients who value this philosophy naturally align with our process.
+                            </Text>
+                        </div>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* Client Relationship */}
+            <Section variant="yellow" id="relationship">
+                <ScrollReveal direction="up">
+                    <div className="appointment-relationship">
+                        <Text variant="eyebrow">Client Relationship & Continuity</Text>
+                        <Text variant="h3">We prioritise long-term relationships over one-time engagements.</Text>
+                        <div className="appointment-relationship__content">
+                            <Text variant="body">
+                                Existing and returning clients are always given preference in scheduling, continuity, and care —
+                                because trust is built over time, not transactions.
+                            </Text>
+                            <Text variant="body">
+                                This does not mean new clients are ignored.
+                            </Text>
+                            <Text variant="accent">
+                                It means once you are part of The Weekend CEO circle, your car is never treated as "just another
+                                booking".
+                            </Text>
+                        </div>
+                    </div>
+                </ScrollReveal>
+            </Section>
 
             {/* Form Section */}
             <Section variant="cream" id="application">
@@ -50,9 +98,9 @@ function AppointmentPage() {
                         {!isSubmitted ? (
                             <>
                                 <div className="appointment-intro">
-                                    <Text variant="h3">Tell us about you & your vehicle</Text>
+                                    <Text variant="h3">Request an Appointment</Text>
                                     <Text variant="body">
-                                        The more information you share, the better we can assess if we're the right fit.
+                                        Tell us about you and your vehicle. The more information you share, the better we can assess if we're the right fit.
                                     </Text>
                                 </div>
 
@@ -157,9 +205,9 @@ function AppointmentPage() {
                                                     required
                                                 >
                                                     <option value="">Select an option</option>
-                                                    <option value="luxury-pro">Luxury Pro Pack</option>
-                                                    <option value="ceo-signature">CEO's Premium Signature Pack</option>
-                                                    <option value="undecided">Not sure yet</option>
+                                                    <option value="luxury-pro">Luxury Pro Pack (15 Steps)</option>
+                                                    <option value="ceo-signature">CEO's Premium Signature Pack (35 Steps)</option>
+                                                    <option value="undecided">Not sure yet — need guidance</option>
                                                 </select>
                                             </div>
                                             <div className="form-group">
@@ -171,7 +219,7 @@ function AppointmentPage() {
                                                     value={formData.location}
                                                     onChange={handleChange}
                                                     required
-                                                    placeholder="e.g., South Delhi"
+                                                    placeholder="Your city or area"
                                                 />
                                             </div>
                                         </div>
@@ -187,7 +235,7 @@ function AppointmentPage() {
                                                 value={formData.message}
                                                 onChange={handleChange}
                                                 rows="4"
-                                                placeholder="Tell us about your vehicle's current condition, any specific concerns..."
+                                                placeholder="Tell us about your vehicle's current condition, any specific concerns, or your expectations..."
                                             ></textarea>
                                         </div>
                                     </div>
@@ -197,7 +245,7 @@ function AppointmentPage() {
                                             Submit Request
                                         </Button>
                                         <Text variant="caption" className="form-disclaimer">
-                                            Submitting this form does not guarantee an appointment. We will respond within 48 hours.
+                                            Submitting this form does not guarantee an appointment. We review every request personally and will respond within 48 hours.
                                         </Text>
                                     </div>
                                 </form>
@@ -210,8 +258,11 @@ function AppointmentPage() {
                                     Thank you for your interest in The Weekend CEO. We've received your request
                                     and will review it personally. Expect to hear from us within 48 hours.
                                 </Text>
+                                <Text variant="body" className="appointment-success__note">
+                                    Clients who value this philosophy naturally align with our process.
+                                </Text>
                                 <div className="appointment-success__actions">
-                                    <Button to="/gallery" variant="secondary">View Gallery</Button>
+                                    <Button to="/gallery" variant="secondary">View Our Work</Button>
                                     <Button to="/brand" variant="ghost">Read Our Philosophy</Button>
                                 </div>
                             </div>

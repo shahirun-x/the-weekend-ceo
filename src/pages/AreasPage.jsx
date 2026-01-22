@@ -43,12 +43,66 @@ function AreasPage() {
         <div className="areas-page">
             {/* Hero */}
             <Hero
-                eyebrow="Service Areas"
-                title="We Come"
-                titleAccent="To You."
-                subtitle="Premium service. At your doorstep. Currently serving select locations across India."
+                eyebrow="The Weekend CEO Standards"
+                title="Beyond"
+                titleAccent="Location."
+                subtitle="Where the standard travels — not the car."
                 short
             />
+
+            {/* Standards Statement */}
+            <Section variant="charcoal" id="standards">
+                <ScrollReveal direction="up">
+                    <div className="areas-standards">
+                        <Text variant="h2" className="text-white">
+                            Excellence is not scalable without compromise
+                        </Text>
+                        <Text className="areas-standards__subtitle">
+                            — which is why we choose restraint.
+                        </Text>
+                        <div className="areas-standards__content">
+                            <Text className="areas-standards__text">
+                                The Weekend CEO operates strictly by private appointment, with the flexibility to serve clients
+                                beyond geography.
+                            </Text>
+                            <Text className="areas-standards__text areas-standards__highlight">
+                                When alignment and scheduling demand it, we are prepared to reach your location by road, rail, or
+                                by air (flight) — without any additional travel charges.
+                            </Text>
+                            <Text className="areas-standards__text">
+                                This is not a commercial tactic; it is a commitment to uphold standards beyond location.
+                            </Text>
+                        </div>
+                    </div>
+                </ScrollReveal>
+            </Section>
+
+            {/* Our Commitment */}
+            <Section variant="yellow" id="commitment">
+                <ScrollReveal direction="up">
+                    <div className="areas-commitment">
+                        <Text variant="eyebrow">To preserve uncompromising craftsmanship and founder-level involvement:</Text>
+                        <div className="areas-commitment__grid">
+                            <div className="areas-commitment__item">
+                                <span className="areas-commitment__number">1</span>
+                                <Text variant="body">Only one car is accepted per day</Text>
+                            </div>
+                            <div className="areas-commitment__item">
+                                <span className="areas-commitment__number">6-8</span>
+                                <Text variant="body">Cars per month, carefully planned and executed exclusively on weekends</Text>
+                            </div>
+                            <div className="areas-commitment__item">
+                                <span className="areas-commitment__number">✓</span>
+                                <Text variant="body">All engagements are pre-scheduled and prepared well in advance</Text>
+                            </div>
+                        </div>
+                        <Text variant="accent" className="areas-commitment__note">
+                            This ensures every vehicle receives uninterrupted attention, unhurried execution, and complete
+                            accountability — something money alone cannot buy.
+                        </Text>
+                    </div>
+                </ScrollReveal>
+            </Section>
 
             {/* Areas Grid */}
             <Section variant="cream" id="locations">
@@ -80,15 +134,17 @@ function AreasPage() {
             </Section>
 
             {/* Note */}
-            <Section variant="yellow" id="expansion">
+            <Section variant="teal" id="expansion">
                 <ScrollReveal direction="scale">
                     <div className="areas-note">
-                        <Text variant="h3">Don't see your area?</Text>
-                        <Text variant="body">
-                            Contact us. We evaluate expansion requests based on demand and our ability to
-                            maintain our standards.
+                        <Text variant="h3" className="text-white">Don't see your area?</Text>
+                        <Text className="areas-note__text">
+                            We are prepared to reach your location by road, rail, or by air — without any additional travel charges.
                         </Text>
-                        <Button to="/appointment" variant="secondary">Get In Touch</Button>
+                        <Text className="areas-note__text">
+                            Contact us to discuss your requirements.
+                        </Text>
+                        <Button to="/appointment" variant="yellow">Request Appointment</Button>
                     </div>
                 </ScrollReveal>
             </Section>

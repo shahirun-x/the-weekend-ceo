@@ -34,3 +34,5 @@ Desktop.ini
 
 # Testing
 coverage/
+
+git remote add origin https://github.com/shahirun-x/the-weekend-ceo.git
