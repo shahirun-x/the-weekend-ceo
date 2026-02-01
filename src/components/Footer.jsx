@@ -14,7 +14,10 @@ function Footer() {
                             <span className="footer__logo-text">The Weekend <span>CEO</span></span>
                         </div>
                         <p className="footer__tagline">
-                            No ordinary touches. Only the CEO's touch. For those who refuse the ordinary.
+                            By appointment. By commitment. Beyond location.
+                        </p>
+                        <p className="footer__tagline footer__tagline--accent">
+                            Where the standard travels — not the car.
                         </p>
                     </div>
 

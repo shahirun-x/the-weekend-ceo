@@ -12,6 +12,7 @@
 .brand-idea__text {
     font-size: 1.2rem;
     margin-bottom: var(--space-md);
+    line-height: 1.8;
 }
 
 .brand-idea__highlight {
@@ -74,58 +75,54 @@
     line-height: 1.8;
 }
 
-/* No Ordinary Touches */
-.brand-no-ordinary {
-    max-width: 800px;
+/* Approach Section */
+.brand-approach {
+    max-width: 900px;
     margin: 0 auto;
     text-align: center;
 }
 
-.brand-no-ordinary .text-eyebrow {
+.brand-approach .text-eyebrow {
     margin-bottom: var(--space-sm);
 }
 
-.brand-no-ordinary .text-h2 {
+.brand-approach .text-h2 {
     margin-bottom: var(--space-xl);
 }
 
-.brand-no-ordinary__content {
+.brand-approach__content {
     display: flex;
     flex-direction: column;
-    gap: var(--space-md);
+    gap: var(--space-lg);
     text-align: left;
 }
 
-.brand-no-ordinary__result {
-    margin-top: var(--space-md);
-    font-size: 1.2rem;
-    text-align: center;
+.brand-approach__content .text-body {
+    line-height: 1.8;
 }
 
 /* Philosophy Section */
 .brand-philosophy {
     max-width: 900px;
     margin: 0 auto;
-    text-align: center;
-}
-
-.brand-philosophy .text-h2 {
-    margin: var(--space-sm) 0 var(--space-xl);
-}
-
-.brand-philosophy__content {
-    text-align: left;
 }
 
 .brand-philosophy__intro {
-    font-size: 1.2rem;
-    color: var(--white);
-    margin-bottom: var(--space-lg);
+    font-size: 1.15rem;
+    color: rgba(255, 255, 255, 0.9);
     text-align: center;
+    margin-bottom: var(--space-xl);
+    font-style: italic;
 }
 
 .brand-philosophy__text {
     color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--space-md);
+    text-align: center;
+}
+
+.brand-philosophy__title {
+    text-align: center;
     margin-bottom: var(--space-md);
 }
 
@@ -135,13 +132,14 @@
     margin: var(--space-lg) 0;
     display: flex;
     flex-direction: column;
-    gap: var(--space-sm);
+    gap: var(--space-md);
 }
 
 .brand-philosophy__list li {
     position: relative;
     padding-left: var(--space-lg);
     color: var(--white);
+    line-height: 1.7;
 }
 
 .brand-philosophy__list li::before {
@@ -153,51 +151,53 @@
 }
 
 .brand-philosophy__conclusion {
-    color: rgba(255, 255, 255, 0.85);
-    margin-top: var(--space-md);
+    color: rgba(255, 255, 255, 0.9);
+    text-align: center;
+    margin-top: var(--space-lg);
+    font-size: 1.1rem;
 }
 
-/* Why Us Section */
-.brand-why-us {
+/* Audience Section */
+.brand-audience {
     text-align: center;
 }
 
-.brand-why-us .text-eyebrow {
+.brand-audience__title {
+    margin-bottom: var(--space-md);
+}
+
+.brand-audience__intro {
     margin-bottom: var(--space-xl);
 }
 
-.brand-why-us__grid {
+.brand-audience__grid {
     display: grid;
     grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-lg);
+    gap: var(--space-md);
     max-width: 900px;
     margin: 0 auto var(--space-xl);
 }
 
-.brand-why-us__item {
-    text-align: left;
-    padding: var(--space-lg);
+.brand-audience__item {
+    display: flex;
+    align-items: center;
+    gap: var(--space-sm);
+    padding: var(--space-md);
     background-color: var(--white);
     border-radius: 12px;
-    border-left: 4px solid var(--teal);
+    text-align: left;
 }
 
-.brand-why-us__item .text-h3 {
-    font-size: 1.1rem;
+.brand-audience__icon {
+    font-size: 1.5rem;
+    font-weight: 700;
     color: var(--teal);
-    margin-bottom: var(--space-xs);
 }
 
-.brand-why-us__item .text-body {
-    color: var(--slate);
-    font-size: 0.95rem;
-}
-
-.brand-why-us__pricing {
-    max-width: 600px;
-    margin: 0 auto;
+.brand-audience__note {
     font-style: italic;
-    color: var(--slate);
+    font-weight: 600;
+    color: var(--charcoal);
 }
 
 /* CTA */
@@ -216,7 +216,7 @@
         grid-template-columns: 1fr;
     }
 
-    .brand-why-us__grid {
+    .brand-audience__grid {
         grid-template-columns: 1fr;
     }
 }

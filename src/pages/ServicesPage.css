@@ -2,29 +2,6 @@
    SERVICES PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Craftsmanship Section */
-.services-craftsmanship {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.services-craftsmanship .text-h2 {
-    margin-bottom: var(--space-xl);
-}
-
-.services-craftsmanship__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-.services-craftsmanship__text {
-    font-size: 1.2rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.8;
-}
-
 /* Header */
 .services-header {
     text-align: center;
@@ -34,7 +11,7 @@
 /* Grid */
 .services-grid {
     display: grid;
-    grid-template-columns: 1fr 1.2fr;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-lg);
     max-width: 1200px;
     margin: 0 auto;
@@ -50,127 +27,69 @@
     flex-direction: column;
 }
 
-.service-pack--pro {
+.service-pack--pro,
+.service-pack--ultra {
     background-color: var(--white);
     border: 2px solid var(--charcoal);
 }
 
-.service-pack--signature {
+.service-pack--signature,
+.service-pack--celebrities {
     background: linear-gradient(135deg, var(--teal) 0%, var(--teal-dark) 100%);
-}
-
-.service-pack__badge {
-    position: absolute;
-    top: var(--space-lg);
-    right: var(--space-lg);
-    background-color: var(--yellow);
-    color: var(--charcoal);
-    font-family: var(--font-heading);
-    font-size: 0.75rem;
-    font-weight: 700;
-    text-transform: uppercase;
-    letter-spacing: 0.1em;
-    padding: 0.5rem 1rem;
-    border-radius: 50px;
-}
-
-.service-pack__badge--featured {
-    background-color: var(--magenta);
-    color: var(--white);
 }
 
 .service-pack__content {
     flex: 1;
     display: flex;
     flex-direction: column;
-}
-
-.service-pack__title {
-    margin: var(--space-sm) 0 var(--space-lg);
-}
-
-.service-pack__desc {
-    margin-bottom: var(--space-lg);
-    line-height: 1.8;
-}
-
-.service-pack__features {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-    margin-bottom: var(--space-lg);
-    flex: 1;
-}
-
-.service-pack__features--light {
-    color: rgba(255, 255, 255, 0.85);
-}
-
-.service-pack__emphasis {
-    font-weight: 600;
-    font-style: italic;
-}
-
-.service-pack__note {
-    margin-top: auto;
-    font-weight: 600;
-    font-style: italic;
-}
-
-/* Approach Section */
-.services-approach {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.services-approach .text-eyebrow {
-    margin-bottom: var(--space-sm);
-}
-
-.services-approach .text-h2 {
-    margin-bottom: var(--space-xl);
-}
-
-.services-approach__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-.services-approach__list {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-md) 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-sm);
-}
-
-.services-approach__list li {
-    position: relative;
-    padding-left: var(--space-lg);
-    color: var(--charcoal);
-}
-
-.services-approach__list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
-    font-weight: 700;
-}
-
-/* Results Section */
-.services-results {
     text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
 }
 
-.services-results__statement {
-    font-size: 1.3rem;
-    font-style: italic;
+.service-pack__name {
+    font-size: 1.25rem;
+    margin-bottom: var(--space-md);
+}
+
+.service-pack__price {
+    font-size: clamp(2rem, 5vw, 2.75rem);
+    color: var(--teal);
+    margin-bottom: var(--space-md);
+    line-height: 1.1;
+}
+
+.service-pack__price span {
+    font-size: 1rem;
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.service-pack--signature .service-pack__price,
+.service-pack--celebrities .service-pack__price {
+    color: var(--white);
+}
+
+.service-pack__details {
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-xs);
+}
+
+.service-pack__steps {
+    font-weight: 600;
+    color: var(--teal);
+    font-size: 1.1rem;
+}
+
+.service-pack__time {
     color: var(--slate);
+    font-style: italic;
+}
+
+.service-pack--signature .service-pack__steps,
+.service-pack--signature .service-pack__time,
+.service-pack--celebrities .service-pack__steps,
+.service-pack--celebrities .service-pack__time {
+    color: rgba(255, 255, 255, 0.9);
 }
 
 /* CTA */

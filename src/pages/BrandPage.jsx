@@ -22,17 +22,13 @@ function BrandPage() {
                 <ScrollReveal direction="up">
                     <div className="brand-idea">
                         <Text variant="body" className="brand-idea__text">
-                            By weekdays, the founder operates as a senior corporate leader — accountable for people,
-                            processes, performance, and outcomes, in an environment where standards are non-negotiable and
-                            time is the most valuable currency.
+                            By weekdays, the founder operates as a senior corporate leader — accountable for people, processes, performance, and outcomes, in an environment where standards are non-negotiable and time is the most valuable currency.
                         </Text>
                         <Text variant="body" className="brand-idea__text">
                             By weekends, that same leadership becomes deeply personal.
                         </Text>
                         <Text variant="h3" className="brand-idea__highlight">
-                            The Weekend CEO is where entrepreneurship, ownership, and a lifelong passion for cars converge —
-                            guided by the same CEO mindset, now expressed through hands-on craftsmanship instead of
-                            boardrooms and presentations.
+                            The Weekend CEO is where entrepreneurship, ownership, and a lifelong passion for cars converge — guided by the same CEO mindset, now expressed through hands-on craftsmanship instead of boardrooms and presentations.
                         </Text>
                     </div>
                 </ScrollReveal>
@@ -58,8 +54,7 @@ function BrandPage() {
                             </div>
                         </div>
                         <Text variant="accent" className="brand-duality__statement">
-                            The Weekend CEO exists at the intersection of both — where professional rigour meets personal
-                            passion, and where time is invested, not spent.
+                            The Weekend CEO exists at the intersection of both — where professional rigour meets personal passion, and where time is invested, not spent.
                         </Text>
                     </div>
                 </ScrollReveal>
@@ -71,119 +66,88 @@ function BrandPage() {
                     <div className="brand-not-side">
                         <Text variant="h2" className="text-white">This is not a side activity.</Text>
                         <Text className="brand-not-side__desc">
-                            It is a founder-led boutique automotive brand, deliberately limited in scale, where every car receives
-                            undivided, CEO-level ownership and involvement — from the first touch to the final inspection.
+                            It is a founder-led boutique automotive brand, deliberately limited in scale, where every car receives undivided, CEO-level ownership and involvement — from the first touch to the final inspection.
                         </Text>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* No Ordinary Touches */}
-            <Section variant="cream" id="no-ordinary">
+            {/* Our Approach */}
+            <Section variant="cream" id="approach">
                 <ScrollReveal direction="up">
-                    <div className="brand-no-ordinary">
-                        <Text variant="eyebrow">This is where we draw a clear line.</Text>
-                        <Text variant="h2">No Ordinary Touches</Text>
-                        <div className="brand-no-ordinary__content">
+                    <div className="brand-approach">
+                        <Text variant="eyebrow">Our Approach.</Text>
+                        <Text variant="h2">What Makes Us Unique & Different?</Text>
+                        <div className="brand-approach__content">
                             <Text variant="body">
-                                There are no ordinary touches here.
+                                The Weekend CEO positions itself as one of India's most premium and expensive forms of automotive craftmanship — by choice, not by claim.
                             </Text>
                             <Text variant="body">
-                                No generic routines.
-                            </Text>
-                            <Text variant="body">
-                                No mass-market habits.
-                            </Text>
-                            <Text variant="body">
-                                What your car receives is the CEO's touch — a mindset that values precision over shortcuts, time
-                                over volume, and accountability over convenience.
-                            </Text>
-                            <Text variant="body">
-                                A way of working where nothing is acceptable unless it meets a clearly defined standard.
-                            </Text>
-                            <Text variant="accent" className="brand-no-ordinary__result">
-                                That difference is visible in the finish, felt in the cabin, and immediately recognised by those who
-                                truly understand cars.
+                                This Isn't your regular car wash. This is a statement. Every vehicle we touch undergoes a transformation guided by obsession attention to detail and a refusal to cut corners. We do not believe premium automotive care belongs in crowded studios, mechanic sheds or mass execution. We believe it belongs in calm environments, controlled preparation, methodical execution.
                             </Text>
                         </div>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* Our Philosophy */}
+            {/* Philosophy - No Ceramic/PPF */}
             <Section variant="teal" id="philosophy">
                 <ScrollReveal direction="up">
                     <div className="brand-philosophy">
-                        <Text variant="eyebrow" className="text-yellow">Our Philosophy</Text>
-                        <Text variant="h2" className="text-white">Why We Don't Offer Ceramic Coatings or PPF</Text>
-                        <div className="brand-philosophy__content">
-                            <Text className="brand-philosophy__intro">
-                                The Weekend CEO positions itself as one of India's most premium and expensive forms of
-                                automotive care — by choice, not by claim.
-                            </Text>
-                            <Text className="brand-philosophy__text">
-                                We do not believe in ceramic coatings, PPF installations, false longevity promises, or marketing-
-                                driven warranty statements.
-                            </Text>
-                            <Text className="brand-philosophy__text">
-                                Those services depend on controlled studios, mechanical environments, and volume-oriented
-                                execution — which conflicts with our philosophy.
-                            </Text>
-                            <Text className="brand-philosophy__text">
-                                Instead, we focus on detailing in its purest and most demanding form:
-                            </Text>
-                            <ul className="brand-philosophy__list">
-                                <li>Advanced paint correction and surface refinement</li>
-                                <li>Elite German waxes, sealants, and detailing systems applied by hand</li>
-                                <li>Techniques that prioritise depth, clarity, warmth, and tactile perfection</li>
-                            </ul>
-                            <Text className="brand-philosophy__conclusion">
-                                Our results are visible to the eye, felt by the hand, and understood by enthusiasts — not hidden
-                                behind claims or paperwork.
-                            </Text>
-                            <Text className="brand-philosophy__conclusion">
-                                This approach requires judgement, restraint, and time — and that is precisely why it cannot be mass-
-                                produced.
-                            </Text>
-                        </div>
+                        <Text className="brand-philosophy__intro">
+                            We do not seal paint using ceramic coatings, PPF installations or deliver false longevity promises, or marketing-driven warranty statements.
+                        </Text>
+                        <Text variant="body" className="brand-philosophy__text">
+                            Instead, we focus on detailing in its purest and most demanding form:
+                        </Text>
+                        <Text variant="h3" className="brand-philosophy__title text-yellow">PURE CRAFTSMANSHIP</Text>
+                        <ul className="brand-philosophy__list">
+                            <li>Advanced paint correction and surface refinement</li>
+                            <li>Elite German waxes, sealants, and detailing systems applied by hand. The wax gives protection and keeps the paint open and original for future corrections or changes.</li>
+                            <li>Techniques that prioritise depth, clarity, warmth, and tactile perfection</li>
+                        </ul>
+                        <Text className="brand-philosophy__conclusion">
+                            Our results are visible to the eye, felt by the hand, and understood by enthusiasts — not hidden behind claims or paperwork. This approach requires judgement, restraint, and time and that is precisely why it cannot be mass-produced.
+                        </Text>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* Why Clients Choose Us */}
-            <Section variant="cream" id="why-us">
+            {/* Who This Is For */}
+            <Section variant="yellow" id="audience">
                 <ScrollReveal direction="up">
-                    <div className="brand-why-us">
-                        <Text variant="eyebrow">Why Our Clients Choose Us</Text>
-                        <div className="brand-why-us__grid">
-                            <div className="brand-why-us__item">
-                                <Text variant="h3">CEO-level ownership</Text>
-                                <Text variant="body">Not technician-level execution</Text>
+                    <div className="brand-audience">
+                        <Text variant="h2" className="brand-audience__title">Who this is For</Text>
+                        <Text variant="body" className="brand-audience__intro">The Weekend CEO is Created for:</Text>
+
+                        <div className="brand-audience__grid">
+                            <div className="brand-audience__item brand-audience__item--yes">
+                                <span className="brand-audience__icon">✓</span>
+                                <Text>Premium & Luxury car owners</Text>
                             </div>
-                            <div className="brand-why-us__item">
-                                <Text variant="h3">Craftsmanship-driven detailing</Text>
-                                <Text variant="body">Not checklist services</Text>
+                            <div className="brand-audience__item brand-audience__item--yes">
+                                <span className="brand-audience__icon">✓</span>
+                                <Text>Entrepreneurs, Professionals, Celebrities and Leaders</Text>
                             </div>
-                            <div className="brand-why-us__item">
-                                <Text variant="h3">Doorstep convenience</Text>
-                                <Text variant="body">Without dilution of standards</Text>
+                            <div className="brand-audience__item brand-audience__item--yes">
+                                <span className="brand-audience__icon">✓</span>
+                                <Text>Car Collectors & Serious automotive enthusiasts.</Text>
                             </div>
-                            <div className="brand-why-us__item">
-                                <Text variant="h3">Deliberate scarcity</Text>
-                                <Text variant="body">That protects quality, trust, and outcomes</Text>
+                            <div className="brand-audience__item brand-audience__item--yes">
+                                <span className="brand-audience__icon">✓</span>
+                                <Text>Individuals who value craftsmanship over convenience.</Text>
                             </div>
                         </div>
-                        <Text variant="body" className="brand-why-us__pricing">
-                            Our pricing reflects time, discipline, craftsmanship, and accountability.
-                            It is not designed to compete.
-                            It is designed to deliver lasting value.
+
+                        <Text variant="body" className="brand-audience__note">
+                            If you seek quick washes, discounts, or mass service execution – we are not for you.
                         </Text>
                     </div>
                 </ScrollReveal>
             </Section>
 
             {/* CTA */}
-            <Section variant="yellow" id="cta">
+            <Section variant="cream" id="cta">
                 <ScrollReveal direction="scale">
                     <div className="brand-cta">
                         <Text variant="h2">Experience the <span className="text-teal">Difference.</span></Text>

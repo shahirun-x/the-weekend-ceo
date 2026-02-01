@@ -2,87 +2,12 @@
    AREAS PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Standards Section */
-.areas-standards {
+/* Availability Section */
+.areas-availability {
     text-align: center;
-    max-width: 900px;
+    max-width: 800px;
     margin: 0 auto;
-}
-
-.areas-standards .text-h2 {
-    margin-bottom: var(--space-sm);
-}
-
-.areas-standards__subtitle {
-    font-size: 1.3rem;
-    color: rgba(255, 255, 255, 0.7);
-    margin-bottom: var(--space-xl);
-}
-
-.areas-standards__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-.areas-standards__text {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.8;
-}
-
-.areas-standards__highlight {
-    color: var(--yellow);
-    font-weight: 500;
-}
-
-/* Commitment Section */
-.areas-commitment {
-    text-align: center;
-}
-
-.areas-commitment .text-eyebrow {
-    font-size: 1rem;
-    margin-bottom: var(--space-xl);
-}
-
-.areas-commitment__grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-lg);
-    max-width: 900px;
-    margin: 0 auto var(--space-xl);
-}
-
-.areas-commitment__item {
-    background-color: var(--white);
-    padding: var(--space-lg);
-    border-radius: 16px;
-    text-align: center;
-}
-
-.areas-commitment__number {
-    display: block;
-    font-family: var(--font-heading);
-    font-size: 2.5rem;
-    font-weight: 700;
-    color: var(--teal);
-    margin-bottom: var(--space-sm);
-}
-
-.areas-commitment__note {
-    font-size: 1.1rem;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-/* Header */
-.areas-header {
-    margin-bottom: var(--space-2xl);
-}
-
-.areas-header .text-h2 {
-    margin-top: var(--space-sm);
+    padding: var(--space-xl) 0;
 }
 
 /* Grid */
@@ -90,6 +15,8 @@
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: var(--space-md);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 /* Card */
@@ -108,6 +35,7 @@
 
 .areas-card--featured {
     background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-bright) 100%);
+    grid-column: span 2;
 }
 
 .areas-card__title {
@@ -123,9 +51,15 @@
 
 .areas-card__list {
     list-style: none;
-    display: flex;
-    flex-direction: column;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: var(--space-xs);
+    padding-left: 0;
+    margin: 0;
+}
+
+.areas-card--featured .areas-card__list {
+    grid-template-columns: repeat(3, 1fr);
 }
 
 .areas-card__list li {
@@ -136,27 +70,29 @@
 }
 
 .areas-card__list li::before {
-    content: '•';
+    content: counter(list-item) '.';
     position: absolute;
     left: 0;
     color: var(--teal);
-    font-weight: 700;
+    font-weight: 600;
+    font-size: 0.8rem;
 }
 
-/* Note */
-.areas-note {
+/* Closing Note */
+.areas-closing {
     text-align: center;
-    max-width: 600px;
+    max-width: 700px;
     margin: 0 auto;
 }
 
-.areas-note .text-h3 {
+.areas-closing .text-h3 {
     margin-bottom: var(--space-md);
 }
 
-.areas-note__text {
+.areas-closing__text {
     color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-md);
+    margin-bottom: var(--space-lg);
+    line-height: 1.8;
 }
 
 /* Mobile */
@@ -165,14 +101,27 @@
         grid-template-columns: repeat(2, 1fr);
     }
 
-    .areas-commitment__grid {
-        grid-template-columns: 1fr;
+    .areas-card--featured {
+        grid-column: span 2;
+    }
+
+    .areas-card--featured .areas-card__list {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
 @media (max-width: 767px) {
     .areas-grid {
         grid-template-columns: 1fr;
+    }
+
+    .areas-card--featured {
+        grid-column: span 1;
+    }
+
+    .areas-card__list,
+    .areas-card--featured .areas-card__list {
+        grid-template-columns: repeat(2, 1fr);
     }
 
     .areas-card:hover {

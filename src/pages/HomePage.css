@@ -2,6 +2,15 @@
    HOME PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
+/* Hero Doorstep Line */
+.hero-doorstep {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 700px;
+  margin: var(--space-md) auto var(--space-lg);
+  line-height: 1.7;
+}
+
 /* Statement Section */
 .home-statement {
   text-align: center;
@@ -50,205 +59,89 @@
   font-size: clamp(1.75rem, 4vw, 2.5rem);
 }
 
+.home-differentiation__italic {
+  font-style: italic;
+}
+
 .home-differentiation__statement {
   font-size: 1.5rem;
   max-width: 600px;
   margin: 0 auto;
 }
 
-/* Craftsmanship Section */
-.home-craftsmanship {
-  text-align: center;
-  margin-bottom: var(--space-2xl);
-}
-
-.home-craftsmanship .text-h2 {
-  margin: var(--space-sm) 0 var(--space-lg);
-}
-
-.home-craftsmanship__content {
-  max-width: 800px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-md);
-}
-
-.home-craftsmanship__principles {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: var(--space-md);
-  margin-top: var(--space-lg);
-}
-
-.home-principle-card {
-  text-align: left;
-}
-
-.home-principle-card .text-h3 {
-  color: var(--teal);
-  margin-bottom: var(--space-sm);
-}
-
 /* Standards Section */
-.home-standards {
+.home-standards-intro {
   text-align: center;
-  margin-bottom: var(--space-2xl);
+  margin-bottom: var(--space-xl);
 }
 
-.home-standards .text-h2 {
+.home-standards-intro .text-h2 {
   margin: var(--space-sm) 0;
 }
 
 .home-standards__subtitle {
   font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.7);
+  color: var(--charcoal);
+  opacity: 0.8;
+}
+
+.home-standards-pillars {
+  display: flex;
+  justify-content: center;
+  gap: var(--space-2xl);
+  margin-bottom: var(--space-2xl);
+  text-align: center;
+}
+
+.home-standards-pillars .text-h3 {
+  color: var(--teal);
 }
 
 .home-standards__grid {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: var(--space-lg);
-  margin: var(--space-2xl) 0;
+  margin: var(--space-xl) 0;
 }
 
 .home-standards__item {
   text-align: center;
-  padding: var(--space-lg);
-  border: 1px solid rgba(255, 255, 255, 0.15);
+  padding: var(--space-xl);
+  background-color: var(--white);
   border-radius: 16px;
 }
 
 .home-standards__number {
   display: block;
   font-family: var(--font-heading);
-  font-size: 4rem;
+  font-size: 1.5rem;
   font-weight: 700;
-  color: var(--yellow);
-  line-height: 1;
+  color: var(--teal);
+  line-height: 1.2;
   margin-bottom: var(--space-md);
 }
 
 .home-standards__item .text-h3 {
   margin-bottom: var(--space-sm);
+  color: var(--charcoal);
 }
 
-.home-standards__note {
-  font-size: 1.1rem;
-  color: rgba(255, 255, 255, 0.7);
-  max-width: 700px;
-  margin: 0 auto;
-  font-style: italic;
-}
-
-/* Services Preview */
-.home-services__header {
-  text-align: center;
-  margin-bottom: var(--space-2xl);
-}
-
-.home-services__header .text-h2 {
-  margin: var(--space-sm) 0;
-}
-
-.home-services__subtitle {
-  font-style: italic;
-  color: var(--slate);
-}
-
-.home-services__grid {
-  display: grid;
-  grid-template-columns: 1fr 1.1fr;
-  gap: var(--space-lg);
-  max-width: 1000px;
-  margin: 0 auto;
-}
-
-.home-services__card {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-}
-
-.home-services__card-header {
-  margin-bottom: var(--space-md);
-}
-
-.home-services__card-header .text-h3 {
-  margin-top: var(--space-xs);
-}
-
-.home-services__card .button--ghost {
-  margin-top: auto;
-}
-
-.home-services__note {
-  margin-top: var(--space-md);
-  font-style: italic;
-}
-
-/* Audience Section */
-.home-audience {
-  text-align: center;
-}
-
-.home-audience__title {
-  margin-bottom: var(--space-md);
-}
-
-.home-audience__intro {
-  margin-bottom: var(--space-xl);
-}
-
-.home-audience__grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: var(--space-md);
-  max-width: 900px;
-  margin: 0 auto var(--space-xl);
-}
-
-.home-audience__item {
-  display: flex;
-  align-items: center;
-  gap: var(--space-sm);
-  padding: var(--space-md);
-  background-color: var(--white);
-  border-radius: 12px;
-  text-align: left;
-}
-
-.home-audience__icon {
-  font-size: 1.5rem;
-  font-weight: 700;
-  color: var(--teal);
-}
-
-.home-audience__note {
-  font-style: italic;
-  color: var(--slate);
-}
-
-/* Belief Section */
-.home-belief {
+/* Beyond Location Section */
+.home-beyond {
   text-align: center;
   max-width: 800px;
   margin: 0 auto;
+  padding: var(--space-xl) 0;
 }
 
-.home-belief .text-eyebrow {
-  margin-bottom: var(--space-lg);
+.home-beyond .text-h2 {
+  margin: var(--space-sm) 0 var(--space-lg);
 }
 
-.home-belief__statements {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-lg);
-}
-
-.home-belief__statements .text-h3 {
-  font-weight: 500;
-  color: var(--charcoal);
+.home-beyond__desc {
+  font-size: 1.25rem;
+  color: rgba(255, 255, 255, 0.85);
+  line-height: 1.8;
 }
 
 /* CTA Section */
@@ -284,20 +177,13 @@
 
 /* Mobile Styles */
 @media (max-width: 900px) {
-  .home-craftsmanship__principles {
-    grid-template-columns: 1fr;
-  }
-
   .home-standards__grid {
     grid-template-columns: 1fr;
   }
 
-  .home-services__grid {
-    grid-template-columns: 1fr;
-  }
-
-  .home-audience__grid {
-    grid-template-columns: 1fr;
+  .home-standards-pillars {
+    flex-direction: column;
+    gap: var(--space-md);
   }
 }
 
@@ -308,5 +194,10 @@
 
   .home-differentiation__statement {
     font-size: 1.25rem;
+  }
+
+  .hero-doorstep {
+    font-size: 1rem;
+    padding: 0 var(--space-md);
   }
 }
