@@ -4,6 +4,7 @@ import Section from '../components/Section'
 import Text from '../components/Text'
 import Button from '../components/Button'
 import ScrollReveal from '../components/ScrollReveal'
+import { supabase } from '../supabaseClient'
 import './AppointmentPage.css'
 
 function AppointmentPage() {
@@ -20,16 +21,44 @@ function AppointmentPage() {
     })
 
     const [isSubmitted, setIsSubmitted] = useState(false)
+    const [isLoading, setIsLoading] = useState(false)
+    const [error, setError] = useState(null)
 
     const handleChange = (e) => {
         const { name, value } = e.target
         setFormData(prev => ({ ...prev, [name]: value }))
     }
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
-        console.log('Form submitted:', formData)
-        setIsSubmitted(true)
+        setIsLoading(true)
+        setError(null)
+
+        try {
+            const { error: supabaseError } = await supabase.from('appointments').insert([
+                {
+                    name: formData.name,
+                    email: formData.email,
+                    phone: formData.phone,
+                    city: formData.location,
+                    car_model: `${formData.vehicleYear} ${formData.vehicleMake} ${formData.vehicleModel}`,
+                    timeline: formData.serviceInterest,
+                    message: formData.message,
+                    status: 'new'
+                }
+            ])
+
+            if (supabaseError) {
+                throw supabaseError
+            }
+
+            setIsSubmitted(true)
+        } catch (err) {
+            console.error('Submission error:', err)
+            setError('Sorry, there was an error submitting your request. Please try again or contact us directly.')
+        } finally {
+            setIsLoading(false)
+        }
     }
 
     return (
@@ -104,6 +133,12 @@ function AppointmentPage() {
                                     </Text>
                                 </div>
 
+                                {error && (
+                                    <div className="form-error-alert">
+                                        <Text className="form-error-alert__text">{error}</Text>
+                                    </div>
+                                )}
+
                                 <form className="appointment-form" onSubmit={handleSubmit}>
                                     {/* Personal */}
                                     <div className="form-section">
@@ -119,6 +154,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="Your name"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                             <div className="form-group">
@@ -131,6 +167,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="you@example.com"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                             <div className="form-group">
@@ -143,6 +180,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="+91 XXXXX XXXXX"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                         </div>
@@ -162,6 +200,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="e.g., Porsche"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                             <div className="form-group">
@@ -174,6 +213,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="e.g., 911 GT3"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                             <div className="form-group">
@@ -186,6 +226,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="e.g., 2023"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                         </div>
@@ -203,10 +244,13 @@ function AppointmentPage() {
                                                     value={formData.serviceInterest}
                                                     onChange={handleChange}
                                                     required
+                                                    disabled={isLoading}
                                                 >
                                                     <option value="">Select an option</option>
-                                                    <option value="luxury-pro">Luxury Pro Pack (15 Steps)</option>
-                                                    <option value="ceo-signature">CEO's Premium Signature Pack (35 Steps)</option>
+                                                    <option value="luxury-pro">CEO's Luxury Pro Pack (Rs.75,000)</option>
+                                                    <option value="ultra-luxury">CEO's Ultra Luxury Pack (Rs.1,50,000)</option>
+                                                    <option value="premium-signature">CEO's Premium Signature Pack (Rs.3,00,000)</option>
+                                                    <option value="celebrities-signature">CEO's Celebrities Signature Pack (Rs.5,00,000)</option>
                                                     <option value="undecided">Not sure yet — need guidance</option>
                                                 </select>
                                             </div>
@@ -220,6 +264,7 @@ function AppointmentPage() {
                                                     onChange={handleChange}
                                                     required
                                                     placeholder="Your city or area"
+                                                    disabled={isLoading}
                                                 />
                                             </div>
                                         </div>
@@ -236,13 +281,19 @@ function AppointmentPage() {
                                                 onChange={handleChange}
                                                 rows="4"
                                                 placeholder="Tell us about your vehicle's current condition, any specific concerns, or your expectations..."
+                                                disabled={isLoading}
                                             ></textarea>
                                         </div>
                                     </div>
 
                                     <div className="form-submit">
-                                        <Button type="submit" variant="primary" className="button--large">
-                                            Submit Request
+                                        <Button
+                                            type="submit"
+                                            variant="primary"
+                                            className={`button--large ${isLoading ? 'button--loading' : ''}`}
+                                            disabled={isLoading}
+                                        >
+                                            {isLoading ? 'Submitting...' : 'Submit Request'}
                                         </Button>
                                         <Text variant="caption" className="form-disclaimer">
                                             Submitting this form does not guarantee an appointment. We review every request personally and will respond within 48 hours.
