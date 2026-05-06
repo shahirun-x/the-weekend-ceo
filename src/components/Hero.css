@@ -1,5 +1,6 @@
 /* ============================================
-   HERO — CINEMATIC DARK LUXURY
+   HERO — CINEMATIC POLISH
+   Phase 2: Sequenced entrance, vignette, ambient sweeps
    ============================================ */
 
 .hero {
@@ -23,13 +24,23 @@
     padding: 0;
 }
 
+/* Cinematic Vignette */
+.hero::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, transparent 40%, var(--bg-primary) 100%);
+    pointer-events: none;
+    z-index: 1;
+    opacity: 0.7;
+}
+
 /* Ambient Glow Lights */
 .hero__ambient {
     position: absolute;
     border-radius: 50%;
     filter: blur(120px);
     pointer-events: none;
-    opacity: 0.4;
 }
 
 .hero__ambient--wine {
@@ -38,7 +49,8 @@
     background: radial-gradient(circle, var(--wine) 0%, transparent 70%);
     top: -20%;
     right: -10%;
-    animation: ambientFloat 12s ease-in-out infinite;
+    opacity: 0.35;
+    animation: ambientFloat 18s var(--ease-luxury) infinite;
 }
 
 .hero__ambient--blue {
@@ -47,22 +59,18 @@
     background: radial-gradient(circle, var(--blue-deep) 0%, transparent 70%);
     bottom: -20%;
     left: -10%;
-    animation: ambientFloat 15s ease-in-out infinite reverse;
-}
-
-@keyframes ambientFloat {
-    0%, 100% { transform: translate(0, 0); }
-    33% { transform: translate(30px, -20px); }
-    66% { transform: translate(-20px, 15px); }
+    opacity: 0.25;
+    animation: ambientFloat 22s var(--ease-luxury) infinite reverse;
 }
 
 /* Grain */
 .hero__grain {
     position: absolute;
     inset: 0;
-    opacity: 0.04;
+    opacity: 0.03;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
+    mix-blend-mode: overlay;
 }
 
 /* Container */
@@ -79,7 +87,7 @@
     gap: var(--space-md);
 }
 
-/* Eyebrow */
+/* Eyebrow — Sequenced delay 0 */
 .hero__eyebrow {
     font-family: var(--font-heading);
     font-size: 0.7rem;
@@ -99,9 +107,10 @@
     height: 1px;
     background: var(--wine-bright);
     opacity: 0.5;
+    transition: width 1s var(--ease-out-expo) 0.8s;
 }
 
-/* Title */
+/* Title — Sequenced delay 1 */
 .hero__title {
     font-family: var(--font-heading);
     font-size: clamp(2.5rem, 7vw, 5.5rem);
@@ -115,13 +124,20 @@
 
 .hero__title-accent {
     display: block;
-    background: linear-gradient(135deg, var(--wine-bright), var(--blue));
+    background: linear-gradient(135deg, var(--wine-bright) 0%, var(--blue) 100%);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    background-size: 200% 200%;
+    animation: gradientShift 8s var(--ease-luxury) infinite alternate;
 }
 
-/* Subtitle */
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
+}
+
+/* Subtitle — Sequenced delay 2 */
 .hero__subtitle {
     font-size: clamp(1rem, 1.5vw, 1.25rem);
     color: var(--text-body);
@@ -129,13 +145,26 @@
     max-width: 600px;
 }
 
-/* Content */
+/* Content — Sequenced delay 3 */
 .hero__content {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-sm);
     margin-top: var(--space-sm);
+}
+
+/* Bottom Edge Fade */
+.hero::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 120px;
+    background: linear-gradient(to bottom, transparent, var(--bg-primary));
+    pointer-events: none;
+    z-index: 1;
 }
 
 @media (max-width: 768px) {
@@ -149,7 +178,7 @@
     }
 
     .hero__ambient {
-        opacity: 0.25;
+        opacity: 0.2;
     }
 
     .hero__ambient--wine {

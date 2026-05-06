@@ -1,5 +1,6 @@
 /* ============================================
-   HEADER — DARK LUXURY
+   HEADER — CINEMATIC POLISH
+   Phase 2: Blur intensification, smooth tracking, cinematic mobile
    ============================================ */
 
 .header {
@@ -9,15 +10,19 @@
     right: 0;
     z-index: 1000;
     padding: 1.25rem 0;
-    transition: all var(--transition-base);
+    transition:
+        padding 0.6s var(--ease-out-expo),
+        background-color 0.6s var(--ease-out-expo),
+        backdrop-filter 0.6s var(--ease-out-expo),
+        border-color 0.6s var(--ease-out-expo);
 }
 
 .header--scrolled {
-    background-color: rgba(5, 6, 8, 0.85);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
-    padding: 0.75rem 0;
-    border-bottom: 1px solid var(--border);
+    background-color: rgba(5, 6, 8, 0.88);
+    backdrop-filter: blur(30px) saturate(1.2);
+    -webkit-backdrop-filter: blur(30px) saturate(1.2);
+    padding: 0.6rem 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .header__container {
@@ -43,11 +48,12 @@
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid var(--border);
-    transition: border-color var(--transition-base);
+    transition: border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
 }
 
 .header__logo:hover .header__logo-img {
     border-color: var(--wine-bright);
+    box-shadow: 0 0 20px rgba(166, 21, 52, 0.2);
 }
 
 .header__logo-text {
@@ -57,6 +63,7 @@
     text-transform: uppercase;
     letter-spacing: 0.15em;
     color: var(--text-primary);
+    transition: opacity 0.4s var(--ease-luxury);
 }
 
 .header__logo-text span {
@@ -83,7 +90,7 @@
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--text-secondary);
-    transition: color var(--transition-fast);
+    transition: color 0.4s var(--ease-luxury);
     position: relative;
     padding: 0.5rem 0.75rem;
 }
@@ -93,24 +100,28 @@
     position: absolute;
     bottom: 0;
     left: 50%;
-    transform: translateX(-50%);
-    width: 0;
+    transform: translateX(-50%) scaleX(0);
+    width: calc(100% - 1.5rem);
     height: 1px;
     background: var(--wine-bright);
-    transition: width var(--transition-base);
+    transform-origin: center;
+    transition: transform 0.5s var(--ease-out-expo);
 }
 
 .header__link:hover {
     color: var(--text-primary);
 }
 
-.header__link:hover::after,
-.header__link--active::after {
-    width: calc(100% - 1.5rem);
+.header__link:hover::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 .header__link--active {
     color: var(--text-primary);
+}
+
+.header__link--active::after {
+    transform: translateX(-50%) scaleX(1);
 }
 
 /* CTA */
@@ -128,8 +139,29 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     border: 1px solid transparent;
-    transition: all var(--transition-base);
+    transition:
+        transform 0.5s var(--ease-out-expo),
+        box-shadow 0.6s var(--ease-out-expo),
+        background-color 0.4s var(--ease-luxury);
     overflow: hidden;
+}
+
+/* Light sweep on CTA */
+.header__cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.08), transparent);
+    transform: skewX(-15deg);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.header__cta:hover::before {
+    animation: lightSweep 0.8s var(--ease-out-expo) forwards;
 }
 
 .header__cta-glow {
@@ -137,18 +169,25 @@
     inset: -1px;
     background: linear-gradient(135deg, var(--wine-bright), transparent, var(--wine-bright));
     opacity: 0;
-    transition: opacity var(--transition-base);
+    transition: opacity 0.6s var(--ease-out-expo);
     z-index: -1;
 }
 
 .header__cta:hover {
     background: var(--wine-bright);
-    transform: translateY(-1px);
-    box-shadow: 0 8px 30px var(--glow-wine);
+    transform: translateY(-2px);
+    box-shadow:
+        0 8px 30px var(--glow-wine),
+        0 0 0 1px rgba(166, 21, 52, 0.2);
 }
 
 .header__cta:hover .header__cta-glow {
     opacity: 1;
+}
+
+.header__cta:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.1s;
 }
 
 /* Mobile Toggle */
@@ -168,18 +207,42 @@
     width: 100%;
     height: 1.5px;
     background-color: var(--text-primary);
-    transition: transform var(--transition-base), opacity var(--transition-base);
+    transition:
+        transform 0.5s var(--ease-out-expo),
+        opacity 0.3s var(--ease-luxury),
+        width 0.4s var(--ease-out-expo);
+    transform-origin: center;
+}
+
+.header__mobile-toggle span:nth-child(1) {
+    width: 100%;
+}
+
+.header__mobile-toggle span:nth-child(2) {
+    width: 60%;
+    margin-left: auto;
+}
+
+.header__mobile-toggle span:nth-child(3) {
+    width: 80%;
+}
+
+.header__mobile-toggle:hover span {
+    width: 100%;
 }
 
 .header__mobile-toggle--open span:nth-child(1) {
+    width: 100%;
     transform: translateY(6.5px) rotate(45deg);
 }
 
 .header__mobile-toggle--open span:nth-child(2) {
     opacity: 0;
+    width: 0;
 }
 
 .header__mobile-toggle--open span:nth-child(3) {
+    width: 100%;
     transform: translateY(-6.5px) rotate(-45deg);
 }
 
@@ -200,11 +263,13 @@
         align-items: center;
         gap: 2rem;
         background: rgba(5, 6, 8, 0.97);
-        backdrop-filter: blur(30px);
-        -webkit-backdrop-filter: blur(30px);
+        backdrop-filter: blur(40px) saturate(1.2);
+        -webkit-backdrop-filter: blur(40px) saturate(1.2);
         opacity: 0;
         visibility: hidden;
-        transition: opacity 0.5s ease, visibility 0.5s ease;
+        transition:
+            opacity 0.6s var(--ease-out-expo),
+            visibility 0.6s var(--ease-out-expo);
     }
 
     .header__nav--open {
@@ -224,8 +289,11 @@
         letter-spacing: 0.05em;
         color: var(--text-secondary);
         opacity: 0;
-        transform: translateY(20px);
-        transition: color var(--transition-fast), opacity 0.4s ease, transform 0.4s ease;
+        transform: translateY(30px);
+        transition:
+            color 0.3s var(--ease-luxury),
+            opacity 0.6s var(--ease-out-expo),
+            transform 0.6s var(--ease-out-expo);
     }
 
     .header__nav--open .header__link {
@@ -241,8 +309,12 @@
         padding: 1rem 2.5rem;
         font-size: 0.85rem;
         opacity: 0;
-        transform: translateY(20px);
-        transition: all 0.4s ease 0.4s;
+        transform: translateY(30px);
+        transition:
+            opacity 0.6s var(--ease-out-expo) 0.4s,
+            transform 0.6s var(--ease-out-expo) 0.4s,
+            background-color 0.3s var(--ease-luxury),
+            box-shadow 0.3s var(--ease-luxury);
     }
 
     .header__nav--open .header__cta {

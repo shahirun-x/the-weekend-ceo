@@ -1,5 +1,6 @@
 /* ============================================
-   BUTTONS — PREMIUM LUXURY
+   BUTTONS — CINEMATIC LUXURY
+   Phase 2: Light sweep, press compression, magnetic hover
    ============================================ */
 
 .btn {
@@ -16,22 +17,60 @@
     padding: 0.875rem 2rem;
     border: 1px solid transparent;
     cursor: pointer;
-    transition: all var(--transition-base);
+    transition:
+        transform 0.5s var(--ease-out-expo),
+        box-shadow 0.6s var(--ease-out-expo),
+        background-color 0.4s var(--ease-luxury),
+        border-color 0.4s var(--ease-luxury),
+        color 0.3s var(--ease-luxury);
     overflow: hidden;
     text-decoration: none;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
 }
 
 .btn__text {
     position: relative;
     z-index: 2;
+    transition: transform 0.3s var(--ease-out-expo);
 }
 
 .btn__glow {
     position: absolute;
     inset: 0;
     opacity: 0;
-    transition: opacity var(--transition-base);
+    transition: opacity 0.6s var(--ease-out-expo);
     z-index: 1;
+}
+
+/* Light Sweep Effect */
+.btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(
+        90deg,
+        transparent,
+        rgba(255, 255, 255, 0.06),
+        transparent
+    );
+    transform: skewX(-15deg);
+    transition: none;
+    z-index: 3;
+    pointer-events: none;
+}
+
+.btn:hover::before {
+    animation: lightSweep 0.8s var(--ease-out-expo) forwards;
+}
+
+/* Active Press */
+.btn:active {
+    transform: translateY(0px) scale(0.97);
+    transition-duration: 0.1s;
 }
 
 /* Primary (Wine Red) */
@@ -48,15 +87,21 @@
 .btn--primary:hover {
     background: var(--wine-bright);
     border-color: var(--wine-bright);
-    transform: translateY(-2px);
-    box-shadow: 0 8px 40px var(--glow-wine);
+    transform: translateY(-3px);
+    box-shadow:
+        0 10px 40px var(--glow-wine),
+        0 0 0 1px rgba(166, 21, 52, 0.2);
 }
 
 .btn--primary:hover .btn__glow {
     opacity: 1;
 }
 
-/* Secondary (Outlined) */
+.btn--primary:hover .btn__text {
+    transform: translateY(-1px);
+}
+
+/* Secondary (Outlined) — blue glow */
 .btn--secondary {
     background: transparent;
     color: var(--text-primary);
@@ -64,9 +109,12 @@
 }
 
 .btn--secondary:hover {
-    border-color: var(--wine-bright);
-    color: var(--wine-bright);
-    transform: translateY(-2px);
+    border-color: var(--blue);
+    color: var(--blue);
+    transform: translateY(-3px);
+    box-shadow:
+        0 8px 30px rgba(122, 174, 232, 0.12),
+        0 0 0 1px rgba(122, 174, 232, 0.1);
 }
 
 /* Ghost */
@@ -77,6 +125,10 @@
     border: none;
 }
 
+.btn--ghost::before {
+    display: none;
+}
+
 .btn--ghost::after {
     content: '';
     position: absolute;
@@ -84,16 +136,21 @@
     left: 0;
     width: 0;
     height: 1px;
-    background: var(--wine-bright);
-    transition: width var(--transition-base);
+    background: linear-gradient(to right, var(--wine-bright), transparent);
+    transition: width 0.6s var(--ease-out-expo);
 }
 
 .btn--ghost:hover {
     color: var(--text-primary);
+    transform: none;
 }
 
 .btn--ghost:hover::after {
     width: 100%;
+}
+
+.btn--ghost:active {
+    transform: none;
 }
 
 /* Glass */
@@ -108,7 +165,8 @@
 .btn--glass:hover {
     border-color: var(--border-hover);
     background: var(--bg-elevated);
-    transform: translateY(-2px);
+    transform: translateY(-3px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.3);
 }
 
 /* Large Modifier */
@@ -129,4 +187,24 @@
 .btn--loading {
     pointer-events: none;
     opacity: 0.7;
+}
+
+.btn--loading .btn__text {
+    opacity: 0;
+}
+
+.btn--loading::after {
+    content: '';
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    border: 1.5px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: spin 0.7s linear infinite;
+    z-index: 5;
+}
+
+@keyframes spin {
+    to { transform: rotate(360deg); }
 }

@@ -1,5 +1,6 @@
 /* ============================================
-   PACKAGE CARD — LUXURY PRICING
+   PACKAGE CARD — CINEMATIC LUXURY PRICING
+   Phase 2: Layered shadows, sweep reflection, premium accordion
    ============================================ */
 
 .pkg-card {
@@ -7,23 +8,52 @@
     border: 1px solid var(--border);
     padding: var(--space-lg);
     margin-bottom: var(--space-md);
-    transition: all var(--transition-base);
+    transition:
+        border-color 0.5s var(--ease-luxury),
+        box-shadow 0.6s var(--ease-out-expo),
+        transform 0.6s var(--ease-out-expo);
     position: relative;
+    overflow: hidden;
+}
+
+/* Glass reflection sweep */
+.pkg-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.02), transparent);
+    transform: skewX(-15deg);
+    z-index: 1;
+    pointer-events: none;
+}
+
+.pkg-card:hover::before {
+    animation: lightSweep 1.2s var(--ease-out-expo) forwards;
 }
 
 .pkg-card:hover {
     border-color: var(--border-hover);
+    box-shadow:
+        0 16px 50px rgba(0, 0, 0, 0.25),
+        0 0 0 1px rgba(255, 255, 255, 0.03);
+    transform: translateY(-4px);
 }
 
 /* Signature Variant */
 .pkg-card--signature {
     border-color: var(--border-wine);
-    background: linear-gradient(135deg, var(--bg-card) 0%, rgba(123, 16, 35, 0.08) 100%);
+    background: linear-gradient(165deg, var(--bg-card) 0%, rgba(123, 16, 35, 0.06) 100%);
 }
 
 .pkg-card--signature:hover {
     border-color: var(--wine-bright);
-    box-shadow: 0 0 60px var(--glow-wine);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 50px var(--glow-wine),
+        inset 0 1px 0 rgba(166, 21, 52, 0.15);
 }
 
 .pkg-card__badge {
@@ -38,6 +68,11 @@
     color: var(--wine-bright);
     border: 1px solid var(--wine);
     padding: 0.25rem 0.75rem;
+    transition: box-shadow 0.5s var(--ease-out-expo);
+}
+
+.pkg-card--signature:hover .pkg-card__badge {
+    box-shadow: 0 0 20px rgba(166, 21, 52, 0.2);
 }
 
 /* Header */
@@ -62,6 +97,13 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     margin-bottom: 0.5rem;
+    background-size: 200% 200%;
+    animation: gradientShift 6s var(--ease-luxury) infinite alternate;
+}
+
+@keyframes gradientShift {
+    0% { background-position: 0% 50%; }
+    100% { background-position: 100% 50%; }
 }
 
 .pkg-card__subtitle {
@@ -81,7 +123,7 @@
     text-transform: uppercase;
     letter-spacing: 0.1em;
     cursor: pointer;
-    transition: color var(--transition-fast);
+    transition: color 0.4s var(--ease-luxury);
     margin-bottom: var(--space-sm);
     padding: 0;
     background: none;
@@ -93,18 +135,18 @@
 }
 
 .pkg-card__arrow {
-    transition: transform var(--transition-base);
+    transition: transform 0.5s var(--ease-out-expo);
 }
 
 .pkg-card__arrow--open {
     transform: rotate(180deg);
 }
 
-/* Details */
+/* Details — Smooth accordion */
 .pkg-card__details {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: max-height 0.8s var(--ease-out-expo);
 }
 
 .pkg-card__details--open {
@@ -139,6 +181,11 @@
     font-size: 0.9rem;
     color: var(--text-body);
     line-height: 1.5;
+    transition: color 0.3s var(--ease-luxury);
+}
+
+.pkg-card__list li:hover {
+    color: var(--text-service);
 }
 
 .pkg-card__list li::before {
@@ -150,6 +197,11 @@
     height: 4px;
     background: var(--wine);
     border-radius: 50%;
+    transition: box-shadow 0.3s var(--ease-luxury);
+}
+
+.pkg-card__list li:hover::before {
+    box-shadow: 0 0 8px var(--glow-wine);
 }
 
 .pkg-card__info {
@@ -173,13 +225,42 @@
     font-weight: 600;
     text-transform: uppercase;
     letter-spacing: 0.1em;
-    transition: all var(--transition-base);
+    transition:
+        background-color 0.4s var(--ease-luxury),
+        border-color 0.4s var(--ease-luxury),
+        box-shadow 0.5s var(--ease-out-expo),
+        transform 0.5s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+/* CTA light sweep */
+.pkg-card__cta::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.05), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+
+.pkg-card__cta:hover::before {
+    animation: lightSweep 0.8s var(--ease-out-expo) forwards;
 }
 
 .pkg-card__cta:hover {
     background: var(--wine);
     border-color: var(--wine);
-    box-shadow: 0 4px 20px var(--glow-wine);
+    box-shadow: 0 6px 25px var(--glow-wine);
+    transform: translateY(-2px);
+}
+
+.pkg-card__cta:active {
+    transform: translateY(0) scale(0.97);
+    transition-duration: 0.1s;
 }
 
 .pkg-card--signature .pkg-card__cta {
@@ -189,4 +270,7 @@
 
 .pkg-card--signature .pkg-card__cta:hover {
     background: var(--wine-bright);
+    box-shadow:
+        0 8px 30px var(--glow-wine),
+        0 0 0 1px rgba(166, 21, 52, 0.2);
 }

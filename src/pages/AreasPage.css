@@ -1,15 +1,71 @@
+/* ============================================
+   AREAS — CINEMATIC POLISH
+   Phase 2: Location tag hover, card depth, refined CTA
+   ============================================ */
+
 .areas-statement { text-align: center; max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-sm); }
+
 .areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
-.areas-card { background: var(--bg-card); border: 1px solid var(--border); padding: var(--space-lg); transition: all var(--transition-base); }
-.areas-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+
+.areas-card {
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: var(--space-lg);
+    transition:
+        border-color 0.5s var(--ease-luxury),
+        transform 0.6s var(--ease-out-expo),
+        box-shadow 0.6s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.areas-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.015), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+
+.areas-card:hover::before {
+    animation: lightSweep 1s var(--ease-out-expo) forwards;
+}
+
+.areas-card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-6px);
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+}
+
 .areas-card--featured { border-color: var(--border-wine); grid-column: span 2; }
-.areas-card--featured:hover { box-shadow: 0 0 40px var(--glow-wine); }
+.areas-card--featured:hover {
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 40px var(--glow-wine);
+}
 .areas-card__title { margin-bottom: var(--space-sm); color: var(--text-primary); }
 .areas-card__list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-.areas-card__list li { font-size: 0.85rem; color: var(--text-secondary); padding: 0.3rem 0.75rem; background: var(--bg-elevated); border: 1px solid var(--border); }
+.areas-card__list li {
+    font-size: 0.85rem; color: var(--text-secondary);
+    padding: 0.3rem 0.75rem; background: var(--bg-elevated);
+    border: 1px solid var(--border);
+    transition:
+        color 0.3s var(--ease-luxury),
+        border-color 0.3s var(--ease-luxury),
+        background-color 0.3s var(--ease-luxury);
+}
+.areas-card__list li:hover {
+    color: var(--text-primary);
+    border-color: var(--wine);
+    background: rgba(123, 16, 35, 0.1);
+}
 
 .areas-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
-.areas-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.5; }
+.areas-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.4; animation: ambientFloat 20s var(--ease-luxury) infinite; }
 .areas-cta-content { position: relative; z-index: 2; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-lg); display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
 .areas-cta-sub { color: var(--text-body); }
 

@@ -1,19 +1,37 @@
 /* ============================================
-   APPOINTMENT PAGE — DARK LUXURY FORMS
+   APPOINTMENT PAGE — CINEMATIC FORM LUXURY
+   Phase 2: Focus glow, validation feedback, premium inputs
    ============================================ */
 
 .appt-content { max-width: 800px; margin: 0 auto; }
 .appt-intro { margin-bottom: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm); }
 
-.appt-error { background: rgba(166, 21, 52, 0.15); border: 1px solid var(--wine); padding: var(--space-sm) var(--space-md); margin-bottom: var(--space-lg); }
+.appt-error {
+    background: rgba(166, 21, 52, 0.1);
+    border: 1px solid rgba(166, 21, 52, 0.3);
+    padding: var(--space-sm) var(--space-md);
+    margin-bottom: var(--space-lg);
+    animation: errorReveal 0.5s var(--ease-out-expo) forwards;
+}
+
+@keyframes errorReveal {
+    from { opacity: 0; transform: translateY(-8px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
 .appt-error .text--body { color: #fca5a5; }
 
 .appt-form { display: flex; flex-direction: column; gap: var(--space-lg); }
 
 .appt-section-label {
-    font-family: var(--font-heading); font-size: 0.7rem; font-weight: 600;
-    text-transform: uppercase; letter-spacing: 0.2em; color: var(--wine-bright);
-    padding-bottom: 0.5rem; border-bottom: 1px solid var(--border);
+    font-family: var(--font-heading);
+    font-size: 0.7rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--wine-bright);
+    padding-bottom: 0.5rem;
+    border-bottom: 1px solid var(--border);
 }
 
 .appt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
@@ -23,34 +41,106 @@
 .appt-field--full { grid-column: 1 / -1; }
 
 .appt-field label {
-    font-size: 0.8rem; font-weight: 500; color: var(--text-secondary);
-    text-transform: uppercase; letter-spacing: 0.05em;
+    font-size: 0.8rem;
+    font-weight: 500;
+    color: var(--text-secondary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    transition: color 0.3s var(--ease-luxury);
+}
+
+.appt-field:focus-within label {
+    color: var(--wine-bright);
 }
 
 .appt-field input,
 .appt-field select,
 .appt-field textarea {
-    background: var(--bg-card); border: 1px solid var(--border);
-    padding: 0.875rem 1rem; color: var(--text-primary);
-    font-family: var(--font-body); font-size: 0.95rem;
-    transition: border-color var(--transition-fast);
+    background: var(--bg-card);
+    border: 1px solid var(--border);
+    padding: 0.875rem 1rem;
+    color: var(--text-primary);
+    font-family: var(--font-body);
+    font-size: 0.95rem;
+    transition:
+        border-color 0.4s var(--ease-luxury),
+        box-shadow 0.5s var(--ease-out-expo),
+        background-color 0.4s var(--ease-luxury);
     width: 100%;
 }
 
 .appt-field input:focus,
 .appt-field select:focus,
-.appt-field textarea:focus { outline: none; border-color: var(--wine-bright); }
+.appt-field textarea:focus {
+    outline: none;
+    border-color: var(--wine-bright);
+    box-shadow: 0 0 0 3px rgba(166, 21, 52, 0.1);
+    background: var(--bg-elevated);
+}
 
-.appt-field select { appearance: none; cursor: pointer; }
+.appt-field input::placeholder,
+.appt-field textarea::placeholder {
+    color: var(--text-muted);
+}
 
-.appt-field textarea { resize: vertical; min-height: 100px; }
+.appt-field select {
+    appearance: none;
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%237A7088' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    padding-right: 2.5rem;
+}
 
-.appt-submit { display: flex; flex-direction: column; align-items: center; gap: var(--space-sm); padding-top: var(--space-sm); }
+.appt-field textarea {
+    resize: vertical;
+    min-height: 100px;
+}
+
+.appt-submit {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-sm);
+    padding-top: var(--space-sm);
+}
+
 .appt-disclaimer { text-align: center; max-width: 500px; }
 
 /* Success */
-.appt-success { text-align: center; display: flex; flex-direction: column; align-items: center; gap: var(--space-md); padding: var(--space-xl) 0; }
-.appt-success__icon { width: 60px; height: 60px; border: 2px solid var(--wine-bright); display: flex; align-items: center; justify-content: center; font-size: 1.5rem; color: var(--wine-bright); margin-bottom: var(--space-sm); }
+.appt-success {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+    padding: var(--space-xl) 0;
+    animation: successReveal 0.8s var(--ease-out-expo) forwards;
+}
+
+@keyframes successReveal {
+    from { opacity: 0; transform: scale(0.95); }
+    to { opacity: 1; transform: scale(1); }
+}
+
+.appt-success__icon {
+    width: 60px;
+    height: 60px;
+    border: 2px solid var(--wine-bright);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5rem;
+    color: var(--wine-bright);
+    margin-bottom: var(--space-sm);
+    animation: checkReveal 0.6s var(--ease-out-expo) 0.3s both;
+}
+
+@keyframes checkReveal {
+    from { opacity: 0; transform: scale(0.5) rotate(-10deg); }
+    to { opacity: 1; transform: scale(1) rotate(0deg); }
+}
+
 .appt-success__actions { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
 
 @media (max-width: 768px) {

@@ -1,6 +1,7 @@
 /* ============================================
    THE WEEKEND CEO — LUXURY AUTOMOTIVE DESIGN SYSTEM
    Dark Luxury × Cinematic Automotive × Premium Studio
+   Phase 2: Cinematic Polish & Micro-Interaction System
    ============================================ */
 
 /* CSS Reset & Base */
@@ -68,11 +69,17 @@ html {
   --container-narrow: 900px;
   --section-padding: clamp(5rem, 12vw, 10rem);
 
-  /* Animation */
-  --transition-fast: 0.2s ease;
-  --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
-  --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+  /* Cinematic Easing Library */
+  --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
+  --ease-out-quint: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-in-out-quart: cubic-bezier(0.76, 0, 0.24, 1);
+  --ease-luxury: cubic-bezier(0.25, 0.46, 0.45, 0.94);
+
+  /* Animation Tokens */
+  --transition-fast: 0.25s var(--ease-luxury);
+  --transition-base: 0.5s var(--ease-out-expo);
+  --transition-slow: 1s var(--ease-out-expo);
+  --transition-cinematic: 1.4s var(--ease-out-quint);
 
   /* Border Radius */
   --radius-sm: 4px;
@@ -111,6 +118,24 @@ button {
   cursor: pointer;
   border: none;
   background: none;
+}
+
+/* ============================================
+   PAGE TRANSITION SYSTEM
+   ============================================ */
+.layout__main {
+  animation: pageReveal 0.8s var(--ease-out-expo) forwards;
+}
+
+@keyframes pageReveal {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* ============================================
@@ -232,7 +257,7 @@ button {
 }
 
 /* ============================================
-   SCROLL REVEAL ANIMATIONS
+   CINEMATIC SCROLL REVEAL SYSTEM
    ============================================ */
 .reveal {
   opacity: 0;
@@ -241,19 +266,19 @@ button {
 }
 
 .reveal--up {
-  transform: translateY(40px);
+  transform: translateY(50px);
 }
 
 .reveal--left {
-  transform: translateX(-40px);
+  transform: translateX(-50px);
 }
 
 .reveal--right {
-  transform: translateX(40px);
+  transform: translateX(50px);
 }
 
 .reveal--scale {
-  transform: scale(0.95);
+  transform: scale(0.92);
 }
 
 .reveal--fade {
@@ -271,6 +296,9 @@ button {
     transform: none !important;
     transition: none;
   }
+  .layout__main {
+    animation: none;
+  }
 }
 
 /* ============================================
@@ -282,10 +310,11 @@ button {
   inset: 0;
   z-index: 9999;
   pointer-events: none;
-  opacity: 0.03;
+  opacity: 0.025;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
   background-repeat: repeat;
   background-size: 256px;
+  mix-blend-mode: overlay;
 }
 
 /* ============================================
@@ -300,11 +329,65 @@ button {
 }
 
 /* ============================================
+   LIGHT SWEEP EFFECT (reusable)
+   ============================================ */
+@keyframes lightSweep {
+  0% { transform: translateX(-100%) skewX(-15deg); }
+  100% { transform: translateX(300%) skewX(-15deg); }
+}
+
+/* ============================================
+   AMBIENT FLOAT (reusable)
+   ============================================ */
+@keyframes ambientFloat {
+  0%, 100% { transform: translate(0, 0) scale(1); }
+  25% { transform: translate(15px, -10px) scale(1.02); }
+  50% { transform: translate(-10px, 20px) scale(0.98); }
+  75% { transform: translate(20px, 10px) scale(1.01); }
+}
+
+/* ============================================
+   SHIMMER LOADING
+   ============================================ */
+@keyframes shimmer {
+  0% { background-position: -200% 0; }
+  100% { background-position: 200% 0; }
+}
+
+.shimmer {
+  background: linear-gradient(
+    90deg,
+    var(--bg-card) 25%,
+    var(--bg-elevated) 50%,
+    var(--bg-card) 75%
+  );
+  background-size: 200% 100%;
+  animation: shimmer 2s var(--ease-luxury) infinite;
+}
+
+/* ============================================
    ANIMATED BORDER
    ============================================ */
 @keyframes borderGlow {
   0%, 100% { border-color: var(--border); }
   50% { border-color: var(--border-wine); }
+}
+
+/* ============================================
+   IMAGE REVEAL
+   ============================================ */
+.img-reveal {
+  overflow: hidden;
+}
+
+.img-reveal img {
+  transition: transform 1.2s var(--ease-out-expo), filter 0.8s var(--ease-luxury);
+  filter: brightness(0.8) saturate(0.85);
+}
+
+.img-reveal:hover img {
+  transform: scale(1.04);
+  filter: brightness(1) saturate(1);
 }
 
 /* ============================================
@@ -316,7 +399,7 @@ button {
 }
 
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 5px;
 }
 
 ::-webkit-scrollbar-track {
@@ -326,10 +409,19 @@ button {
 ::-webkit-scrollbar-thumb {
   background: var(--bg-elevated);
   border-radius: 3px;
+  transition: background 0.3s;
 }
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--wine);
+}
+
+/* ============================================
+   FOCUS STYLES (Accessibility + Luxury)
+   ============================================ */
+:focus-visible {
+  outline: 1px solid var(--wine-bright);
+  outline-offset: 3px;
 }
 
 /* ============================================

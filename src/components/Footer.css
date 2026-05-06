@@ -1,17 +1,33 @@
 /* ============================================
-   FOOTER — DARK LUXURY
+   FOOTER — CINEMATIC POLISH
+   Phase 2: Ambient glow separator, refined hover, premium spacing
    ============================================ */
 
 .footer {
     background-color: var(--bg-secondary);
     border-top: 1px solid var(--border);
     padding: var(--space-2xl) 0 var(--space-lg);
+    position: relative;
+}
+
+/* Ambient top glow */
+.footer::before {
+    content: '';
+    position: absolute;
+    top: -1px;
+    left: 0;
+    right: 0;
+    height: 100px;
+    background: linear-gradient(to bottom, rgba(123, 16, 35, 0.06), transparent);
+    pointer-events: none;
 }
 
 .footer__container {
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 2;
 }
 
 .footer__top {
@@ -40,6 +56,12 @@
     border-radius: 50%;
     object-fit: cover;
     border: 1px solid var(--border);
+    transition: border-color 0.5s var(--ease-out-expo), box-shadow 0.5s var(--ease-out-expo);
+}
+
+.footer__logo:hover .footer__logo-img {
+    border-color: var(--wine-bright);
+    box-shadow: 0 0 15px rgba(166, 21, 52, 0.15);
 }
 
 .footer__logo-text {
@@ -87,11 +109,13 @@
 .footer__link {
     font-size: 0.875rem;
     color: var(--text-secondary);
-    transition: color var(--transition-fast);
+    transition: color 0.4s var(--ease-luxury), transform 0.4s var(--ease-out-expo);
+    display: inline-block;
 }
 
 .footer__link:hover {
     color: var(--text-primary);
+    transform: translateX(4px);
 }
 
 /* Divider */
@@ -99,7 +123,7 @@
     height: 1px;
     background: linear-gradient(to right, transparent, var(--wine), transparent);
     margin-bottom: var(--space-lg);
-    opacity: 0.3;
+    opacity: 0.25;
 }
 
 /* Bottom */

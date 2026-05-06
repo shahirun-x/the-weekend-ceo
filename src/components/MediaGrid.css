@@ -1,5 +1,6 @@
 /* ============================================
    MEDIA GRID — CINEMATIC GALLERY
+   Phase 2: Slow zoom, ambient overlays, smooth lightbox
    ============================================ */
 
 /* Filters */
@@ -21,7 +22,11 @@
     border: 1px solid var(--border);
     background: transparent;
     cursor: pointer;
-    transition: all var(--transition-fast);
+    transition:
+        color 0.4s var(--ease-luxury),
+        border-color 0.4s var(--ease-luxury),
+        background-color 0.4s var(--ease-luxury),
+        box-shadow 0.5s var(--ease-out-expo);
 }
 
 .mg-filter:hover {
@@ -33,6 +38,7 @@
     color: var(--text-primary);
     background: var(--wine);
     border-color: var(--wine);
+    box-shadow: 0 4px 15px var(--glow-wine);
 }
 
 /* Grid */
@@ -59,25 +65,33 @@
     width: 100%;
     height: 100%;
     object-fit: cover;
-    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1), filter var(--transition-base);
-    filter: brightness(0.85) saturate(0.9);
+    transition:
+        transform 1.4s var(--ease-out-quint),
+        filter 0.8s var(--ease-luxury);
+    filter: brightness(0.8) saturate(0.85);
+    will-change: transform;
 }
 
 .mg-item:hover .mg-item__img {
     transform: scale(1.06);
-    filter: brightness(1) saturate(1);
+    filter: brightness(1) saturate(1.05);
 }
 
 .mg-item__overlay {
     position: absolute;
     inset: 0;
-    background: linear-gradient(to top, rgba(5, 6, 8, 0.9) 0%, transparent 50%);
+    background: linear-gradient(
+        to top,
+        rgba(5, 6, 8, 0.92) 0%,
+        rgba(5, 6, 8, 0.3) 40%,
+        transparent 60%
+    );
     display: flex;
     flex-direction: column;
     justify-content: flex-end;
     padding: var(--space-md);
     opacity: 0;
-    transition: opacity var(--transition-base);
+    transition: opacity 0.6s var(--ease-out-expo);
 }
 
 .mg-item:hover .mg-item__overlay {
@@ -89,6 +103,12 @@
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
+    transform: translateY(8px);
+    transition: transform 0.6s var(--ease-out-expo);
+}
+
+.mg-item:hover .mg-item__title {
+    transform: translateY(0);
 }
 
 .mg-item__subtitle {
@@ -96,24 +116,38 @@
     color: var(--wine-bright);
     text-transform: uppercase;
     letter-spacing: 0.05em;
+    transform: translateY(8px);
+    transition: transform 0.6s var(--ease-out-expo) 0.05s;
 }
 
-/* Lightbox */
+.mg-item:hover .mg-item__subtitle {
+    transform: translateY(0);
+}
+
+/* Lightbox — Cinematic */
 .mg-lightbox {
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(5, 6, 8, 0.95);
+    background: rgba(5, 6, 8, 0.96);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
     display: flex;
     align-items: center;
     justify-content: center;
     padding: var(--space-lg);
-    animation: lightboxIn 0.3s ease;
+    animation: lightboxReveal 0.5s var(--ease-out-expo) forwards;
 }
 
-@keyframes lightboxIn {
-    from { opacity: 0; }
-    to { opacity: 1; }
+@keyframes lightboxReveal {
+    from {
+        opacity: 0;
+        backdrop-filter: blur(0);
+    }
+    to {
+        opacity: 1;
+        backdrop-filter: blur(20px);
+    }
 }
 
 .mg-lightbox__close {
@@ -125,13 +159,14 @@
     color: var(--text-primary);
     font-size: 2rem;
     cursor: pointer;
-    opacity: 0.5;
-    transition: opacity var(--transition-fast);
+    opacity: 0.4;
+    transition: opacity 0.4s var(--ease-luxury), transform 0.4s var(--ease-out-expo);
     z-index: 10;
 }
 
 .mg-lightbox__close:hover {
     opacity: 1;
+    transform: scale(1.1);
 }
 
 .mg-lightbox__content {
@@ -140,12 +175,25 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    animation: lightboxImageIn 0.7s var(--ease-out-expo) 0.1s both;
+}
+
+@keyframes lightboxImageIn {
+    from {
+        opacity: 0;
+        transform: scale(0.94);
+    }
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 
 .mg-lightbox__content img {
     max-width: 100%;
     max-height: 80vh;
     object-fit: contain;
+    border: 1px solid var(--border);
 }
 
 .mg-lightbox__info {
@@ -154,6 +202,12 @@
     align-items: center;
     gap: 0.25rem;
     margin-top: var(--space-sm);
+    animation: lightboxInfoIn 0.6s var(--ease-out-expo) 0.3s both;
+}
+
+@keyframes lightboxInfoIn {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
 }
 
 .mg-lightbox__title {
@@ -182,6 +236,16 @@
 
     .mg-item__overlay {
         opacity: 1;
+        background: linear-gradient(
+            to top,
+            rgba(5, 6, 8, 0.8) 0%,
+            transparent 60%
+        );
+    }
+
+    .mg-item__title,
+    .mg-item__subtitle {
+        transform: translateY(0);
     }
 }
 

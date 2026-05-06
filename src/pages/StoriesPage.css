@@ -1,5 +1,6 @@
 /* ============================================
-   STORIES PAGE — DARK LUXURY
+   STORIES PAGE — CINEMATIC POLISH
+   Phase 2: Card hover depth, progress glow, premium tabs
    ============================================ */
 
 .stories-hero { padding-top: 10rem; }
@@ -10,23 +11,57 @@
 .stories-hero__counter { margin-top: var(--space-sm); }
 
 .stories-year-tabs { display: flex; gap: 0.5rem; }
-.stories-year-tab { font-family: var(--font-heading); font-size: 0.8rem; font-weight: 600; color: var(--text-secondary); padding: 0.5rem 1.25rem; border: 1px solid var(--border); background: transparent; cursor: pointer; transition: all var(--transition-fast); }
+.stories-year-tab {
+    font-family: var(--font-heading); font-size: 0.8rem; font-weight: 600;
+    color: var(--text-secondary); padding: 0.5rem 1.25rem;
+    border: 1px solid var(--border); background: transparent; cursor: pointer;
+    transition:
+        color 0.4s var(--ease-luxury),
+        border-color 0.4s var(--ease-luxury),
+        background-color 0.4s var(--ease-luxury),
+        box-shadow 0.5s var(--ease-out-expo);
+}
 .stories-year-tab:hover { color: var(--text-primary); border-color: var(--border-hover); }
-.stories-year-tab--active { color: var(--text-primary); background: var(--wine); border-color: var(--wine); }
+.stories-year-tab--active { color: var(--text-primary); background: var(--wine); border-color: var(--wine); box-shadow: 0 4px 15px var(--glow-wine); }
 
 .stories-loading, .stories-empty { text-align: center; padding: var(--space-xl) 0; }
 .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-md); }
 
-.story-card { position: relative; display: block; overflow: hidden; border: 1px solid var(--border); min-height: 400px; transition: all var(--transition-base); }
-.story-card:hover { border-color: var(--border-wine); transform: translateY(-4px); }
+.story-card {
+    position: relative; display: block; overflow: hidden;
+    border: 1px solid var(--border); min-height: 400px;
+    transition:
+        border-color 0.5s var(--ease-luxury),
+        transform 0.6s var(--ease-out-expo),
+        box-shadow 0.6s var(--ease-out-expo);
+}
+.story-card:hover {
+    border-color: var(--border-wine);
+    transform: translateY(-6px);
+    box-shadow:
+        0 20px 60px rgba(0, 0, 0, 0.3),
+        0 0 30px rgba(123, 16, 35, 0.08);
+}
 
-.story-card__bg { position: absolute; inset: 0; background-size: cover; background-position: center; transition: transform 0.8s cubic-bezier(0.16,1,0.3,1); filter: brightness(0.4); }
-.story-card:hover .story-card__bg { transform: scale(1.05); filter: brightness(0.5); }
+.story-card__bg {
+    position: absolute; inset: 0;
+    background-size: cover; background-position: center;
+    transition: transform 1.4s var(--ease-out-quint), filter 0.8s var(--ease-luxury);
+    filter: brightness(0.35) saturate(0.8);
+}
+.story-card:hover .story-card__bg {
+    transform: scale(1.05);
+    filter: brightness(0.45) saturate(0.9);
+}
 
 .story-card__fallback { position: absolute; inset: 0; background: var(--bg-card); display: flex; align-items: center; justify-content: center; }
 .story-card__watermark { font-family: var(--font-heading); font-size: 8rem; font-weight: 900; color: rgba(255,255,255,0.03); }
 
-.story-card__overlay { position: relative; z-index: 2; display: flex; flex-direction: column; justify-content: space-between; height: 100%; min-height: 400px; padding: var(--space-md); }
+.story-card__overlay {
+    position: relative; z-index: 2;
+    display: flex; flex-direction: column; justify-content: space-between;
+    height: 100%; min-height: 400px; padding: var(--space-md);
+}
 .story-card__top { display: flex; justify-content: space-between; align-items: flex-start; }
 .story-card__number { font-family: var(--font-heading); font-size: 0.8rem; font-weight: 700; color: var(--wine-bright); letter-spacing: 0.05em; }
 .story-card__date { font-size: 0.75rem; color: var(--text-secondary); }
@@ -34,14 +69,29 @@
 .story-card__content { margin-top: auto; display: flex; flex-direction: column; gap: 0.5rem; }
 .story-card__title { color: var(--text-primary); font-size: 1.25rem; }
 .story-card__tags { display: flex; gap: 0.5rem; flex-wrap: wrap; }
-.story-card__tag { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em; color: var(--text-secondary); padding: 0.2rem 0.5rem; background: rgba(255,255,255,0.05); border: 1px solid var(--border); }
+.story-card__tag {
+    font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.05em;
+    color: var(--text-secondary); padding: 0.2rem 0.5rem;
+    background: rgba(255,255,255,0.05); border: 1px solid var(--border);
+}
 .story-card__pack { font-size: 0.75rem; color: var(--wine-bright); font-weight: 500; }
 .story-card__excerpt { font-size: 0.85rem; color: var(--text-secondary); line-height: 1.4; }
-.story-card__read { font-family: var(--font-heading); font-size: 0.75rem; font-weight: 600; text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary); margin-top: 0.5rem; transition: color var(--transition-fast); }
-.story-card:hover .story-card__read { color: var(--wine-bright); }
+.story-card__read {
+    font-family: var(--font-heading); font-size: 0.75rem; font-weight: 600;
+    text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-primary);
+    margin-top: 0.5rem;
+    transition: color 0.4s var(--ease-luxury), transform 0.4s var(--ease-out-expo);
+}
+.story-card:hover .story-card__read { color: var(--wine-bright); transform: translateX(4px); }
 
 .stories-slots-strip { background: var(--bg-card); border-top: 1px solid var(--border); padding: var(--space-lg); }
 .stories-slots-strip__container { max-width: var(--container-max); margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-sm); }
 .stories-slots-strip__text { font-size: 0.85rem; color: var(--text-secondary); text-align: center; }
-.stories-slots-strip__progress { height: 3px; background: var(--bg-elevated); overflow: hidden; }
-.stories-slots-strip__fill { height: 100%; background: linear-gradient(to right, var(--wine), var(--wine-bright)); transition: width 1s ease; }
+.stories-slots-strip__progress { height: 3px; background: var(--bg-elevated); overflow: hidden; border-radius: 2px; }
+.stories-slots-strip__fill {
+    height: 100%;
+    background: linear-gradient(to right, var(--wine), var(--wine-bright));
+    transition: width 1.5s var(--ease-out-expo);
+    border-radius: 2px;
+    box-shadow: 0 0 10px var(--glow-wine);
+}

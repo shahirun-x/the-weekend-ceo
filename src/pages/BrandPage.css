@@ -1,3 +1,8 @@
+/* ============================================
+   BRAND — CINEMATIC POLISH
+   Phase 2: Duality card depth, quote ambient, refined spacing
+   ============================================ */
+
 .brand-statement { max-width: 800px; margin: 0 auto; text-align: center; }
 .brand-statement__text { font-size: 1.2rem; line-height: 1.9; color: var(--text-body); }
 
@@ -11,13 +16,47 @@
 }
 
 .brand-duality { display: flex; align-items: center; gap: var(--space-xl); max-width: 800px; margin: 0 auto var(--space-xl); }
-.brand-duality__card { flex: 1; text-align: center; padding: var(--space-lg); background: var(--bg-card); border: 1px solid var(--border); }
+
+.brand-duality__card {
+    flex: 1; text-align: center; padding: var(--space-lg);
+    background: var(--bg-card); border: 1px solid var(--border);
+    transition:
+        border-color 0.5s var(--ease-luxury),
+        transform 0.6s var(--ease-out-expo),
+        box-shadow 0.6s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.brand-duality__card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.015), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+
+.brand-duality__card:hover::before {
+    animation: lightSweep 1s var(--ease-out-expo) forwards;
+}
+
+.brand-duality__card:hover {
+    border-color: var(--border-hover);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+}
+
 .brand-duality__divider { width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, var(--wine), transparent); flex-shrink: 0; }
+
 .brand-closing { max-width: 800px; margin: 0 auto; text-align: center; padding-top: var(--space-lg); border-top: 1px solid var(--border); }
 .brand-closing__text { font-size: 1.1rem; line-height: 1.8; color: var(--text-body); }
 
 .brand-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
-.brand-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.5; }
+.brand-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.4; animation: ambientFloat 20s var(--ease-luxury) infinite; }
 .brand-cta-content { position: relative; z-index: 2; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-lg); display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
 
 @media (max-width: 768px) {

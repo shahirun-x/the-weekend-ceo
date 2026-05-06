@@ -1,3 +1,8 @@
+/* ============================================
+   GALLERY — CINEMATIC POLISH
+   Phase 2: CTA ambient float
+   ============================================ */
+
 .gallery-cta-section {
     position: relative;
     padding: var(--space-3xl) 0;
@@ -16,7 +21,8 @@
     background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%);
     filter: blur(100px);
     pointer-events: none;
-    opacity: 0.5;
+    opacity: 0.4;
+    animation: ambientFloat 20s var(--ease-luxury) infinite;
 }
 
 .gallery-cta-content {

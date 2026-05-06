@@ -1,12 +1,114 @@
-.safety-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); }
-.safety-card { background: var(--bg-secondary); padding: var(--space-lg); transition: all var(--transition-base); }
-.safety-card:hover { background: var(--bg-card); }
-.safety-card__num { font-family: var(--font-heading); font-size: 2rem; font-weight: 800; color: var(--wine); opacity: 0.4; line-height: 1; display: block; margin-bottom: var(--space-sm); }
-.safety-card__title { font-family: var(--font-heading); font-size: 1rem; font-weight: 600; color: var(--text-primary); text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.5rem; }
-.safety-card__desc { font-size: 0.9rem; color: var(--text-secondary); line-height: 1.6; }
+/* ============================================
+   SAFETY ASSURANCE — CINEMATIC POLISH
+   Phase 2: Card hover depth, number glow, refined grid
+   ============================================ */
 
-.safety-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
-.safety-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.5; }
-.safety-cta-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--border);
+}
 
-@media (max-width: 768px) { .safety-grid { grid-template-columns: 1fr; } }
+.safety-card {
+    background: var(--bg-secondary);
+    padding: var(--space-lg);
+    transition:
+        background-color 0.5s var(--ease-luxury),
+        transform 0.5s var(--ease-out-expo),
+        box-shadow 0.6s var(--ease-out-expo);
+    position: relative;
+    overflow: hidden;
+}
+
+.safety-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 60%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.015), transparent);
+    transform: skewX(-15deg);
+    pointer-events: none;
+}
+
+.safety-card:hover::before {
+    animation: lightSweep 1s var(--ease-out-expo) forwards;
+}
+
+.safety-card:hover {
+    background: var(--bg-card);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
+}
+
+.safety-card__num {
+    font-family: var(--font-heading);
+    font-size: 2rem;
+    font-weight: 800;
+    color: var(--wine);
+    opacity: 0.4;
+    line-height: 1;
+    display: block;
+    margin-bottom: var(--space-sm);
+    transition: opacity 0.4s var(--ease-luxury), text-shadow 0.5s var(--ease-out-expo);
+}
+
+.safety-card:hover .safety-card__num {
+    opacity: 0.6;
+    text-shadow: 0 0 30px rgba(123, 16, 35, 0.3);
+}
+
+.safety-card__title {
+    font-family: var(--font-heading);
+    font-size: 1rem;
+    font-weight: 600;
+    color: var(--text-primary);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    margin-bottom: 0.5rem;
+}
+
+.safety-card__desc {
+    font-size: 0.9rem;
+    color: var(--text-secondary);
+    line-height: 1.6;
+}
+
+.safety-cta-section {
+    position: relative;
+    padding: var(--space-3xl) 0;
+    text-align: center;
+    background: var(--bg-secondary);
+    overflow: hidden;
+}
+
+.safety-cta-ambient {
+    position: absolute;
+    width: 600px;
+    height: 600px;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%);
+    filter: blur(100px);
+    pointer-events: none;
+    opacity: 0.4;
+    animation: ambientFloat 20s var(--ease-luxury) infinite;
+}
+
+.safety-cta-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--space-md);
+}
+
+@media (max-width: 768px) {
+    .safety-grid {
+        grid-template-columns: 1fr;
+    }
+}
