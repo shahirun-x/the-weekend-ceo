@@ -1,74 +1,73 @@
 /* ============================================
-   TEXT COMPONENT — BOLD CREATIVE STYLES
+   TEXT — DARK LUXURY TYPOGRAPHY
    ============================================ */
 
-.text-h1 {
+.text--h1 {
     font-family: var(--font-heading);
-    font-size: clamp(3rem, 8vw, 6rem);
-    font-weight: 700;
-    line-height: 0.95;
-    letter-spacing: -0.04em;
-    text-transform: uppercase;
-    color: var(--text-primary);
-}
-
-.text-h2 {
-    font-family: var(--font-heading);
-    font-size: clamp(2rem, 5vw, 4rem);
+    font-size: clamp(2.5rem, 6vw, 4.5rem);
     font-weight: 700;
     line-height: 1;
     letter-spacing: -0.03em;
     color: var(--text-primary);
 }
 
-.text-h3 {
+.text--h2 {
     font-family: var(--font-heading);
-    font-size: clamp(1.5rem, 3vw, 2.25rem);
-    font-weight: 600;
+    font-size: clamp(1.75rem, 4vw, 3rem);
+    font-weight: 700;
     line-height: 1.1;
     letter-spacing: -0.02em;
     color: var(--text-primary);
 }
 
-.text-body {
-    font-family: var(--font-body);
-    font-size: clamp(1rem, 1.2vw, 1.125rem);
-    font-weight: 400;
-    line-height: 1.7;
-    color: var(--text-secondary);
+.text--h3 {
+    font-family: var(--font-heading);
+    font-size: clamp(1.25rem, 2.5vw, 1.75rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--text-primary);
 }
 
-.text-accent-style {
+.text--h4 {
     font-family: var(--font-heading);
+    font-size: clamp(1rem, 1.5vw, 1.25rem);
+    font-weight: 600;
+    line-height: 1.3;
+    color: var(--text-primary);
+}
+
+.text--body {
+    font-size: clamp(1rem, 1.1vw, 1.125rem);
+    line-height: 1.7;
+    color: var(--text-body);
+}
+
+.text--large {
     font-size: clamp(1.125rem, 1.5vw, 1.375rem);
-    font-weight: 500;
-    color: var(--teal);
+    line-height: 1.6;
+    color: var(--text-body);
+}
+
+.text--caption {
+    font-size: 0.8rem;
+    color: var(--text-secondary);
     line-height: 1.5;
 }
 
-.text-caption {
-    font-family: var(--font-body);
-    font-size: 0.875rem;
-    font-weight: 500;
-    color: var(--slate);
-    letter-spacing: 0.02em;
-}
-
-.text-eyebrow {
+.text--eyebrow {
     font-family: var(--font-heading);
-    font-size: 0.85rem;
+    font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.12em;
-    color: var(--teal);
+    letter-spacing: 0.2em;
+    color: var(--wine-bright);
 }
 
-/* Impact Variant */
-.text-impact {
+.text--accent {
     font-family: var(--font-heading);
-    font-size: clamp(4rem, 12vw, 10rem);
-    font-weight: 700;
-    line-height: 0.85;
-    letter-spacing: -0.05em;
-    text-transform: uppercase;
+    font-size: clamp(1.125rem, 1.5vw, 1.375rem);
+    font-weight: 500;
+    line-height: 1.5;
+    color: var(--text-service);
+    font-style: italic;
 }

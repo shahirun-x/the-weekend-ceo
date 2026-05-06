@@ -1,0 +1,22 @@
+.standards-intro { text-align: center; max-width: 700px; margin: 0 auto var(--space-xl); }
+.standards-intro__sub { font-size: 1.1rem; color: var(--text-secondary); font-style: italic; margin-top: 0.5rem; }
+
+.standards-stats { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: var(--border); margin-bottom: var(--space-xl); }
+.standards-stat { background: var(--bg-secondary); padding: var(--space-xl) var(--space-lg); text-align: center; transition: background var(--transition-base); }
+.standards-stat:hover { background: var(--bg-card); }
+.standards-stat__value { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2.5rem); font-weight: 800; color: var(--wine-bright); display: block; margin-bottom: var(--space-sm); letter-spacing: -0.02em; }
+
+.standards-note { max-width: 700px; margin: 0 auto var(--space-xl); text-align: center; padding: var(--space-lg); border: 1px solid var(--border); background: var(--bg-card); }
+
+.standards-process { max-width: 700px; margin: 0 auto; }
+.standards-process__title { text-transform: uppercase; letter-spacing: 0.1em; color: var(--wine-bright); margin-bottom: var(--space-sm); }
+.standards-process__desc { margin-bottom: var(--space-md); }
+.standards-process__list { list-style: none; padding: 0; }
+.standards-process__list li { position: relative; padding-left: 1.5rem; margin-bottom: 0.5rem; font-size: 0.95rem; color: var(--text-body); }
+.standards-process__list li::before { content: ''; position: absolute; left: 0; top: 0.6rem; width: 4px; height: 4px; background: var(--wine); border-radius: 50%; }
+
+.standards-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
+.standards-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.5; }
+.standards-cta-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
+
+@media (max-width: 768px) { .standards-stats { grid-template-columns: 1fr; } }

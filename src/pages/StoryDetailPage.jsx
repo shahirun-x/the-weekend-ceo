@@ -23,7 +23,6 @@ function StoryDetailPage() {
     const fetchStoryData = async () => {
         setIsLoading(true)
         try {
-            // Fetch current story
             const { data: currentStory, error } = await supabase
                 .from('stories')
                 .select('*')
@@ -31,14 +30,9 @@ function StoryDetailPage() {
                 .eq('is_published', true)
                 .single()
 
-            if (error || !currentStory) {
-                navigate('/stories')
-                return
-            }
-
+            if (error || !currentStory) { navigate('/stories'); return }
             setStory(currentStory)
 
-            // Fetch Prev/Next within the same year based on story_number
             const { data: siblingStories } = await supabase
                 .from('stories')
                 .select('id, story_number')
@@ -48,17 +42,8 @@ function StoryDetailPage() {
 
             if (siblingStories && siblingStories.length > 0) {
                 const currentIndex = siblingStories.findIndex(s => s.id === currentStory.id)
-                if (currentIndex > 0) {
-                    setPrevStory(siblingStories[currentIndex - 1])
-                } else {
-                    setPrevStory(null)
-                }
-                
-                if (currentIndex < siblingStories.length - 1) {
-                    setNextStory(siblingStories[currentIndex + 1])
-                } else {
-                    setNextStory(null)
-                }
+                setPrevStory(currentIndex > 0 ? siblingStories[currentIndex - 1] : null)
+                setNextStory(currentIndex < siblingStories.length - 1 ? siblingStories[currentIndex + 1] : null)
             }
         } catch (err) {
             console.error('Error fetching story:', err)
@@ -69,163 +54,104 @@ function StoryDetailPage() {
     }
 
     const copyToClipboard = (text, type) => {
-        navigator.clipboard.writeText(text).then(() => {
-            alert(`${type} text copied to clipboard!`)
-        }).catch(err => {
-            console.error('Failed to copy text: ', err)
-        })
+        navigator.clipboard.writeText(text).then(() => alert(`${type} text copied!`)).catch(err => console.error('Copy failed:', err))
     }
 
     const handleShareTwitter = () => {
         if (!story) return
         const text = `Story #${story.story_number}. A ${story.car_make_model}. ${story.pack}. Crafted without shortcuts. — The Weekend CEO #TheWeekendCEO #96StoriesLeague`
-        const url = `https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`
-        window.open(url, '_blank')
+        window.open(`https://twitter.com/intent/tweet?text=${encodeURIComponent(text)}`, '_blank')
     }
 
     const handleShareInstagram = () => {
         if (!story) return
-        const text = `Story #${story.story_number}. A ${story.year} ${story.car_make_model} in ${story.car_colour}.\n${story.pack}. ${story.city}. Crafted without shortcuts.\n\n#TheWeekendCEO #96StoriesLeague #LuxuryDetailing #NoOrdinaryTouches`
-        copyToClipboard(text, 'Instagram caption')
+        copyToClipboard(`Story #${story.story_number}. A ${story.year} ${story.car_make_model} in ${story.car_colour}.\n${story.pack}. ${story.city}.\n\n#TheWeekendCEO #96StoriesLeague #LuxuryDetailing`, 'Instagram caption')
     }
 
     const handleShareLinkedIn = () => {
         if (!story) return
-        // Get first paragraph of narrative
-        const firstPara = story.narrative.split('\n')[0]
-        const text = `${firstPara}\n\nRead the full story: ${window.location.href}`
-        copyToClipboard(text, 'LinkedIn post')
+        copyToClipboard(`${story.narrative.split('\n')[0]}\n\nRead the full story: ${window.location.href}`, 'LinkedIn post')
     }
 
-    if (isLoading) {
-        return (
-            <div className="story-loading-page">
-                <div className="admin-loading__spinner"></div>
-            </div>
-        )
-    }
-
+    if (isLoading) return <div className="story-loading-page"><div className="story-loading-spinner"></div></div>
     if (!story) return null
 
     const hasPhotos = story.after_photos && story.after_photos.length > 0
 
     return (
         <div className="story-detail-page">
-            {/* Story Header */}
             <header className="story-header">
                 <ScrollReveal direction="up">
-                    <div className="story-header__number">
-                        #{String(story.story_number).padStart(3, '0')}
-                    </div>
+                    <div className="story-header__number">#{String(story.story_number).padStart(3, '0')}</div>
                     <div className="story-header__meta">
-                        <Text variant="h1" className="text-white">{story.car_make_model}</Text>
+                        <Text variant="h1">{story.car_make_model}</Text>
                         <div className="story-header__details">
                             <span>{story.car_colour}</span>
-                            <span className="dot-separator">•</span>
+                            <span className="story-dot">•</span>
                             <span>{story.city}</span>
-                            <span className="dot-separator">•</span>
+                            <span className="story-dot">•</span>
                             <span>{story.month} {story.year}</span>
                         </div>
-                        <div className="story-header__pack">
-                            {story.pack}
-                        </div>
+                        <div className="story-header__pack">{story.pack}</div>
                     </div>
                 </ScrollReveal>
             </header>
 
-            {/* Narrative */}
-            <Section variant="charcoal" className="story-narrative-section">
+            <Section variant="darker" className="story-narrative-section">
                 <ScrollReveal direction="up" delay={200}>
                     <div className="story-narrative">
-                        {story.narrative.split('\n').map((paragraph, index) => {
-                            if (!paragraph.trim()) return null
-                            return (
-                                <p key={index} className="story-narrative__p">
-                                    {paragraph}
-                                </p>
-                            )
+                        {story.narrative.split('\n').map((p, i) => {
+                            if (!p.trim()) return null
+                            return <p key={i} className="story-narrative__p">{p}</p>
                         })}
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* Photos Gallery */}
-            <Section variant="charcoal" className="story-gallery-section" id="photos">
+            <Section variant="dark" className="story-gallery-section" id="photos">
                 <ScrollReveal direction="up">
                     {hasPhotos ? (
                         <div className="story-gallery">
                             {story.after_photos.map((url, idx) => (
-                                <img 
-                                    key={idx} 
-                                    src={url} 
-                                    alt={`${story.car_make_model} Detail ${idx + 1}`} 
-                                    className="story-gallery__img"
-                                    onClick={() => setLightboxImage(url)}
-                                />
+                                <img key={idx} src={url} alt={`${story.car_make_model} Detail ${idx + 1}`} className="story-gallery__img" onClick={() => setLightboxImage(url)} />
                             ))}
                         </div>
                     ) : (
                         <div className="story-gallery-empty">
                             <div className="story-gallery-empty__watermark">KA</div>
-                            <Text className="text-white">Documentation in progress.</Text>
+                            <Text>Documentation in progress.</Text>
                         </div>
                     )}
                 </ScrollReveal>
             </Section>
 
-            {/* Social Share */}
             <div className="story-share-strip">
-                <Text variant="eyebrow" className="text-yellow">Share This Story</Text>
+                <Text variant="eyebrow" className="text-wine">Share This Story</Text>
                 <div className="story-share-actions">
-                    <button onClick={handleShareInstagram} className="story-share-btn">
-                        Instagram Caption
-                    </button>
-                    <button onClick={handleShareTwitter} className="story-share-btn">
-                        X / Twitter
-                    </button>
-                    <button onClick={handleShareLinkedIn} className="story-share-btn">
-                        LinkedIn
-                    </button>
+                    <button onClick={handleShareInstagram} className="story-share-btn">Instagram Caption</button>
+                    <button onClick={handleShareTwitter} className="story-share-btn">X / Twitter</button>
+                    <button onClick={handleShareLinkedIn} className="story-share-btn">LinkedIn</button>
                 </div>
             </div>
 
-            {/* KA Sign-off */}
-            <Section variant="charcoal" className="story-signoff-section">
+            <Section variant="darker" className="story-signoff-section">
                 <ScrollReveal direction="scale">
                     <div className="story-signoff">
                         <div className="story-signoff__initials">KA</div>
-                        <Text variant="h3" className="text-white">Kishore Ananth — The Weekend CEO</Text>
-                        <Text className="text-yellow">Crafted without shortcuts.</Text>
+                        <Text variant="h3">Kishore Ananth — The Weekend CEO</Text>
+                        <Text className="text-wine">Crafted without shortcuts.</Text>
                     </div>
                 </ScrollReveal>
             </Section>
 
-            {/* Navigation Strip */}
             <div className="story-nav-strip">
                 <div className="story-nav-strip__container">
-                    {prevStory ? (
-                        <Link to={`/stories/${prevStory.id}`} className="story-nav-link">
-                            ← Previous Story
-                        </Link>
-                    ) : (
-                        <span className="story-nav-link story-nav-link--disabled"></span>
-                    )}
-                    
-                    <Link to="/stories" className="story-nav-link story-nav-link--center">
-                        Back to All Stories
-                    </Link>
-                    
-                    {nextStory ? (
-                        <Link to={`/stories/${nextStory.id}`} className="story-nav-link">
-                            Next Story →
-                        </Link>
-                    ) : (
-                        <span className="story-nav-link story-nav-link--disabled"></span>
-                    )}
+                    {prevStory ? <Link to={`/stories/${prevStory.id}`} className="story-nav-link">← Previous Story</Link> : <span className="story-nav-link story-nav-link--disabled"></span>}
+                    <Link to="/stories" className="story-nav-link story-nav-link--center">Back to All Stories</Link>
+                    {nextStory ? <Link to={`/stories/${nextStory.id}`} className="story-nav-link">Next Story →</Link> : <span className="story-nav-link story-nav-link--disabled"></span>}
                 </div>
             </div>
 
-            {/* Lightbox */}
             {lightboxImage && (
                 <div className="story-lightbox" onClick={() => setLightboxImage(null)}>
                     <button className="story-lightbox__close" onClick={() => setLightboxImage(null)}>×</button>

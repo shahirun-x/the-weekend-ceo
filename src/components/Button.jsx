@@ -3,33 +3,29 @@ import './Button.css'
 
 function Button({
     children,
-    variant = 'primary',
     to,
-    href,
+    variant = 'primary', // primary, secondary, ghost, glass
     className = '',
+    type = 'button',
+    disabled = false,
+    onClick,
     ...props
 }) {
-    const classNames = `button button--${variant} ${className}`
+    const classes = `btn btn--${variant} ${className} ${disabled ? 'btn--disabled' : ''}`
 
     if (to) {
         return (
-            <Link to={to} className={classNames} {...props}>
-                {children}
+            <Link to={to} className={classes} {...props}>
+                <span className="btn__text">{children}</span>
+                <span className="btn__glow"></span>
             </Link>
         )
     }
 
-    if (href) {
-        return (
-            <a href={href} className={classNames} {...props}>
-                {children}
-            </a>
-        )
-    }
-
     return (
-        <button className={classNames} {...props}>
-            {children}
+        <button type={type} className={classes} disabled={disabled} onClick={onClick} {...props}>
+            <span className="btn__text">{children}</span>
+            <span className="btn__glow"></span>
         </button>
     )
 }

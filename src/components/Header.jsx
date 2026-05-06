@@ -5,11 +5,10 @@ import './Header.css'
 const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/packages', label: 'Packages' },
-    { path: '/safety-assurance', label: 'Safety Assurance' },
-    { path: '/areas', label: 'Service Locations' },
-    { path: '/brand', label: 'Brand Story' },
-    { path: '/standards', label: 'Standards' },
-    { path: '/stories', label: '96 Stories', isSpecial: true },
+    { path: '/gallery', label: 'Gallery' },
+    { path: '/stories', label: '96 Stories' },
+    { path: '/brand', label: 'About' },
+    { path: '/contact', label: 'Contact' },
 ]
 
 function Header() {
@@ -29,27 +28,35 @@ function Header() {
         setIsMobileMenuOpen(false)
     }, [location])
 
+    useEffect(() => {
+        document.body.style.overflow = isMobileMenuOpen ? 'hidden' : ''
+        return () => { document.body.style.overflow = '' }
+    }, [isMobileMenuOpen])
+
     return (
         <header className={`header ${isScrolled ? 'header--scrolled' : ''}`}>
             <div className="header__container">
                 <Link to="/" className="header__logo">
                     <img src="/logo.jpg" alt="The Weekend CEO" className="header__logo-img" />
-                    <span className="header__logo-text">The Weekend <span>CEO</span></span>
+                    <span className="header__logo-text">THE WEEKEND <span>CEO</span></span>
                 </Link>
 
                 <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
-                    {navLinks.map(link => (
-                        <Link
-                            key={link.path}
-                            to={link.path}
-                            className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''} ${link.isSpecial ? 'header__link--special' : ''}`}
-                        >
-                            {link.isSpecial && <span className="header__link-dot"></span>}
-                            {link.label}
-                        </Link>
-                    ))}
+                    <div className="header__nav-links">
+                        {navLinks.map((link, idx) => (
+                            <Link
+                                key={link.path}
+                                to={link.path}
+                                className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''}`}
+                                style={{ transitionDelay: isMobileMenuOpen ? `${idx * 0.06}s` : '0s' }}
+                            >
+                                {link.label}
+                            </Link>
+                        ))}
+                    </div>
                     <Link to="/appointment" className="header__cta">
-                        Request a Slot
+                        <span>Book Now</span>
+                        <div className="header__cta-glow"></div>
                     </Link>
                 </nav>
 

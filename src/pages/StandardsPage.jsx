@@ -3,63 +3,66 @@ import Section from '../components/Section'
 import Text from '../components/Text'
 import Button from '../components/Button'
 import ScrollReveal from '../components/ScrollReveal'
+import './StandardsPage.css'
 
 function StandardsPage() {
     return (
         <div className="standards-page">
             <Hero
-                title="OUR STANDARDS"
-                subtitle="Excellence is not scalable. Excellence is Premium. Excellence is an investment."
+                eyebrow="Discipline"
+                title="OUR"
+                titleAccent="STANDARDS"
+                subtitle="Excellence is not scalable. Excellence is premium. Excellence is an investment."
                 short
             />
 
-            <Section variant="yellow" id="standards">
+            <Section variant="darker" id="standards">
                 <ScrollReveal direction="up">
-                    <div className="home-standards-intro">
-                        <Text variant="h2">Excellence is not scalable. Excellence is Premium. Excellence is an investment.</Text>
-                        <Text className="home-standards__subtitle">— Which is why we choose restraint.</Text>
+                    <div className="standards-intro">
+                        <Text variant="h2">Excellence is not scalable.</Text>
+                        <Text className="standards-intro__sub">— Which is why we choose restraint.</Text>
                     </div>
                 </ScrollReveal>
 
-                <div className="home-standards__grid">
+                <div className="standards-stats">
                     <ScrollReveal direction="scale" delay={100}>
-                        <div className="home-standards__item">
-                            <span className="home-standards__number">1 CAR</span>
+                        <div className="standards-stat">
+                            <span className="standards-stat__value">1 CAR</span>
                             <Text variant="h3">Crafted Per Day</Text>
                             <Text>Executed with complete focus.</Text>
                         </div>
                     </ScrollReveal>
                     <ScrollReveal direction="scale" delay={200}>
-                        <div className="home-standards__item">
-                            <span className="home-standards__number">96 CARS</span>
+                        <div className="standards-stat">
+                            <span className="standards-stat__value">96 CARS</span>
                             <Text variant="h3">Crafted Per Year</Text>
-                            <Text>All engagements are pre-scheduled and prepared well in advance</Text>
+                            <Text>All engagements are pre-scheduled and prepared well in advance.</Text>
                         </div>
                     </ScrollReveal>
                     <ScrollReveal direction="scale" delay={300}>
-                        <div className="home-standards__item">
-                            <span className="home-standards__number">6–8 CARS</span>
+                        <div className="standards-stat">
+                            <span className="standards-stat__value">6–8 CARS</span>
                             <Text variant="h3">Crafted Per Month</Text>
                             <Text>Carefully planned and executed exclusively on weekends.</Text>
                         </div>
                     </ScrollReveal>
                 </div>
-                
+
                 <ScrollReveal direction="up" delay={200}>
-                    <div className="home-standards-footer">
-                        <Text className="home-standards__note">
+                    <div className="standards-note">
+                        <Text>
                             Time is allocated per vehicle. Not adjusted. Execution follows discipline. Not convenience. If the standard cannot be maintained, the work does not proceed.
                         </Text>
                     </div>
                 </ScrollReveal>
 
                 <ScrollReveal direction="up" delay={300}>
-                    <div className="home-process">
-                        <Text variant="h3" className="home-process__title">OUR PROCESS</Text>
-                        <Text className="home-process__desc">
-                            Every vehicle undergoes a structured sequence. Preparation, correction, refinement, and finishing are carried out without overlap or shortcuts. Work is performed in controlled conditions with focus on surface integrity and finish quality. Only necessary processes are applied. Nothing is added for display.
+                    <div className="standards-process">
+                        <Text variant="h3" className="standards-process__title">OUR PROCESS</Text>
+                        <Text className="standards-process__desc">
+                            Every vehicle undergoes a structured sequence. Preparation, correction, refinement, and finishing are carried out without overlap or shortcuts.
                         </Text>
-                        <ul className="home-process__list">
+                        <ul className="standards-process__list">
                             <li>Paint correction and refinement</li>
                             <li>Hand-applied wax and sealant systems</li>
                             <li>Controlled finishing techniques</li>
@@ -69,16 +72,15 @@ function StandardsPage() {
                 </ScrollReveal>
             </Section>
 
-            <Section variant="teal" id="cta">
+            <section className="standards-cta-section">
+                <div className="standards-cta-ambient"></div>
                 <ScrollReveal direction="scale">
-                    <div className="home-cta">
-                        <Text variant="h2" className="text-white">Experience Our Standards</Text>
-                        <Button to="/appointment" variant="yellow" className="button--large">
-                            Request a Slot
-                        </Button>
+                    <div className="standards-cta-content">
+                        <Text variant="h2">Experience Our <span className="text-wine">Standards</span></Text>
+                        <Button to="/appointment" variant="primary" className="btn--large">Request a Slot</Button>
                     </div>
                 </ScrollReveal>
-            </Section>
+            </section>
         </div>
     )
 }

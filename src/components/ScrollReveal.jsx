@@ -4,7 +4,8 @@ function ScrollReveal({
     children,
     className = '',
     delay = 0,
-    direction = 'up' // up, left, right, scale
+    direction = 'up', // up, left, right, scale, fade
+    tag = 'div'
 }) {
     const ref = useRef(null)
 
@@ -24,8 +25,8 @@ function ScrollReveal({
                 })
             },
             {
-                threshold: 0.15,
-                rootMargin: '0px 0px -80px 0px',
+                threshold: 0.1,
+                rootMargin: '0px 0px -60px 0px',
             }
         )
 
@@ -34,10 +35,12 @@ function ScrollReveal({
         return () => observer.disconnect()
     }, [delay])
 
+    const Tag = tag
+
     return (
-        <div ref={ref} className={`reveal reveal--${direction} ${className}`}>
+        <Tag ref={ref} className={`reveal reveal--${direction} ${className}`}>
             {children}
-        </div>
+        </Tag>
     )
 }
 

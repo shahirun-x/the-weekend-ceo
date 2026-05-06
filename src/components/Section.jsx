@@ -1,17 +1,10 @@
 import './Section.css'
 
-function Section({
-    children,
-    className = '',
-    variant = 'cream',
-    asymmetric = false,
-    id,
-    ...props
-}) {
+function Section({ children, variant = 'dark', className = '', id, ...props }) {
     return (
         <section
+            className={`section section--${variant} ${className}`}
             id={id}
-            className={`section section--${variant} ${asymmetric ? 'section--asymmetric' : ''} ${className}`}
             {...props}
         >
             <div className="section__container">

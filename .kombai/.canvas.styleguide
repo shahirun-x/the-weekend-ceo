@@ -1,0 +1,36 @@
+{
+  "guides": [
+    {
+      "id": "style_5ecb57e0f2b8",
+      "name": "Weekend CEO Luxury Minimalist",
+      "theme": {
+        "seedColor": "#C9A84C",
+        "colorThemeName": "Weekend CEO Dark",
+        "palette": {
+          "primary": "#C9A84C",
+          "secondary": "#141414",
+          "tertiary": "#F5F5F0",
+          "neutral": "#0a0a0a"
+        },
+        "fonts": {
+          "headline": {
+            "family": "Space Grotesk",
+            "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+          },
+          "body": {
+            "family": "Space Grotesk",
+            "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500&display=swap"
+          },
+          "label": {
+            "family": "Space Grotesk",
+            "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@700&display=swap"
+          }
+        },
+        "cornerRadius": "none"
+      },
+      "designInstructions": "### Minimalist Luxury Aesthetic\nThe design follows a \"Less is More\" philosophy, focusing on high-contrast typography and precise spacing. The color palette is strictly dark (near black) with gold accents.\n\n### Typography Hierarchy\n- Brand Mark: \"THE WEEKEND CEO\" in all caps, weight 700, tracked out at 0.12em.\n- Founder Monogram: A subtle \"KA\" beneath the brand mark at low opacity.\n- Nav Links: Space Grotesk, 13px, uppercase, 0.08em tracking. Gold dot indicator for \"96 Stories\".\n- Mobile Menu: Large (28px), thin-weight (300) headings for navigation.\n\n### Layout & Spacing\n- Desktop: 68px height, fixed top, frosted glass background (blur(12px) + 0.92 opacity).\n- Mobile: 56px height, smaller wordmark.\n- Precise 1px borders and thin gold lines that appear on scroll.\n\n### Interactive States\n- CTAs: Sharp 2px border-radius, dark text on gold background, no shadows.\n- Hover: Subtle color shifts from muted text to full white, with sharp 200ms transitions.\n- Nav Underlines: 1px gold line offset precisely 4px below active links.\n\n### Motion & Transition\n- Smooth backdrop blur transitions.\n- Staggered entrance animations for mobile menu links (60ms increments).\n- Hamburger morphing to X.",
+      "created": "2026-05-06T09:15:02.969638+00:00",
+      "modified": "2026-05-06T09:15:02.969638+00:00"
+    }
+  ]
+}

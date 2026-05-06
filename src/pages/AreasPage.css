@@ -1,130 +1,16 @@
-/* ============================================
-   AREAS PAGE — BOLD CREATIVE STYLES
-   ============================================ */
+.areas-statement { text-align: center; max-width: 700px; margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-sm); }
+.areas-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.areas-card { background: var(--bg-card); border: 1px solid var(--border); padding: var(--space-lg); transition: all var(--transition-base); }
+.areas-card:hover { border-color: var(--border-hover); transform: translateY(-4px); }
+.areas-card--featured { border-color: var(--border-wine); grid-column: span 2; }
+.areas-card--featured:hover { box-shadow: 0 0 40px var(--glow-wine); }
+.areas-card__title { margin-bottom: var(--space-sm); color: var(--text-primary); }
+.areas-card__list { list-style: none; padding: 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+.areas-card__list li { font-size: 0.85rem; color: var(--text-secondary); padding: 0.3rem 0.75rem; background: var(--bg-elevated); border: 1px solid var(--border); }
 
-/* Availability Section */
-.areas-availability {
-    text-align: center;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: var(--space-xl) 0;
-}
+.areas-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
+.areas-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.5; }
+.areas-cta-content { position: relative; z-index: 2; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-lg); display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
+.areas-cta-sub { color: var(--text-body); }
 
-/* Grid */
-.areas-grid {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    gap: var(--space-md);
-    max-width: 1200px;
-    margin: 0 auto;
-}
-
-/* Card */
-.areas-card {
-    background-color: var(--white);
-    padding: var(--space-xl);
-    border-radius: 16px;
-    border: 2px solid transparent;
-    transition: all var(--transition-base);
-}
-
-.areas-card:hover {
-    border-color: var(--teal);
-    transform: translateY(-5px);
-}
-
-.areas-card--featured {
-    background: linear-gradient(135deg, var(--yellow) 0%, var(--yellow-bright) 100%);
-    grid-column: span 2;
-}
-
-.areas-card__title {
-    color: var(--teal);
-    margin-bottom: var(--space-md);
-    padding-bottom: var(--space-sm);
-    border-bottom: 2px solid var(--charcoal);
-}
-
-.areas-card--featured .areas-card__title {
-    border-color: var(--teal);
-}
-
-.areas-card__list {
-    list-style: none;
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-xs);
-    padding-left: 0;
-    margin: 0;
-}
-
-.areas-card--featured .areas-card__list {
-    grid-template-columns: repeat(3, 1fr);
-}
-
-.areas-card__list li {
-    color: var(--slate);
-    font-size: 0.95rem;
-    position: relative;
-    padding-left: var(--space-md);
-}
-
-.areas-card__list li::before {
-    content: counter(list-item) '.';
-    position: absolute;
-    left: 0;
-    color: var(--teal);
-    font-weight: 600;
-    font-size: 0.8rem;
-}
-
-/* Closing Note */
-.areas-closing {
-    text-align: center;
-    max-width: 700px;
-    margin: 0 auto;
-}
-
-.areas-closing .text-h3 {
-    margin-bottom: var(--space-md);
-}
-
-.areas-closing__text {
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-lg);
-    line-height: 1.8;
-}
-
-/* Mobile */
-@media (max-width: 1024px) {
-    .areas-grid {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .areas-card--featured {
-        grid-column: span 2;
-    }
-
-    .areas-card--featured .areas-card__list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-}
-
-@media (max-width: 767px) {
-    .areas-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .areas-card--featured {
-        grid-column: span 1;
-    }
-
-    .areas-card__list,
-    .areas-card--featured .areas-card__list {
-        grid-template-columns: repeat(2, 1fr);
-    }
-
-    .areas-card:hover {
-        transform: none;
-    }
-}
+@media (max-width: 768px) { .areas-grid { grid-template-columns: 1fr; } .areas-card--featured { grid-column: span 1; } }

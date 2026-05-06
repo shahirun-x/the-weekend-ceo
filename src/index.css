@@ -1,6 +1,6 @@
 /* ============================================
-   THE WEEKEND CEO - BOLD CREATIVE DESIGN SYSTEM
-   High-Fashion Automotive × Creative Studio
+   THE WEEKEND CEO — LUXURY AUTOMOTIVE DESIGN SYSTEM
+   Dark Luxury × Cinematic Automotive × Premium Studio
    ============================================ */
 
 /* CSS Reset & Base */
@@ -18,37 +18,40 @@ html {
 }
 
 /* ============================================
-   DESIGN TOKENS — LOGO-DRIVEN PALETTE
+   DESIGN TOKENS — DARK LUXURY PALETTE
    ============================================ */
 :root {
-  /* Core Colors */
-  --cream: #FDF6E3;
-  --cream-dark: #F5ECD3;
-  --yellow: #F7D94C;
-  --yellow-bright: #FFE135;
-  --yellow-muted: #E8C93A;
-  --teal: #2FB8AC;
-  --teal-dark: #1E9A8F;
-  --teal-light: #5CCDC3;
-  --magenta: #E91E8C;
-  --magenta-light: #FF4DA6;
-  --charcoal: #3D3D3D;
-  --slate: #5A5A5A;
-  --slate-light: #7A7A7A;
-  --white: #FFFFFF;
+  /* Core Backgrounds */
+  --bg-primary: #050608;
+  --bg-secondary: #0B0D12;
+  --bg-card: #10141B;
+  --bg-elevated: #161A24;
+  --bg-glass: rgba(16, 20, 27, 0.6);
 
-  /* Functional Colors */
-  --bg-primary: var(--cream);
-  --bg-secondary: var(--yellow);
-  --bg-accent: var(--teal);
-  --text-primary: var(--charcoal);
-  --text-secondary: var(--slate);
-  --text-light: var(--white);
-  --accent: var(--teal);
-  --accent-alt: var(--magenta);
+  /* Accent Colors */
+  --wine: #7B1023;
+  --wine-bright: #A61534;
+  --wine-glow: rgba(123, 16, 35, 0.4);
+  --blue: #7AAEE8;
+  --blue-deep: #182438;
+  --blue-glow: rgba(122, 174, 232, 0.25);
+
+  /* Text Colors */
+  --text-primary: #F5F7FA;
+  --text-body: #9A90A0;
+  --text-secondary: #7A7088;
+  --text-service: #C0B4BC;
+  --text-muted: #4A4256;
+
+  /* Borders & Effects */
+  --border: rgba(255, 255, 255, 0.08);
+  --border-hover: rgba(255, 255, 255, 0.15);
+  --border-wine: rgba(123, 16, 35, 0.4);
+  --glow-blue: rgba(122, 174, 232, 0.25);
+  --glow-wine: rgba(166, 21, 52, 0.3);
 
   /* Typography */
-  --font-heading: 'Space Grotesk', -apple-system, sans-serif;
+  --font-heading: 'Outfit', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
 
   /* Spacing */
@@ -70,6 +73,12 @@ html {
   --transition-base: 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   --transition-slow: 0.8s cubic-bezier(0.16, 1, 0.3, 1);
   --transition-bounce: 0.6s cubic-bezier(0.34, 1.56, 0.64, 1);
+
+  /* Border Radius */
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
 }
 
 /* ============================================
@@ -78,7 +87,7 @@ html {
 body {
   font-family: var(--font-body);
   background-color: var(--bg-primary);
-  color: var(--text-primary);
+  color: var(--text-body);
   line-height: 1.6;
   font-weight: 400;
   -webkit-font-smoothing: antialiased;
@@ -105,88 +114,91 @@ button {
 }
 
 /* ============================================
-   TYPOGRAPHY UTILITIES
+   TYPOGRAPHY SCALE
    ============================================ */
-.heading-xl {
+.heading-display {
   font-family: var(--font-heading);
   font-size: clamp(3.5rem, 10vw, 8rem);
-  font-weight: 700;
-  line-height: 0.95;
+  font-weight: 800;
+  line-height: 0.92;
   letter-spacing: -0.04em;
   text-transform: uppercase;
+  color: var(--text-primary);
+}
+
+.heading-xl {
+  font-family: var(--font-heading);
+  font-size: clamp(3rem, 8vw, 6rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.03em;
+  color: var(--text-primary);
 }
 
 .heading-lg {
   font-family: var(--font-heading);
-  font-size: clamp(2.5rem, 6vw, 5rem);
+  font-size: clamp(2rem, 5vw, 3.5rem);
   font-weight: 700;
-  line-height: 1;
-  letter-spacing: -0.03em;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--text-primary);
 }
 
 .heading-md {
   font-family: var(--font-heading);
-  font-size: clamp(1.75rem, 4vw, 3rem);
+  font-size: clamp(1.5rem, 3vw, 2.25rem);
   font-weight: 600;
-  line-height: 1.1;
-  letter-spacing: -0.02em;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--text-primary);
 }
 
 .heading-sm {
   font-family: var(--font-heading);
-  font-size: clamp(1.25rem, 2vw, 1.75rem);
+  font-size: clamp(1.125rem, 2vw, 1.5rem);
   font-weight: 600;
-  line-height: 1.2;
+  line-height: 1.25;
+  color: var(--text-primary);
 }
 
 .text-body {
-  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  font-size: clamp(1rem, 1.1vw, 1.125rem);
   line-height: 1.7;
+  color: var(--text-body);
 }
 
 .text-large {
-  font-size: clamp(1.125rem, 1.5vw, 1.375rem);
-  line-height: 1.6;
+  font-size: clamp(1.125rem, 1.4vw, 1.375rem);
+  line-height: 1.65;
+  color: var(--text-body);
+}
+
+.text-small {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  color: var(--text-secondary);
+}
+
+/* ============================================
+   EYEBROW / LABEL TYPOGRAPHY
+   ============================================ */
+.eyebrow {
+  font-family: var(--font-heading);
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--wine-bright);
 }
 
 /* ============================================
    COLOR UTILITIES
    ============================================ */
-.text-teal {
-  color: var(--teal);
-}
-
-.text-magenta {
-  color: var(--magenta);
-}
-
-.text-yellow {
-  color: var(--yellow-muted);
-}
-
-.text-charcoal {
-  color: var(--charcoal);
-}
-
-.text-white {
-  color: var(--white);
-}
-
-.bg-cream {
-  background-color: var(--cream);
-}
-
-.bg-yellow {
-  background-color: var(--yellow);
-}
-
-.bg-teal {
-  background-color: var(--teal);
-}
-
-.bg-charcoal {
-  background-color: var(--charcoal);
-}
+.text-white { color: var(--text-primary); }
+.text-wine { color: var(--wine-bright); }
+.text-blue { color: var(--blue); }
+.text-muted { color: var(--text-secondary); }
+.text-service { color: var(--text-service); }
 
 /* ============================================
    LAYOUT UTILITIES
@@ -203,40 +215,54 @@ button {
 }
 
 /* ============================================
-   SCROLL REVEAL ANIMATIONS — DIRECTIONAL
+   GLASSMORPHISM UTILITIES
+   ============================================ */
+.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid var(--border);
+}
+
+.glass--strong {
+  background: rgba(16, 20, 27, 0.85);
+  backdrop-filter: blur(40px);
+  -webkit-backdrop-filter: blur(40px);
+  border: 1px solid var(--border);
+}
+
+/* ============================================
+   SCROLL REVEAL ANIMATIONS
    ============================================ */
 .reveal {
   opacity: 0;
   transition: opacity var(--transition-slow), transform var(--transition-slow);
+  will-change: opacity, transform;
 }
 
 .reveal--up {
-  transform: translateY(60px);
+  transform: translateY(40px);
 }
 
 .reveal--left {
-  transform: translateX(-60px);
+  transform: translateX(-40px);
 }
 
 .reveal--right {
-  transform: translateX(60px);
+  transform: translateX(40px);
 }
 
 .reveal--scale {
-  transform: scale(0.9);
+  transform: scale(0.95);
+}
+
+.reveal--fade {
+  transform: none;
 }
 
 .reveal.visible {
   opacity: 1;
   transform: translate(0) scale(1);
-}
-
-/* Mobile: Reduced motion */
-@media (max-width: 767px) {
-  .reveal {
-    transform: none !important;
-    transition: opacity var(--transition-base);
-  }
 }
 
 @media (prefers-reduced-motion: reduce) {
@@ -248,52 +274,62 @@ button {
 }
 
 /* ============================================
-   DECORATIVE ELEMENTS
+   GRAIN TEXTURE OVERLAY
    ============================================ */
-.circle-motif {
-  position: absolute;
-  border-radius: 50%;
+.grain-overlay::after {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
   pointer-events: none;
+  opacity: 0.03;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  background-repeat: repeat;
+  background-size: 256px;
 }
 
-.circle-motif--yellow {
-  background: var(--yellow);
-  opacity: 0.3;
+/* ============================================
+   GLOW EFFECTS
+   ============================================ */
+.glow-wine {
+  box-shadow: 0 0 40px var(--glow-wine), 0 0 80px rgba(123, 16, 35, 0.15);
 }
 
-.circle-motif--teal {
-  background: var(--teal);
-  opacity: 0.2;
+.glow-blue {
+  box-shadow: 0 0 40px var(--glow-blue), 0 0 80px rgba(122, 174, 232, 0.1);
 }
 
-.circle-motif--magenta {
-  background: var(--magenta);
-  opacity: 0.15;
+/* ============================================
+   ANIMATED BORDER
+   ============================================ */
+@keyframes borderGlow {
+  0%, 100% { border-color: var(--border); }
+  50% { border-color: var(--border-wine); }
 }
 
 /* ============================================
    SELECTION & SCROLLBAR
    ============================================ */
 ::selection {
-  background: var(--teal);
-  color: var(--white);
+  background: var(--wine);
+  color: var(--text-primary);
 }
 
 ::-webkit-scrollbar {
-  width: 10px;
+  width: 6px;
 }
 
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--bg-primary);
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--yellow);
-  border-radius: 5px;
+  background: var(--bg-elevated);
+  border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--teal);
+  background: var(--wine);
 }
 
 /* ============================================
@@ -302,7 +338,7 @@ button {
 @media (max-width: 767px) {
   :root {
     --section-padding: clamp(3rem, 10vw, 6rem);
-    --space-lg: 1.5rem;
+    --space-lg: 1.25rem;
   }
 }
 

@@ -1,21 +1,8 @@
 import './Card.css'
 
-function Card({
-    title,
-    eyebrow,
-    description,
-    number,
-    children,
-    className = '',
-    variant = 'default',
-    ...props
-}) {
+function Card({ children, className = '', variant = 'default', glow = false, ...props }) {
     return (
-        <div className={`card card--${variant} ${className}`} {...props}>
-            {number && <span className="card__number">{number}</span>}
-            {eyebrow && <span className="card__eyebrow">{eyebrow}</span>}
-            {title && <h3 className="card__title">{title}</h3>}
-            {description && <p className="card__description">{description}</p>}
+        <div className={`card card--${variant} ${glow ? 'card--glow' : ''} ${className}`} {...props}>
             {children}
         </div>
     )

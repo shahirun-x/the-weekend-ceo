@@ -1,3 +1,4 @@
+import ScrollReveal from './ScrollReveal'
 import './Hero.css'
 
 function Hero({
@@ -6,45 +7,37 @@ function Hero({
     titleAccent,
     subtitle,
     children,
-    showLogo = true,
     short = false,
-    className = '',
+    fullscreen = false,
+    className = ''
 }) {
     return (
-        <section className={`hero ${short ? 'hero--short' : ''} ${className}`}>
-            <div className="hero__decoration">
-                <div className="hero__circle hero__circle--1"></div>
-                <div className="hero__circle hero__circle--2"></div>
-                <div className="hero__circle hero__circle--3"></div>
-            </div>
+        <section className={`hero ${short ? 'hero--short' : ''} ${fullscreen ? 'hero--fullscreen' : ''} ${className}`}>
+            <div className="hero__ambient hero__ambient--wine"></div>
+            <div className="hero__ambient hero__ambient--blue"></div>
+            <div className="hero__grain"></div>
 
-            <div className="hero__content">
-                <div className="hero__text">
-                    {eyebrow && (
-                        <span className="hero__eyebrow">{eyebrow}</span>
-                    )}
-                    {title && (
-                        <h1 className="hero__title">
-                            {title}
-                            {titleAccent && (
-                                <span className="hero__title-accent">{titleAccent}</span>
-                            )}
-                        </h1>
-                    )}
-                    {subtitle && (
+            <div className="hero__container">
+                <ScrollReveal direction="fade" delay={100}>
+                    {eyebrow && <span className="hero__eyebrow">{eyebrow}</span>}
+                </ScrollReveal>
+                <ScrollReveal direction="up" delay={200}>
+                    <h1 className="hero__title">
+                        {title}
+                        {titleAccent && <span className="hero__title-accent">{titleAccent}</span>}
+                    </h1>
+                </ScrollReveal>
+                {subtitle && (
+                    <ScrollReveal direction="up" delay={350}>
                         <p className="hero__subtitle">{subtitle}</p>
-                    )}
-                    {children && (
-                        <div className="hero__actions">
+                    </ScrollReveal>
+                )}
+                {children && (
+                    <ScrollReveal direction="up" delay={500}>
+                        <div className="hero__content">
                             {children}
                         </div>
-                    )}
-                </div>
-
-                {showLogo && (
-                    <div className="hero__logo-wrapper">
-                        <img src="/logo.jpg" alt="The Weekend CEO" className="hero__logo" />
-                    </div>
+                    </ScrollReveal>
                 )}
             </div>
         </section>

@@ -1,0 +1,11 @@
+.contact-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: var(--space-md); }
+.contact-card { padding: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm); }
+.contact-card__note { font-style: italic; color: var(--wine-bright); font-size: 0.9rem; }
+.contact-card__btn { margin-top: auto; }
+
+.contact-hours { display: flex; flex-direction: column; gap: 0.5rem; margin-top: var(--space-sm); }
+.contact-hours__row { display: flex; justify-content: space-between; font-size: 0.9rem; color: var(--text-secondary); padding: 0.5rem 0; border-bottom: 1px solid var(--border); }
+
+.contact-map-placeholder { aspect-ratio: 21/9; background: var(--bg-card); border: 1px solid var(--border); display: flex; align-items: center; justify-content: center; color: var(--text-muted); font-family: var(--font-heading); font-size: 0.85rem; text-transform: uppercase; letter-spacing: 0.15em; }
+
+@media (max-width: 768px) { .contact-grid { grid-template-columns: 1fr; } }

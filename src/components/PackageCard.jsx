@@ -1,54 +1,50 @@
 import { useState } from 'react'
-import Text from './Text'
-import Button from './Button'
+import { Link } from 'react-router-dom'
 import './PackageCard.css'
 
-function PackageCard({ title, price, subtitle, steps, additionalInfo, isSignature }) {
+function PackageCard({ title, price, subtitle, isSignature, steps, additionalInfo }) {
     const [isExpanded, setIsExpanded] = useState(false)
 
     return (
-        <div className={`package-card ${isSignature ? 'package-card--signature' : ''}`}>
-            <div className="package-card__header" onClick={() => setIsExpanded(!isExpanded)}>
-                <div className="package-card__title-row">
-                    <Text variant="h3" className="package-card__title">{title}</Text>
-                    <Text variant="h2" className="package-card__price">{price}</Text>
-                </div>
-                {subtitle && <Text className="package-card__subtitle">{subtitle}</Text>}
-                <button className="package-card__toggle" aria-expanded={isExpanded}>
-                    {isExpanded ? 'Hide Details' : 'View Details'}
-                </button>
-            </div>
+        <div className={`pkg-card ${isSignature ? 'pkg-card--signature' : ''}`}>
+            {isSignature && <div className="pkg-card__badge">Signature</div>}
             
-            <div className={`package-card__content ${isExpanded ? 'package-card__content--expanded' : ''}`}>
-                {steps && steps.length > 0 && (
-                    <div className="package-card__steps">
-                        {steps.map((phase, idx) => (
-                            <div key={idx} className="package-card__phase">
-                                <Text variant="h4" className="package-card__phase-title">{phase.phaseName}</Text>
-                                <ol className="package-card__step-list">
-                                    {phase.items.map((item, i) => (
-                                        <li key={i}>{item}</li>
-                                    ))}
-                                </ol>
-                            </div>
-                        ))}
-                    </div>
-                )}
-                
-                {additionalInfo && (
-                    <div className="package-card__info">
-                        {additionalInfo.map((info, idx) => (
-                            <Text key={idx} className="package-card__info-text">{info}</Text>
-                        ))}
-                    </div>
-                )}
-
-                <div className="package-card__cta">
-                    <Button to="/appointment" variant={isSignature ? 'yellow' : 'primary'}>
-                        Request a Slot
-                    </Button>
-                </div>
+            <div className="pkg-card__header">
+                <h3 className="pkg-card__title">{title}</h3>
+                <div className="pkg-card__price">{price}</div>
+                <p className="pkg-card__subtitle">{subtitle}</p>
             </div>
+
+            <button
+                className="pkg-card__toggle"
+                onClick={() => setIsExpanded(!isExpanded)}
+            >
+                <span>{isExpanded ? 'Hide Details' : 'View Details'}</span>
+                <svg className={`pkg-card__arrow ${isExpanded ? 'pkg-card__arrow--open' : ''}`} width="12" height="12" viewBox="0 0 12 12" fill="none">
+                    <path d="M2 4L6 8L10 4" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round"/>
+                </svg>
+            </button>
+
+            <div className={`pkg-card__details ${isExpanded ? 'pkg-card__details--open' : ''}`}>
+                {steps && steps.map((phase, idx) => (
+                    <div key={idx} className="pkg-card__phase">
+                        <span className="pkg-card__phase-name">{phase.phaseName}</span>
+                        <ul className="pkg-card__list">
+                            {phase.items.map((item, itemIdx) => (
+                                <li key={itemIdx}>{item}</li>
+                            ))}
+                        </ul>
+                    </div>
+                ))}
+
+                {additionalInfo && additionalInfo.map((info, idx) => (
+                    <p key={idx} className="pkg-card__info">{info}</p>
+                ))}
+            </div>
+
+            <Link to="/appointment" className="pkg-card__cta">
+                Request This Experience
+            </Link>
         </div>
     )
 }

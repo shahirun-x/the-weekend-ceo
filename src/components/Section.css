@@ -1,53 +1,49 @@
 /* ============================================
-   SECTION — BOLD LAYOUTS
+   SECTIONS — DARK LUXURY VARIANTS
    ============================================ */
 
 .section {
-    position: relative;
     padding: var(--section-padding) 0;
+    position: relative;
     overflow: hidden;
 }
 
-.section--cream {
-    background-color: var(--cream);
-}
-
-.section--yellow {
-    background-color: var(--yellow);
-}
-
-.section--teal {
-    background-color: var(--teal);
-    color: var(--white);
-}
-
-.section--charcoal {
-    background-color: var(--charcoal);
-    color: var(--cream);
-}
-
-.section--gradient {
-    background: linear-gradient(180deg, var(--cream) 0%, var(--yellow) 100%);
-}
-
 .section__container {
-    position: relative;
-    z-index: 1;
     max-width: var(--container-max);
     margin: 0 auto;
     padding: 0 var(--space-lg);
+    position: relative;
+    z-index: 2;
 }
 
-/* Asymmetrical option */
-.section--asymmetric .section__container {
-    max-width: none;
-    padding-left: 10%;
-    padding-right: 5%;
+/* Variants */
+.section--dark {
+    background-color: var(--bg-primary);
 }
 
-@media (max-width: 767px) {
-    .section--asymmetric .section__container {
-        padding-left: var(--space-lg);
-        padding-right: var(--space-lg);
-    }
+.section--darker {
+    background-color: var(--bg-secondary);
+}
+
+.section--card {
+    background-color: var(--bg-card);
+}
+
+.section--glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+}
+
+.section--accent {
+    background-color: var(--wine);
+}
+
+.section--accent .section__container {
+    color: var(--text-primary);
+}
+
+/* Separator line between sections */
+.section + .section {
+    border-top: 1px solid var(--border);
 }

@@ -1,0 +1,76 @@
+{
+  "created": "2026-05-06T09:15:06.990Z",
+  "modified": "2026-05-06T09:15:06.990Z",
+  "canvas": {
+    "viewport": {
+      "x": 0,
+      "y": 0,
+      "zoom": 1
+    },
+    "selected": []
+  },
+  "nodes": {},
+  "themes": {
+    "theme_4bd46565b632": {
+      "id": "theme_4bd46565b632",
+      "name": "Weekend CEO Luxury Dark",
+      "variables": {
+        "--k-color-primary": "#C9A84C",
+        "--k-color-primary-hover": "#b8922f",
+        "--k-color-secondary": "#141414",
+        "--k-color-bg-page": "#0a0a0a",
+        "--k-color-bg-surface": "#141414",
+        "--k-color-bg-surface-hover": "#1f1f1f",
+        "--k-color-text-primary": "#F5F5F0",
+        "--k-color-text-secondary": "rgba(245,245,240,0.5)",
+        "--k-color-text-muted": "rgba(245,245,240,0.3)",
+        "--k-color-border": "rgba(255,255,255,0.07)",
+        "--k-color-border-hover": "rgba(255,255,255,0.15)",
+        "--k-color-accent": "#C9A84C",
+        "--k-color-success": "#2FB8AC",
+        "--k-color-warning": "#F7D94C",
+        "--k-color-error": "#E91E8C",
+        "--k-font-family-heading": "Space Grotesk, sans-serif",
+        "--k-font-family-body": "Space Grotesk, sans-serif",
+        "--k-font-size-xs": "12px",
+        "--k-font-size-sm": "14px",
+        "--k-font-size-base": "16px",
+        "--k-font-size-lg": "18px",
+        "--k-font-size-xl": "20px",
+        "--k-font-size-2xl": "24px",
+        "--k-font-size-3xl": "30px",
+        "--k-font-size-4xl": "36px",
+        "--k-font-size-5xl": "48px",
+        "--k-font-weight-normal": "400",
+        "--k-font-weight-medium": "500",
+        "--k-font-weight-semibold": "600",
+        "--k-font-weight-bold": "700",
+        "--k-spacing-xs": "4px",
+        "--k-spacing-sm": "8px",
+        "--k-spacing-md": "16px",
+        "--k-spacing-lg": "24px",
+        "--k-spacing-xl": "32px",
+        "--k-spacing-2xl": "48px",
+        "--k-spacing-3xl": "64px",
+        "--k-radius-sm": "2px",
+        "--k-radius-md": "4px",
+        "--k-radius-lg": "8px",
+        "--k-radius-xl": "12px",
+        "--k-radius-full": "9999px",
+        "--k-shadow-sm": "0 1px 2px 0 rgba(0, 0, 0, 0.05)",
+        "--k-shadow-md": "0 4px 6px -1px rgba(0, 0, 0, 0.1)",
+        "--k-shadow-lg": "0 10px 15px -3px rgba(0, 0, 0, 0.1)",
+        "--k-border-width-default": "1px",
+        "--k-border-width-thick": "2px"
+      },
+      "fonts": [
+        {
+          "family": "Space Grotesk",
+          "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap"
+        }
+      ],
+      "created": "2026-05-06T09:15:06.990Z",
+      "modified": "2026-05-06T09:15:06.990Z"
+    }
+  }
+}

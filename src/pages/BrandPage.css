@@ -1,222 +1,26 @@
-/* ============================================
-   BRAND PAGE — BOLD CREATIVE STYLES
-   ============================================ */
+.brand-statement { max-width: 800px; margin: 0 auto; text-align: center; }
+.brand-statement__text { font-size: 1.2rem; line-height: 1.9; color: var(--text-body); }
 
-/* The Idea Section */
-.brand-idea {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
+.brand-quote { text-align: center; position: relative; z-index: 2; }
+.brand-quote__text { font-style: italic; }
+.brand-quote__sub { color: var(--text-body); margin-top: var(--space-sm); }
+.brand-quote-watermark {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    font-family: var(--font-heading); font-size: 18rem; font-weight: 900;
+    color: rgba(255,255,255,0.015); pointer-events: none; user-select: none; z-index: 1;
 }
 
-.brand-idea__text {
-    font-size: 1.2rem;
-    margin-bottom: var(--space-md);
-    line-height: 1.8;
-}
+.brand-duality { display: flex; align-items: center; gap: var(--space-xl); max-width: 800px; margin: 0 auto var(--space-xl); }
+.brand-duality__card { flex: 1; text-align: center; padding: var(--space-lg); background: var(--bg-card); border: 1px solid var(--border); }
+.brand-duality__divider { width: 1px; height: 80px; background: linear-gradient(to bottom, transparent, var(--wine), transparent); flex-shrink: 0; }
+.brand-closing { max-width: 800px; margin: 0 auto; text-align: center; padding-top: var(--space-lg); border-top: 1px solid var(--border); }
+.brand-closing__text { font-size: 1.1rem; line-height: 1.8; color: var(--text-body); }
 
-.brand-idea__highlight {
-    margin-top: var(--space-lg);
-    color: var(--teal);
-    font-weight: 600;
-}
+.brand-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
+.brand-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.5; }
+.brand-cta-content { position: relative; z-index: 2; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-lg); display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
 
-/* Duality Section */
-.brand-duality {
-    text-align: center;
-}
-
-.brand-duality .text-eyebrow {
-    font-size: 1.1rem;
-    margin-bottom: var(--space-xl);
-}
-
-.brand-duality__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-xl);
-    max-width: 800px;
-    margin: 0 auto var(--space-xl);
-}
-
-.brand-duality__item {
-    text-align: left;
-    padding: var(--space-lg);
-    background-color: var(--white);
-    border-radius: 16px;
-}
-
-.brand-duality__item .text-h3 {
-    color: var(--teal);
-    margin-bottom: var(--space-sm);
-}
-
-.brand-duality__statement {
-    font-size: 1.3rem;
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-/* Not A Side Activity */
-.brand-not-side {
-    text-align: center;
-    max-width: 900px;
-    margin: 0 auto;
-    padding: var(--space-xl) 0;
-}
-
-.brand-not-side .text-h2 {
-    margin-bottom: var(--space-lg);
-}
-
-.brand-not-side__desc {
-    font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.85);
-    line-height: 1.8;
-}
-
-/* Approach Section */
-.brand-approach {
-    max-width: 900px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.brand-approach .text-eyebrow {
-    margin-bottom: var(--space-sm);
-}
-
-.brand-approach .text-h2 {
-    margin-bottom: var(--space-xl);
-}
-
-.brand-approach__content {
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-lg);
-    text-align: left;
-}
-
-.brand-approach__content .text-body {
-    line-height: 1.8;
-}
-
-/* Philosophy Section */
-.brand-philosophy {
-    max-width: 900px;
-    margin: 0 auto;
-}
-
-.brand-philosophy__intro {
-    font-size: 1.15rem;
-    color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    margin-bottom: var(--space-xl);
-    font-style: italic;
-}
-
-.brand-philosophy__text {
-    color: rgba(255, 255, 255, 0.85);
-    margin-bottom: var(--space-md);
-    text-align: center;
-}
-
-.brand-philosophy__title {
-    text-align: center;
-    margin-bottom: var(--space-md);
-}
-
-.brand-philosophy__list {
-    list-style: none;
-    padding: 0;
-    margin: var(--space-lg) 0;
-    display: flex;
-    flex-direction: column;
-    gap: var(--space-md);
-}
-
-.brand-philosophy__list li {
-    position: relative;
-    padding-left: var(--space-lg);
-    color: var(--white);
-    line-height: 1.7;
-}
-
-.brand-philosophy__list li::before {
-    content: '→';
-    position: absolute;
-    left: 0;
-    color: var(--yellow);
-    font-weight: 700;
-}
-
-.brand-philosophy__conclusion {
-    color: rgba(255, 255, 255, 0.9);
-    text-align: center;
-    margin-top: var(--space-lg);
-    font-size: 1.1rem;
-}
-
-/* Audience Section */
-.brand-audience {
-    text-align: center;
-}
-
-.brand-audience__title {
-    margin-bottom: var(--space-md);
-}
-
-.brand-audience__intro {
-    margin-bottom: var(--space-xl);
-}
-
-.brand-audience__grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: var(--space-md);
-    max-width: 900px;
-    margin: 0 auto var(--space-xl);
-}
-
-.brand-audience__item {
-    display: flex;
-    align-items: center;
-    gap: var(--space-sm);
-    padding: var(--space-md);
-    background-color: var(--white);
-    border-radius: 12px;
-    text-align: left;
-}
-
-.brand-audience__icon {
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--teal);
-}
-
-.brand-audience__note {
-    font-style: italic;
-    font-weight: 600;
-    color: var(--charcoal);
-}
-
-/* CTA */
-.brand-cta {
-    text-align: center;
-    padding: var(--space-xl) 0;
-}
-
-.brand-cta .text-h2 {
-    margin-bottom: var(--space-xl);
-}
-
-/* Mobile */
-@media (max-width: 900px) {
-    .brand-duality__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .brand-audience__grid {
-        grid-template-columns: 1fr;
-    }
+@media (max-width: 768px) {
+    .brand-duality { flex-direction: column; }
+    .brand-duality__divider { width: 80px; height: 1px; }
 }

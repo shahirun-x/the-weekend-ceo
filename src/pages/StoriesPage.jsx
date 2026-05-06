@@ -28,8 +28,6 @@ function StoriesPage() {
 
             if (data) {
                 setStories(data)
-                
-                // Extract unique years
                 const years = [...new Set(data.map(story => story.year))]
                 if (years.length > 0) {
                     setAvailableYears(years.sort((a, b) => b - a))
@@ -51,17 +49,18 @@ function StoriesPage() {
 
     return (
         <div className="stories-page">
-            <Section variant="charcoal" className="stories-hero">
+            <Section variant="dark" className="stories-hero">
                 <ScrollReveal direction="up">
                     <div className="stories-hero__content">
-                        <Text variant="h1" className="text-yellow">THE 96 STORIES LEAGUE</Text>
+                        <span className="stories-hero__eyebrow">The League</span>
+                        <Text variant="h1" className="stories-hero__title">THE 96 STORIES <span className="text-wine">LEAGUE</span></Text>
                         <Text className="stories-hero__subtitle">
                             Every car that earns the CEO's touch becomes a numbered story. Limited to 96 per year. No exceptions.
                         </Text>
                         
                         <div className="stories-hero__counter">
-                            <Text variant="h2" className="text-white">
-                                {currentYearCount} of 96 stories this year — {slotsRemaining} slots remaining
+                            <Text variant="h3">
+                                <span className="text-wine">{currentYearCount}</span> of 96 stories — <span className="text-blue">{slotsRemaining}</span> slots remaining
                             </Text>
                         </div>
 
@@ -82,14 +81,14 @@ function StoriesPage() {
                 </ScrollReveal>
             </Section>
 
-            <Section variant="charcoal" className="stories-grid-section">
+            <Section variant="darker" className="stories-grid-section">
                 {isLoading ? (
                     <div className="stories-loading">
-                        <Text className="text-white">Loading stories...</Text>
+                        <Text>Loading stories...</Text>
                     </div>
                 ) : filteredStories.length === 0 ? (
                     <div className="stories-empty">
-                        <Text variant="h3" className="text-white">The first story is being written. 96 slots. Zero shortcuts.</Text>
+                        <Text variant="h3">The first story is being written. 96 slots. Zero shortcuts.</Text>
                     </div>
                 ) : (
                     <div className="stories-grid">
@@ -99,10 +98,7 @@ function StoriesPage() {
                                 <ScrollReveal key={story.id} direction="up" delay={idx * 50}>
                                     <Link to={`/stories/${story.id}`} className="story-card">
                                         {hasPhoto ? (
-                                            <div 
-                                                className="story-card__bg" 
-                                                style={{ backgroundImage: `url(${story.after_photos[0]})` }}
-                                            />
+                                            <div className="story-card__bg" style={{ backgroundImage: `url(${story.after_photos[0]})` }} />
                                         ) : (
                                             <div className="story-card__fallback">
                                                 <div className="story-card__watermark">KA</div>
@@ -117,18 +113,14 @@ function StoriesPage() {
                                             
                                             <div className="story-card__content">
                                                 <Text variant="h3" className="story-card__title">{story.car_make_model}</Text>
-                                                
                                                 <div className="story-card__tags">
                                                     <span className="story-card__tag">{story.car_colour}</span>
                                                     <span className="story-card__tag">{story.city}</span>
                                                 </div>
-                                                
                                                 <span className="story-card__pack">{story.pack}</span>
-                                                
                                                 <Text className="story-card__excerpt">
                                                     {story.narrative.substring(0, 100)}{story.narrative.length > 100 ? '...' : ''}
                                                 </Text>
-                                                
                                                 <span className="story-card__read">Read Story →</span>
                                             </div>
                                         </div>
@@ -143,13 +135,10 @@ function StoriesPage() {
             <div className="stories-slots-strip">
                 <div className="stories-slots-strip__container">
                     <Text className="stories-slots-strip__text">
-                        96 slots per year. [{currentYearCount}] have been claimed. [{slotsRemaining}] remain.
+                        96 slots per year. [{currentYearCount}] claimed. [{slotsRemaining}] remain.
                     </Text>
                     <div className="stories-slots-strip__progress">
-                        <div 
-                            className="stories-slots-strip__fill" 
-                            style={{ width: `${(currentYearCount / 96) * 100}%` }}
-                        ></div>
+                        <div className="stories-slots-strip__fill" style={{ width: `${(currentYearCount / 96) * 100}%` }}></div>
                     </div>
                 </div>
             </div>

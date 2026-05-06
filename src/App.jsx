@@ -13,6 +13,10 @@ import SafetyAssurancePage from './pages/SafetyAssurancePage'
 import StandardsPage from './pages/StandardsPage'
 import StoriesPage from './pages/StoriesPage'
 import StoryDetailPage from './pages/StoryDetailPage'
+import ContactPage from './pages/ContactPage'
+import FAQPage from './pages/FAQPage'
+import BlogPage from './pages/BlogPage'
+import NotFoundPage from './pages/NotFoundPage'
 
 function App() {
     return (
@@ -28,6 +32,9 @@ function App() {
             <Route path="/stories" element={<Layout><StoriesPage /></Layout>} />
             <Route path="/stories/:id" element={<Layout><StoryDetailPage /></Layout>} />
             <Route path="/appointment" element={<Layout><AppointmentPage /></Layout>} />
+            <Route path="/contact" element={<Layout><ContactPage /></Layout>} />
+            <Route path="/faq" element={<Layout><FAQPage /></Layout>} />
+            <Route path="/blog" element={<Layout><BlogPage /></Layout>} />
 
             {/* Admin routes without Layout */}
             <Route path="/admin-login" element={<AdminLogin />} />
@@ -39,6 +46,9 @@ function App() {
                     </ProtectedRoute>
                 }
             />
+
+            {/* 404 Catch-all */}
+            <Route path="*" element={<Layout><NotFoundPage /></Layout>} />
         </Routes>
     )
 }
