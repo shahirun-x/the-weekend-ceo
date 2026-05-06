@@ -9,6 +9,7 @@ const navLinks = [
     { path: '/areas', label: 'Service Locations' },
     { path: '/brand', label: 'Brand Story' },
     { path: '/standards', label: 'Standards' },
+    { path: '/stories', label: '96 Stories', isSpecial: true },
 ]
 
 function Header() {
@@ -41,8 +42,9 @@ function Header() {
                         <Link
                             key={link.path}
                             to={link.path}
-                            className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''}`}
+                            className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''} ${link.isSpecial ? 'header__link--special' : ''}`}
                         >
+                            {link.isSpecial && <span className="header__link-dot"></span>}
                             {link.label}
                         </Link>
                     ))}

@@ -11,6 +11,8 @@ import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
 import SafetyAssurancePage from './pages/SafetyAssurancePage'
 import StandardsPage from './pages/StandardsPage'
+import StoriesPage from './pages/StoriesPage'
+import StoryDetailPage from './pages/StoryDetailPage'
 
 function App() {
     return (
@@ -23,6 +25,8 @@ function App() {
             <Route path="/areas" element={<Layout><AreasPage /></Layout>} />
             <Route path="/standards" element={<Layout><StandardsPage /></Layout>} />
             <Route path="/gallery" element={<Layout><GalleryPage /></Layout>} />
+            <Route path="/stories" element={<Layout><StoriesPage /></Layout>} />
+            <Route path="/stories/:id" element={<Layout><StoryDetailPage /></Layout>} />
             <Route path="/appointment" element={<Layout><AppointmentPage /></Layout>} />
 
             {/* Admin routes without Layout */}

@@ -100,6 +100,21 @@
     color: var(--teal);
 }
 
+.header__link--special {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.header__link-dot {
+    display: inline-block;
+    width: 6px;
+    height: 6px;
+    background-color: var(--yellow);
+    border-radius: 50%;
+    box-shadow: 0 0 5px rgba(255, 215, 0, 0.5);
+}
+
 /* CTA Button in Header */
 .header__cta {
     background-color: var(--teal);
