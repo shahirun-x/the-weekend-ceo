@@ -20,8 +20,8 @@
         90deg,
         transparent,
         transparent 2px,
-        rgba(255, 255, 255, 0.005) 2px,
-        rgba(255, 255, 255, 0.005) 4px
+        rgba(255, 255, 255, 0.003) 2px,
+        rgba(255, 255, 255, 0.003) 4px
     );
     pointer-events: none;
     z-index: 9998;

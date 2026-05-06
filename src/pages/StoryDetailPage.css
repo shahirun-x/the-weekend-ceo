@@ -19,21 +19,21 @@
     transition: box-shadow 0.5s var(--ease-out-expo);
 }
 .story-header__pack:hover {
-    box-shadow: 0 0 20px rgba(166, 21, 52, 0.15);
+    box-shadow: 0 0 15px rgba(166, 21, 52, 0.1);
 }
 
 .story-narrative { max-width: 700px; margin: 0 auto; }
-.story-narrative__p { font-size: 1.1rem; line-height: 1.9; color: var(--text-body); margin-bottom: var(--space-md); }
+.story-narrative__p { font-size: 1.1rem; line-height: 2; color: var(--text-body); margin-bottom: var(--space-md); }
 
 .story-gallery { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 4px; }
 .story-gallery__img {
     width: 100%; aspect-ratio: 4/3; object-fit: cover; cursor: pointer;
-    filter: brightness(0.8) saturate(0.85);
-    transition: filter 0.8s var(--ease-luxury), transform 1.2s var(--ease-out-expo);
+    filter: brightness(0.85) saturate(0.9);
+    transition: filter 0.8s var(--ease-luxury), transform 1.6s var(--ease-out-quint);
 }
 .story-gallery__img:hover {
     filter: brightness(1) saturate(1);
-    transform: scale(1.03);
+    transform: scale(1.02);
 }
 
 .story-gallery-empty { text-align: center; padding: var(--space-xl); background: var(--bg-card); border: 1px solid var(--border); }
@@ -54,8 +54,8 @@
 .story-share-btn:hover {
     color: var(--text-primary);
     border-color: var(--wine-bright);
-    transform: translateY(-2px);
-    box-shadow: 0 4px 15px rgba(166, 21, 52, 0.1);
+    transform: translateY(-1px);
+    box-shadow: 0 3px 10px rgba(166, 21, 52, 0.08);
 }
 .story-share-btn:active {
     transform: translateY(0) scale(0.97);
@@ -73,8 +73,8 @@
     text-transform: uppercase; letter-spacing: 0.1em; color: var(--text-secondary);
     transition: color 0.4s var(--ease-luxury), transform 0.4s var(--ease-out-expo);
 }
-.story-nav-link:hover { color: var(--text-primary); transform: translateX(4px); }
-.story-nav-link:first-child:hover { transform: translateX(-4px); }
+.story-nav-link:hover { color: var(--text-primary); transform: translateX(3px); }
+.story-nav-link:first-child:hover { transform: translateX(-3px); }
 .story-nav-link--center { color: var(--wine-bright); }
 .story-nav-link--center:hover { transform: none; }
 .story-nav-link--disabled { visibility: hidden; }
@@ -104,6 +104,6 @@
     animation: lightboxImageIn 0.7s var(--ease-out-expo) 0.1s both;
 }
 @keyframes lightboxImageIn {
-    from { opacity: 0; transform: scale(0.94); }
+    from { opacity: 0; transform: scale(0.96); }
     to { opacity: 1; transform: scale(1); }
 }

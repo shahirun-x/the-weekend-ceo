@@ -38,7 +38,7 @@
     color: var(--text-primary);
     background: var(--wine);
     border-color: var(--wine);
-    box-shadow: 0 4px 15px var(--glow-wine);
+    box-shadow: 0 3px 12px var(--glow-wine);
 }
 
 /* Grid */
@@ -66,15 +66,15 @@
     height: 100%;
     object-fit: cover;
     transition:
-        transform 1.4s var(--ease-out-quint),
+        transform 1.6s var(--ease-out-quint),
         filter 0.8s var(--ease-luxury);
-    filter: brightness(0.8) saturate(0.85);
+    filter: brightness(0.85) saturate(0.9);
     will-change: transform;
 }
 
 .mg-item:hover .mg-item__img {
-    transform: scale(1.06);
-    filter: brightness(1) saturate(1.05);
+    transform: scale(1.04);
+    filter: brightness(1) saturate(1);
 }
 
 .mg-item__overlay {
@@ -103,7 +103,7 @@
     font-size: 1rem;
     font-weight: 600;
     color: var(--text-primary);
-    transform: translateY(8px);
+    transform: translateY(5px);
     transition: transform 0.6s var(--ease-out-expo);
 }
 
@@ -116,7 +116,7 @@
     color: var(--wine-bright);
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    transform: translateY(8px);
+    transform: translateY(5px);
     transition: transform 0.6s var(--ease-out-expo) 0.05s;
 }
 

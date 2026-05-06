@@ -38,9 +38,9 @@
 .pkg-card:hover {
     border-color: var(--border-hover);
     box-shadow:
-        0 16px 50px rgba(0, 0, 0, 0.25),
-        0 0 0 1px rgba(255, 255, 255, 0.03);
-    transform: translateY(-4px);
+        0 12px 40px rgba(0, 0, 0, 0.2),
+        0 0 0 1px rgba(255, 255, 255, 0.02);
+    transform: translateY(-3px);
 }
 
 /* Signature Variant */
@@ -52,9 +52,9 @@
 .pkg-card--signature:hover {
     border-color: var(--wine-bright);
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.3),
-        0 0 50px var(--glow-wine),
-        inset 0 1px 0 rgba(166, 21, 52, 0.15);
+        0 16px 50px rgba(0, 0, 0, 0.25),
+        0 0 35px var(--glow-wine),
+        inset 0 1px 0 rgba(166, 21, 52, 0.1);
 }
 
 .pkg-card__badge {
@@ -99,7 +99,7 @@
     background-clip: text;
     margin-bottom: 0.5rem;
     background-size: 200% 200%;
-    animation: gradientShift 6s var(--ease-luxury) infinite alternate;
+    animation: gradientShift 10s var(--ease-luxury) infinite alternate;
 }
 
 @keyframes gradientShift {
@@ -255,7 +255,7 @@
 .pkg-card__cta:hover {
     background: var(--wine);
     border-color: var(--wine);
-    box-shadow: 0 6px 25px var(--glow-wine);
+    box-shadow: 0 4px 20px var(--glow-wine);
     transform: translateY(-2px);
 }
 
@@ -272,6 +272,6 @@
 .pkg-card--signature .pkg-card__cta:hover {
     background: var(--wine-bright);
     box-shadow:
-        0 8px 30px var(--glow-wine),
-        0 0 0 1px rgba(166, 21, 52, 0.2);
+        0 6px 25px var(--glow-wine),
+        0 0 0 1px rgba(166, 21, 52, 0.15);
 }

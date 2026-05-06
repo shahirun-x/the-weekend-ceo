@@ -20,7 +20,7 @@
     right: 10%;
     height: 160px;
     background: radial-gradient(ellipse at center,
-        rgba(123, 16, 35, 0.06) 0%,
+        rgba(123, 16, 35, 0.04) 0%,
         transparent 70%
     );
     pointer-events: none;
@@ -120,7 +120,7 @@
 
 .footer__link:hover {
     color: var(--text-primary);
-    transform: translateX(4px);
+    transform: translateX(3px);
 }
 
 /* Divider — precision line */
@@ -128,7 +128,7 @@
     height: 1px;
     background: linear-gradient(to right, transparent, var(--wine), transparent);
     margin-bottom: var(--space-lg);
-    opacity: 0.2;
+    opacity: 0.15;
 }
 
 /* Monogram — luxury brand signature */

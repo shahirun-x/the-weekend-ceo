@@ -1,7 +1,7 @@
 /* ============================================
-   HERO — LUXURY BRAND IMMERSION
-   Phase 3: Showroom lighting, atmospheric haze,
-   spotlight sweep, environmental depth
+   HERO — SENSORY PRECISION
+   Phase 4: Calmed motion, quieter ambients,
+   refined pacing, premium breathing
    ============================================ */
 
 .hero {
@@ -65,8 +65,8 @@
     background: radial-gradient(circle, var(--wine) 0%, transparent 70%);
     top: -25%;
     right: -12%;
-    opacity: 0.3;
-    animation: envDrift 22s var(--ease-luxury) infinite;
+    opacity: 0.22;
+    animation: envDrift 26s var(--ease-luxury) infinite;
 }
 
 .hero__ambient--blue {
@@ -75,8 +75,8 @@
     background: radial-gradient(circle, var(--blue-deep) 0%, transparent 70%);
     bottom: -25%;
     left: -12%;
-    opacity: 0.22;
-    animation: envDrift 28s var(--ease-luxury) infinite reverse;
+    opacity: 0.15;
+    animation: envDrift 34s var(--ease-luxury) infinite reverse;
 }
 
 /* Showroom Spotlight Sweep — atmospheric light bar */
@@ -96,8 +96,8 @@
     );
     pointer-events: none;
     z-index: 1;
-    animation: spotlightSweep 12s var(--ease-luxury) infinite;
-    animation-delay: 3s;
+    animation: spotlightSweep 18s var(--ease-luxury) infinite;
+    animation-delay: 5s;
     opacity: 0;
 }
 
@@ -106,8 +106,8 @@
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at 30% 80%, rgba(123, 16, 35, 0.03) 0%, transparent 50%),
-        radial-gradient(ellipse at 70% 20%, rgba(122, 174, 232, 0.02) 0%, transparent 50%);
+        radial-gradient(ellipse at 30% 80%, rgba(123, 16, 35, 0.02) 0%, transparent 50%),
+        radial-gradient(ellipse at 70% 20%, rgba(122, 174, 232, 0.015) 0%, transparent 50%);
     pointer-events: none;
     z-index: 1;
     mix-blend-mode: screen;
@@ -117,7 +117,7 @@
 .hero__grain {
     position: absolute;
     inset: 0;
-    opacity: 0.025;
+    opacity: 0.02;
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
     mix-blend-mode: overlay;
@@ -134,7 +134,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: var(--space-md);
+    gap: var(--space-lg);
 }
 
 /* Eyebrow */
@@ -182,7 +182,7 @@
     -webkit-text-fill-color: transparent;
     background-clip: text;
     background-size: 200% 200%;
-    animation: gradientShift 8s var(--ease-luxury) infinite alternate;
+    animation: gradientShift 14s var(--ease-luxury) infinite alternate;
 }
 
 @keyframes gradientShift {
@@ -194,8 +194,8 @@
 .hero__subtitle {
     font-size: clamp(1rem, 1.5vw, 1.25rem);
     color: var(--text-body);
-    line-height: 1.7;
-    max-width: 600px;
+    line-height: 1.8;
+    max-width: 550px;
 }
 
 /* Content container */

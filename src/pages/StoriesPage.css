@@ -22,7 +22,7 @@
         box-shadow 0.5s var(--ease-out-expo);
 }
 .stories-year-tab:hover { color: var(--text-primary); border-color: var(--border-hover); }
-.stories-year-tab--active { color: var(--text-primary); background: var(--wine); border-color: var(--wine); box-shadow: 0 4px 15px var(--glow-wine); }
+.stories-year-tab--active { color: var(--text-primary); background: var(--wine); border-color: var(--wine); box-shadow: 0 3px 12px var(--glow-wine); }
 
 .stories-loading, .stories-empty { text-align: center; padding: var(--space-xl) 0; }
 .stories-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: var(--space-md); }
@@ -37,21 +37,21 @@
 }
 .story-card:hover {
     border-color: var(--border-wine);
-    transform: translateY(-6px);
+    transform: translateY(-4px);
     box-shadow:
-        0 20px 60px rgba(0, 0, 0, 0.3),
-        0 0 30px rgba(123, 16, 35, 0.08);
+        0 16px 50px rgba(0, 0, 0, 0.25),
+        0 0 20px rgba(123, 16, 35, 0.06);
 }
 
 .story-card__bg {
     position: absolute; inset: 0;
     background-size: cover; background-position: center;
-    transition: transform 1.4s var(--ease-out-quint), filter 0.8s var(--ease-luxury);
-    filter: brightness(0.35) saturate(0.8);
+    transition: transform 1.6s var(--ease-out-quint), filter 0.8s var(--ease-luxury);
+    filter: brightness(0.35) saturate(0.85);
 }
 .story-card:hover .story-card__bg {
-    transform: scale(1.05);
-    filter: brightness(0.45) saturate(0.9);
+    transform: scale(1.04);
+    filter: brightness(0.42) saturate(0.9);
 }
 
 .story-card__fallback { position: absolute; inset: 0; background: var(--bg-card); display: flex; align-items: center; justify-content: center; }
@@ -82,7 +82,7 @@
     margin-top: 0.5rem;
     transition: color 0.4s var(--ease-luxury), transform 0.4s var(--ease-out-expo);
 }
-.story-card:hover .story-card__read { color: var(--wine-bright); transform: translateX(4px); }
+.story-card:hover .story-card__read { color: var(--wine-bright); transform: translateX(3px); }
 
 .stories-slots-strip { background: var(--bg-card); border-top: 1px solid var(--border); padding: var(--space-lg); }
 .stories-slots-strip__container { max-width: var(--container-max); margin: 0 auto; display: flex; flex-direction: column; gap: var(--space-sm); }
@@ -93,5 +93,5 @@
     background: linear-gradient(to right, var(--wine), var(--wine-bright));
     transition: width 1.5s var(--ease-out-expo);
     border-radius: 2px;
-    box-shadow: 0 0 10px var(--glow-wine);
+    box-shadow: 0 0 6px var(--glow-wine);
 }

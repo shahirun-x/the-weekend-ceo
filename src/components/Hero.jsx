@@ -22,8 +22,8 @@ function Hero({
         const handleMouseMove = (e) => {
             const { clientX, clientY } = e
             const { innerWidth, innerHeight } = window
-            const xOffset = ((clientX / innerWidth) - 0.5) * 8
-            const yOffset = ((clientY / innerHeight) - 0.5) * 6
+            const xOffset = ((clientX / innerWidth) - 0.5) * 5
+            const yOffset = ((clientY / innerHeight) - 0.5) * 4
 
             const ambients = el.querySelectorAll('.hero__ambient')
             ambients.forEach((ambient, i) => {

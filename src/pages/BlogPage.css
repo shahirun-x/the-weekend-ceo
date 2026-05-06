@@ -14,7 +14,7 @@
 }
 .blog-featured:hover {
     border-color: var(--border-hover);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
 }
 .blog-featured__image {
     aspect-ratio: 16/10;
@@ -60,8 +60,8 @@
 
 .blog-card:hover {
     border-color: var(--border-hover);
-    transform: translateY(-6px);
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.25);
+    transform: translateY(-4px);
+    box-shadow: 0 16px 50px rgba(0, 0, 0, 0.2);
 }
 
 .blog-card__image {
