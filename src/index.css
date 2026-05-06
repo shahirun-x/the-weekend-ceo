@@ -1,7 +1,7 @@
 /* ============================================
    THE WEEKEND CEO — LUXURY AUTOMOTIVE DESIGN SYSTEM
    Dark Luxury × Cinematic Automotive × Premium Studio
-   Phase 2: Cinematic Polish & Micro-Interaction System
+   Phase 3: Luxury Brand Immersion
    ============================================ */
 
 /* CSS Reset & Base */
@@ -388,6 +388,239 @@ button {
 .img-reveal:hover img {
   transform: scale(1.04);
   filter: brightness(1) saturate(1);
+}
+
+/* ============================================
+   LUXURY ENVIRONMENTAL ATMOSPHERE
+   Showroom lighting, material depth, haze
+   ============================================ */
+
+/* Showroom Directional Light — top edge */
+.showroom-light {
+  position: relative;
+}
+
+.showroom-light::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  right: 10%;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent,
+    rgba(245, 247, 250, 0.06) 30%,
+    rgba(245, 247, 250, 0.1) 50%,
+    rgba(245, 247, 250, 0.06) 70%,
+    transparent
+  );
+  pointer-events: none;
+  z-index: 3;
+}
+
+/* Brushed Metal Texture — ultra-subtle */
+.brushed-surface {
+  position: relative;
+}
+
+.brushed-surface::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: repeating-linear-gradient(
+    90deg,
+    transparent,
+    transparent 2px,
+    rgba(255, 255, 255, 0.008) 2px,
+    rgba(255, 255, 255, 0.008) 4px
+  );
+  pointer-events: none;
+  z-index: 1;
+  mix-blend-mode: overlay;
+}
+
+/* Environmental Depth Haze */
+.depth-haze {
+  position: relative;
+}
+
+.depth-haze::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 200px;
+  background: linear-gradient(to bottom,
+    transparent,
+    rgba(5, 6, 8, 0.6)
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Luxury Divider — precision line */
+.luxury-divider {
+  width: 100%;
+  height: 1px;
+  background: linear-gradient(to right,
+    transparent,
+    var(--border) 15%,
+    var(--border-hover) 50%,
+    var(--border) 85%,
+    transparent
+  );
+  margin: var(--space-2xl) 0;
+  position: relative;
+}
+
+.luxury-divider--wine {
+  background: linear-gradient(to right,
+    transparent,
+    rgba(123, 16, 35, 0.15) 15%,
+    rgba(166, 21, 52, 0.4) 50%,
+    rgba(123, 16, 35, 0.15) 85%,
+    transparent
+  );
+}
+
+.luxury-divider::after {
+  content: '';
+  position: absolute;
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 8px;
+  height: 8px;
+  border: 1px solid var(--border-hover);
+  transform: translateX(-50%) rotate(45deg);
+}
+
+.luxury-divider--wine::after {
+  border-color: var(--wine);
+}
+
+/* Section Marker (numbered sections) */
+.section-marker {
+  display: inline-flex;
+  align-items: center;
+  gap: 1.5rem;
+  margin-bottom: var(--space-lg);
+}
+
+.section-marker__num {
+  font-family: var(--font-heading);
+  font-size: 0.65rem;
+  font-weight: 600;
+  color: var(--text-muted);
+  letter-spacing: 0.15em;
+}
+
+.section-marker__line {
+  width: 50px;
+  height: 1px;
+  background: linear-gradient(to right, var(--wine), transparent);
+}
+
+/* Cinematic Edge Fade (for image containers) */
+.edge-fade {
+  position: relative;
+}
+
+.edge-fade::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    to right,
+    var(--bg-primary) 0%,
+    transparent 8%,
+    transparent 92%,
+    var(--bg-primary) 100%
+  );
+  pointer-events: none;
+  z-index: 2;
+}
+
+/* Ambient Edge Glow — wine red */
+.ambient-edge {
+  position: relative;
+  overflow: hidden;
+}
+
+.ambient-edge::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -20%;
+  width: 140%;
+  height: 200%;
+  background: radial-gradient(
+    ellipse at top center,
+    rgba(123, 16, 35, 0.04) 0%,
+    transparent 60%
+  );
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* Piano Black Surface */
+.piano-black {
+  background: linear-gradient(
+    180deg,
+    var(--bg-card) 0%,
+    rgba(8, 10, 15, 1) 100%
+  );
+  box-shadow: inset 0 1px 0 rgba(255, 255, 255, 0.03);
+}
+
+/* Smoked Glass Overlay */
+.smoked-glass {
+  background: linear-gradient(
+    135deg,
+    rgba(16, 20, 27, 0.7),
+    rgba(16, 20, 27, 0.4)
+  );
+  backdrop-filter: blur(30px) saturate(1.1);
+  -webkit-backdrop-filter: blur(30px) saturate(1.1);
+  border: 1px solid rgba(255, 255, 255, 0.04);
+  box-shadow:
+    inset 0 1px 0 rgba(255, 255, 255, 0.03),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.2);
+}
+
+/* Slow Environmental Drift */
+@keyframes envDrift {
+  0%, 100% {
+    transform: translate(0, 0) scale(1);
+    opacity: 0.3;
+  }
+  33% {
+    transform: translate(20px, -15px) scale(1.03);
+    opacity: 0.35;
+  }
+  66% {
+    transform: translate(-15px, 10px) scale(0.97);
+    opacity: 0.25;
+  }
+}
+
+/* Showroom Spotlight Sweep */
+@keyframes spotlightSweep {
+  0% {
+    opacity: 0;
+    transform: translateX(-100%) scaleY(1);
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(200%) scaleY(1);
+  }
 }
 
 /* ============================================

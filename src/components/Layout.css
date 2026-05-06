@@ -3,8 +3,27 @@
     background-color: var(--bg-primary);
     display: flex;
     flex-direction: column;
+    position: relative;
 }
 
 .layout__main {
     flex: 1;
+    animation: pageReveal 0.8s var(--ease-out-expo) forwards;
+}
+
+/* Ultra-subtle brushed texture on the entire layout */
+.layout::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: repeating-linear-gradient(
+        90deg,
+        transparent,
+        transparent 2px,
+        rgba(255, 255, 255, 0.005) 2px,
+        rgba(255, 255, 255, 0.005) 4px
+    );
+    pointer-events: none;
+    z-index: 9998;
+    mix-blend-mode: overlay;
 }

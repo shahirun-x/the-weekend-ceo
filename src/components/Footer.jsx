@@ -4,6 +4,9 @@ import './Footer.css'
 function Footer() {
     return (
         <footer className="footer">
+            {/* Ambient top edge glow */}
+            <div className="footer__ambient-edge"></div>
+
             <div className="footer__container">
                 <div className="footer__top">
                     <div className="footer__brand">
@@ -47,6 +50,11 @@ function Footer() {
                 </div>
 
                 <div className="footer__divider"></div>
+
+                {/* Brand monogram */}
+                <div className="footer__monogram">
+                    <span className="footer__monogram-text">KA</span>
+                </div>
 
                 <div className="footer__bottom">
                     <span className="footer__copyright">

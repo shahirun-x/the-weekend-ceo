@@ -25,11 +25,11 @@ function SafetyAssurancePage() {
                 short
             />
 
-            <Section variant="darker" id="principles">
+            <Section variant="darker" id="principles" className="ambient-edge">
                 <div className="safety-grid">
                     {principles.map((p, idx) => (
                         <ScrollReveal key={idx} direction="up" delay={idx * 80}>
-                            <div className="safety-card">
+                            <div className="safety-card showroom-light">
                                 <span className="safety-card__num">{p.num}</span>
                                 <h3 className="safety-card__title">{p.title}</h3>
                                 <p className="safety-card__desc">{p.desc}</p>

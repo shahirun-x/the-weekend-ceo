@@ -16,7 +16,7 @@ function BrandPage() {
                 short
             />
 
-            <Section variant="darker" id="idea">
+            <Section variant="darker" id="idea" className="ambient-edge">
                 <ScrollReveal direction="up">
                     <div className="brand-statement">
                         <Text variant="large" className="brand-statement__text">
@@ -39,14 +39,15 @@ function BrandPage() {
             </Section>
 
             <Section variant="darker" id="duality">
+                <div className="luxury-divider luxury-divider--wine"></div>
                 <ScrollReveal direction="up">
                     <div className="brand-duality">
-                        <div className="brand-duality__card">
+                        <div className="brand-duality__card smoked-glass">
                             <Text variant="h3" className="text-wine">Corporate Leadership</Text>
                             <Text>Builds structure, discipline, and respect for time.</Text>
                         </div>
                         <div className="brand-duality__divider"></div>
-                        <div className="brand-duality__card">
+                        <div className="brand-duality__card smoked-glass">
                             <Text variant="h3" className="text-blue">Entrepreneurial Instinct</Text>
                             <Text>Drives obsession, accountability, and care beyond obligation.</Text>
                         </div>

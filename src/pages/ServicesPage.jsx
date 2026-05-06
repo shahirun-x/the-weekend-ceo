@@ -64,9 +64,13 @@ function ServicesPage() {
                 short
             />
 
-            <Section variant="darker" id="packs">
+            <Section variant="darker" id="packs" className="ambient-edge">
                 <ScrollReveal direction="up">
                     <div className="services-header">
+                        <div className="section-marker">
+                            <span className="section-marker__num">PACKS</span>
+                            <span className="section-marker__line"></span>
+                        </div>
                         <Text variant="eyebrow">Packages</Text>
                         <Text variant="h2">Choose Your <span className="text-wine">Experience</span></Text>
                     </div>

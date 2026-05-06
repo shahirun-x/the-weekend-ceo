@@ -439,10 +439,20 @@
     left: 50%;
     transform: translate(-50%, -50%);
     background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%);
-    filter: blur(100px);
+    filter: blur(120px);
     pointer-events: none;
-    opacity: 0.4;
-    animation: ambientFloat 20s var(--ease-luxury) infinite;
+    opacity: 0.35;
+    animation: envDrift 24s var(--ease-luxury) infinite;
+}
+
+.home-final-cta__ambient--blue {
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, var(--blue-glow) 0%, transparent 70%);
+    top: 30%;
+    left: 65%;
+    opacity: 0.2;
+    animation: envDrift 30s var(--ease-luxury) infinite reverse;
 }
 
 .home-final-cta__content {

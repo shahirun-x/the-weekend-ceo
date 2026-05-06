@@ -95,7 +95,7 @@
     filter: blur(100px);
     pointer-events: none;
     opacity: 0.4;
-    animation: ambientFloat 20s var(--ease-luxury) infinite;
+    animation: envDrift 24s var(--ease-luxury) infinite;
 }
 
 .safety-cta-content {

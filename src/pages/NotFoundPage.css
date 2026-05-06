@@ -27,7 +27,7 @@
     top: -10%;
     right: -5%;
     opacity: 0.25;
-    animation: ambientFloat 18s var(--ease-luxury) infinite;
+    animation: envDrift 22s var(--ease-luxury) infinite;
 }
 
 .not-found__ambient--blue {
@@ -37,7 +37,7 @@
     bottom: -10%;
     left: -5%;
     opacity: 0.2;
-    animation: ambientFloat 22s var(--ease-luxury) infinite reverse;
+    animation: envDrift 28s var(--ease-luxury) infinite reverse;
 }
 
 .not-found__content {

@@ -56,7 +56,7 @@
 .brand-closing__text { font-size: 1.1rem; line-height: 1.8; color: var(--text-body); }
 
 .brand-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
-.brand-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.4; animation: ambientFloat 20s var(--ease-luxury) infinite; }
+.brand-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(120px); pointer-events: none; opacity: 0.35; animation: envDrift 24s var(--ease-luxury) infinite; }
 .brand-cta-content { position: relative; z-index: 2; max-width: var(--container-max); margin: 0 auto; padding: 0 var(--space-lg); display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
 
 @media (max-width: 768px) {

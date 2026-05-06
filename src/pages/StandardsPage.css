@@ -101,7 +101,7 @@
 }
 
 .standards-cta-section { position: relative; padding: var(--space-3xl) 0; text-align: center; background: var(--bg-secondary); overflow: hidden; }
-.standards-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.4; animation: ambientFloat 20s var(--ease-luxury) infinite; }
+.standards-cta-ambient { position: absolute; width: 600px; height: 600px; top: 50%; left: 50%; transform: translate(-50%,-50%); background: radial-gradient(circle, var(--wine-glow) 0%, transparent 70%); filter: blur(100px); pointer-events: none; opacity: 0.4; animation: envDrift 24s var(--ease-luxury) infinite; }
 .standards-cta-content { position: relative; z-index: 2; display: flex; flex-direction: column; align-items: center; gap: var(--space-md); }
 
 @media (max-width: 768px) { .standards-stats { grid-template-columns: 1fr; } }

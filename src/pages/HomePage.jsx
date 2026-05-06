@@ -41,7 +41,7 @@ function AnimatedCounter({ value, suffix = '' }) {
             if (entry.isIntersecting) {
                 let start = 0
                 const end = value
-                const duration = 1500
+                const duration = 2000
                 const stepTime = Math.abs(Math.floor(duration / end))
                 const timer = setInterval(() => {
                     start += 1
@@ -79,16 +79,20 @@ function HomePage() {
                     <Button to="/appointment" variant="primary" className="btn--large">Book Your Slot</Button>
                     <Button to="/packages" variant="secondary">View Packages</Button>
                 </div>
-                <div className="home-hero__badge glass">
+                <div className="home-hero__badge smoked-glass">
                     <span className="home-hero__badge-label">96 Stories League</span>
                     <span className="home-hero__badge-value">Slots Remaining</span>
                 </div>
             </Hero>
 
             {/* Services Overview */}
-            <Section variant="darker" id="services">
+            <Section variant="darker" id="services" className="ambient-edge">
                 <ScrollReveal direction="up">
                     <div className="home-section-header">
+                        <div className="section-marker">
+                            <span className="section-marker__num">01</span>
+                            <span className="section-marker__line"></span>
+                        </div>
                         <Text variant="eyebrow">What We Do</Text>
                         <Text variant="h2">Precision Detailing<br /><span className="text-wine">Without Compromise</span></Text>
                     </div>
@@ -97,7 +101,7 @@ function HomePage() {
                 <div className="home-services-grid">
                     {services.map((svc, idx) => (
                         <ScrollReveal key={idx} direction="up" delay={idx * 80}>
-                            <div className="home-service-card">
+                            <div className="home-service-card showroom-light">
                                 <span className="home-service-card__icon">{svc.icon}</span>
                                 <h3 className="home-service-card__title">{svc.title}</h3>
                                 <p className="home-service-card__desc">{svc.desc}</p>
@@ -123,6 +127,7 @@ function HomePage() {
 
             {/* Brand Statement */}
             <Section variant="darker" id="statement">
+                <div className="luxury-divider luxury-divider--wine"></div>
                 <ScrollReveal direction="up">
                     <div className="home-statement">
                         <div className="home-statement__watermark">KA</div>
@@ -140,9 +145,13 @@ function HomePage() {
             </Section>
 
             {/* Process */}
-            <Section variant="dark" id="process">
+            <Section variant="dark" id="process" className="ambient-edge">
                 <ScrollReveal direction="up">
                     <div className="home-section-header">
+                        <div className="section-marker">
+                            <span className="section-marker__num">02</span>
+                            <span className="section-marker__line"></span>
+                        </div>
                         <Text variant="eyebrow">Our Process</Text>
                         <Text variant="h2">Structured.<br /><span className="text-wine">Purpose-Driven.</span></Text>
                     </div>
@@ -151,7 +160,7 @@ function HomePage() {
                 <div className="home-process-timeline">
                     {processSteps.map((step, idx) => (
                         <ScrollReveal key={idx} direction="up" delay={idx * 100}>
-                            <div className="home-process-step">
+                            <div className="home-process-step piano-black">
                                 <span className="home-process-step__num">{step.step}</span>
                                 <div className="home-process-step__content">
                                     <h4 className="home-process-step__title">{step.title}</h4>
@@ -167,12 +176,16 @@ function HomePage() {
             <Section variant="darker" id="gallery-teaser">
                 <ScrollReveal direction="up">
                     <div className="home-section-header">
+                        <div className="section-marker">
+                            <span className="section-marker__num">03</span>
+                            <span className="section-marker__line"></span>
+                        </div>
                         <Text variant="eyebrow">Portfolio</Text>
                         <Text variant="h2">Selected <span className="text-wine">Works</span></Text>
                     </div>
                 </ScrollReveal>
                 <ScrollReveal direction="scale" delay={200}>
-                    <div className="home-gallery-teaser">
+                    <div className="home-gallery-teaser edge-fade">
                         <div className="home-gallery-placeholder">
                             <span>Gallery Preview</span>
                         </div>
@@ -192,6 +205,7 @@ function HomePage() {
             {/* Final CTA */}
             <section className="home-final-cta">
                 <div className="home-final-cta__ambient"></div>
+                <div className="home-final-cta__ambient home-final-cta__ambient--blue"></div>
                 <ScrollReveal direction="scale">
                     <div className="home-final-cta__content">
                         <Text variant="eyebrow">Ready?</Text>
