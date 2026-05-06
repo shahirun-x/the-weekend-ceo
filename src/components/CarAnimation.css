@@ -1,0 +1,122 @@
+.car-animation-section {
+    width: 100%;
+    height: 150px;
+    background-color: var(--charcoal);
+    position: relative;
+    overflow: hidden;
+    margin: var(--space-xl) 0;
+}
+
+.car-animation-container {
+    position: absolute;
+    bottom: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+}
+
+.is-animating {
+    animation: driveAcross 8s linear infinite;
+}
+
+@keyframes driveAcross {
+    0% {
+        left: -800px;
+    }
+    100% {
+        left: 100%;
+    }
+}
+
+.car-wrapper {
+    position: absolute;
+    bottom: 10px;
+    width: 800px;
+    height: 250px;
+    transform: scale(0.4);
+    transform-origin: bottom left;
+}
+
+.car-svg {
+    width: 100%;
+    height: 100%;
+}
+
+.headlight-beam {
+    animation: pulseBeam 2s ease-in-out infinite alternate;
+}
+
+@keyframes pulseBeam {
+    0% {
+        opacity: 0.6;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.car-wheel {
+    position: absolute;
+    width: 85px;
+    height: 85px;
+    bottom: 48px;
+    border-radius: 50%;
+}
+
+.wheel-front {
+    left: 538px;
+}
+
+.wheel-rear {
+    left: 178px;
+}
+
+.is-animating .car-wheel svg {
+    animation: rotateWheel 1s linear infinite;
+}
+
+@keyframes rotateWheel {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.car-road {
+    position: absolute;
+    bottom: 15px;
+    left: -100vw;
+    width: 300vw;
+    height: 4px;
+    background: repeating-linear-gradient(
+        to right,
+        rgba(255, 255, 255, 0.1),
+        rgba(255, 255, 255, 0.1) 40px,
+        transparent 40px,
+        transparent 80px
+    );
+}
+
+.is-animating .car-road {
+    animation: roadMove 2s linear infinite;
+}
+
+@keyframes roadMove {
+    0% {
+        transform: translateX(0);
+    }
+    100% {
+        transform: translateX(-80px);
+    }
+}
+
+@media (max-width: 767px) {
+    .car-wrapper {
+        transform: scale(0.3);
+    }
+    .car-animation-section {
+        height: 100px;
+    }
+}

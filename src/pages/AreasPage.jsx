@@ -43,18 +43,22 @@ function AreasPage() {
         <div className="areas-page">
             {/* Hero */}
             <Hero
-                eyebrow="Service Areas"
-                title="Beyond"
-                titleAccent="Location."
-                subtitle="Where the standard travels — not the car."
+                title="SERVICE AREAS"
+                subtitle="Beyond Location"
                 short
             />
 
             {/* Availability Statement */}
             <Section variant="charcoal" id="availability">
                 <ScrollReveal direction="up">
-                    <div className="areas-availability">
-                        <Text variant="h2" className="text-white">
+                    <div className="areas-availability" style={{ textAlign: 'center', maxWidth: '800px', margin: '0 auto' }}>
+                        <Text variant="h2" className="text-white" style={{ marginBottom: '1.5rem' }}>
+                            We are prepared to reach your location by Road, Rail, or by Air without any additional travel charges.
+                        </Text>
+                        <Text variant="h3" className="text-yellow" style={{ marginBottom: '1.5rem' }}>
+                            Our Standards Travel — Not the Car.
+                        </Text>
+                        <Text className="text-white" style={{ fontSize: '1.2rem', opacity: 0.9 }}>
                             We are at present available at most parts of South India.
                         </Text>
                     </div>
@@ -86,12 +90,12 @@ function AreasPage() {
             {/* Closing Note */}
             <Section variant="teal" id="closing">
                 <ScrollReveal direction="scale">
-                    <div className="areas-closing">
-                        <Text variant="h3" className="text-white">Don't see your location?</Text>
-                        <Text className="areas-closing__text">
-                            We hope your location is available above. If not but you are interested in our craftmanship please reach us. We will try the best possible to reach you.
+                    <div className="areas-closing" style={{ textAlign: 'center' }}>
+                        <Text variant="h3" className="text-white" style={{ marginBottom: '1rem' }}>Don't see your Location?</Text>
+                        <Text className="areas-closing__text" style={{ color: 'rgba(255,255,255,0.9)', marginBottom: '2rem', fontSize: '1.1rem', maxWidth: '700px', margin: '0 auto 2rem' }}>
+                            We hope your location is available above. If not but you're interested in our craftsmanship then please reach us. We will try our best to reach you.
                         </Text>
-                        <Button to="/appointment" variant="yellow">Request Appointment</Button>
+                        <Button to="/appointment" variant="yellow" className="button--large">Request a Slot</Button>
                     </div>
                 </ScrollReveal>
             </Section>

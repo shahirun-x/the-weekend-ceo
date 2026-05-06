@@ -4,10 +4,11 @@ import './Header.css'
 
 const navLinks = [
     { path: '/', label: 'Home' },
-    { path: '/brand', label: 'Brand' },
-    { path: '/services', label: 'Services' },
-    { path: '/areas', label: 'Areas' },
-    { path: '/gallery', label: 'Gallery' },
+    { path: '/packages', label: 'Packages' },
+    { path: '/safety-assurance', label: 'Safety Assurance' },
+    { path: '/areas', label: 'Service Locations' },
+    { path: '/brand', label: 'Brand Story' },
+    { path: '/standards', label: 'Standards' },
 ]
 
 function Header() {
@@ -46,7 +47,7 @@ function Header() {
                         </Link>
                     ))}
                     <Link to="/appointment" className="header__cta">
-                        Book Now
+                        Request a Slot
                     </Link>
                 </nav>
 

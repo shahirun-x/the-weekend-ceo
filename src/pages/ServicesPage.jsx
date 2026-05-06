@@ -1,9 +1,151 @@
 import Hero from '../components/Hero'
 import Section from '../components/Section'
 import Text from '../components/Text'
-import Button from '../components/Button'
+import PackageCard from '../components/PackageCard'
+import CarAnimation from '../components/CarAnimation'
 import ScrollReveal from '../components/ScrollReveal'
 import './ServicesPage.css'
+
+const packages = [
+    {
+        title: "CEO's Luxury Pro Pack",
+        price: "Rs.75,000/- + GST",
+        subtitle: "25+ steps | 6 to 8 hours Craftsmanship",
+        isSignature: false,
+        steps: [
+            {
+                phaseName: "Phase 1 — Inspection & Preparation",
+                items: [
+                    "Pre-detail inspection and paint condition assessment",
+                    "Surface contamination analysis",
+                    "Wheel, tire, and lower panel inspection"
+                ]
+            },
+            {
+                phaseName: "Phase 2 — Exterior Decontamination",
+                items: [
+                    "Controlled high-pressure rinse",
+                    "pH-neutral foam pre-wash",
+                    "Two-bucket hand wash method",
+                    "Wheel and tire deep cleaning",
+                    "Iron fallout removal (chemical decontamination)",
+                    "Tar and adhesive removal",
+                    "Clay bar treatment for bonded contaminants"
+                ]
+            },
+            {
+                phaseName: "Phase 3 — Surface Correction",
+                items: [
+                    "Controlled drying using microfiber and air system",
+                    "Paint thickness awareness (safe correction limits)",
+                    "Single-stage machine polishing",
+                    "Light swirl and haze removal",
+                    "Gloss enhancement pass"
+                ]
+            },
+            {
+                phaseName: "Phase 4 — Protection & Finishing",
+                items: [
+                    "Surface wipe-down (residue removal)",
+                    "Premium wax application (hand-applied)",
+                    "Exterior plastic trim restoration",
+                    "Tire dressing",
+                    "Glass cleaning and clarity enhancement"
+                ]
+            },
+            {
+                phaseName: "Phase 5 — Interior Basic Refinement",
+                items: [
+                    "Interior vacuuming",
+                    "Dashboard and trim cleaning",
+                    "Leather surface wipe-down",
+                    "Odour neutralization"
+                ]
+            },
+            {
+                phaseName: "Phase 6 — Finalisation",
+                items: [
+                    "Final inspection and controlled finish review"
+                ]
+            }
+        ],
+        additionalInfo: ["Scope note: Precision enhancement. Controlled refinement. Approx. 6–8 hours"]
+    },
+    {
+        title: "CEO's Ultra Luxury Pack",
+        price: "Rs.1,50,000/- + GST",
+        subtitle: "40+ steps | 8 to 12 hours Craftsmanship",
+        isSignature: false,
+        steps: [
+            {
+                phaseName: "Includes everything in CEO's Luxury Pro Pack, plus:",
+                items: [
+                    "Multi-layer foam wash cycles",
+                    "Intensive iron and chemical decontamination",
+                    "Extended clay bar refinement",
+                    "Paint defect analysis (panel-wise)",
+                    "Dual-stage machine correction (cut + polish)",
+                    "Medium scratch and swirl reduction",
+                    "Panel-by-panel refinement passes",
+                    "High-gloss finishing pass",
+                    "Steam cleaning (interior surfaces)",
+                    "Fabric deep cleaning / extraction",
+                    "Leather conditioning treatment",
+                    "Air vent detailing",
+                    "Door jamb deep cleaning",
+                    "Engine bay safe cleaning (non-invasive)",
+                    "Sealant layer enhancement over wax base"
+                ]
+            }
+        ],
+        additionalInfo: ["Scope note: Deeper correction. Stronger presence. Approx. 8–12 hours"]
+    },
+    {
+        title: "CEO's Premium Signature Pack",
+        price: "Rs.3,00,000/- + GST",
+        subtitle: "Until CEO's Satisfaction — 2 days",
+        isSignature: true,
+        steps: [
+            {
+                phaseName: "Scope includes:",
+                items: [
+                    "Full multi-stage correction (as required)",
+                    "Extended defect removal cycles",
+                    "Deep interior restoration",
+                    "Precision finishing and enhancement",
+                    "Premium-grade materials and compounds",
+                    "Execution continues until completion criteria is met."
+                ]
+            }
+        ],
+        additionalInfo: [
+            "This is not a fixed process. The vehicle is worked on continuously until it meets the required standard. Every surface — interior and exterior — is refined without restriction on time or number of passes."
+        ]
+    },
+    {
+        title: "CEO's Celebrities Signature Pack",
+        price: "Rs.5,00,000/- + GST",
+        subtitle: "Until CEO's Satisfaction — 2 days",
+        isSignature: true,
+        steps: [
+            {
+                phaseName: "Scope includes:",
+                items: [
+                    "Fully bespoke detailing approach",
+                    "Personal consultation prior to execution",
+                    "Extended multi-day refinement if required",
+                    "Highest-grade materials available",
+                    "Priority scheduling and handling",
+                    "No predefined scope. No limitation on effort."
+                ]
+            }
+        ],
+        additionalInfo: [
+            "Reserved for vehicles requiring the highest level of attention, discretion, and outcome. Suitable for Celebrities, Car collectors etc.",
+            "Crafted without limits. 2 Days | with Museum level wax shine"
+        ]
+    }
+]
 
 function ServicesPage() {
     return (
@@ -17,84 +159,24 @@ function ServicesPage() {
                 short
             />
 
+            <CarAnimation />
+
             {/* Service Packs */}
             <Section variant="cream" id="packs">
+                <div className="founder-initials founder-initials--brand">KA</div>
                 <ScrollReveal direction="up">
                     <div className="services-header">
                         <Text variant="eyebrow">Services</Text>
                     </div>
                 </ScrollReveal>
 
-                <div className="services-grid">
-                    {/* CEO's Luxury Pro Pack */}
-                    <ScrollReveal direction="left" delay={100}>
-                        <div className="service-pack service-pack--pro">
-                            <div className="service-pack__content">
-                                <Text variant="h3" className="service-pack__name">CEO's Luxury Pro Pack</Text>
-                                <Text variant="h2" className="service-pack__price">Rs.75,000/- <span>+ GST</span></Text>
-                                <div className="service-pack__details">
-                                    <Text variant="body" className="service-pack__steps">25 steps</Text>
-                                    <Text variant="body" className="service-pack__time">4 to 6 hours Craftmanship</Text>
-                                </div>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-
-                    {/* CEO's Ultra Luxury Pack */}
-                    <ScrollReveal direction="right" delay={200}>
-                        <div className="service-pack service-pack--ultra">
-                            <div className="service-pack__content">
-                                <Text variant="h3" className="service-pack__name">CEO's Ultra Luxury Pack</Text>
-                                <Text variant="h2" className="service-pack__price">Rs.1,50,000/- <span>+ GST</span></Text>
-                                <div className="service-pack__details">
-                                    <Text variant="body" className="service-pack__steps">40 steps</Text>
-                                    <Text variant="body" className="service-pack__time">8 to 10 hours Craftmanship</Text>
-                                </div>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-
-                    {/* CEO's Premium Signature Pack */}
-                    <ScrollReveal direction="left" delay={300}>
-                        <div className="service-pack service-pack--signature">
-                            <div className="service-pack__content">
-                                <Text variant="h3" className="service-pack__name text-yellow">CEO's Premium Signature Pack</Text>
-                                <Text variant="h2" className="service-pack__price text-white">Rs.3,00,000/- <span>+ GST</span></Text>
-                                <div className="service-pack__details">
-                                    <Text variant="body" className="service-pack__time text-white">Until CEO's Satisfaction - 2 days</Text>
-                                </div>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-
-                    {/* CEO's Celebrities Signature Pack */}
-                    <ScrollReveal direction="right" delay={400}>
-                        <div className="service-pack service-pack--celebrities">
-                            <div className="service-pack__content">
-                                <Text variant="h3" className="service-pack__name text-yellow">CEO's Celebrities Signature Pack</Text>
-                                <Text variant="h2" className="service-pack__price text-white">Rs.5,00,000/- <span>+ GST</span></Text>
-                                <div className="service-pack__details">
-                                    <Text variant="body" className="service-pack__time text-white">Until CEO's Satisfaction - 2 days</Text>
-                                </div>
-                            </div>
-                        </div>
-                    </ScrollReveal>
+                <div className="services-list" style={{ maxWidth: '900px', margin: '0 auto', position: 'relative', zIndex: 1 }}>
+                    {packages.map((pkg, idx) => (
+                        <ScrollReveal key={idx} direction="up" delay={idx * 100}>
+                            <PackageCard {...pkg} />
+                        </ScrollReveal>
+                    ))}
                 </div>
-            </Section>
-
-            {/* CTA */}
-            <Section variant="teal" id="cta">
-                <ScrollReveal direction="scale">
-                    <div className="services-cta">
-                        <Text variant="h2" className="text-white">Ready to Experience the Difference?</Text>
-                        <Text className="services-cta__desc">
-                            All engagements are pre-scheduled and prepared well in advance.
-                        </Text>
-                        <Button to="/appointment" variant="yellow" className="button--large">
-                            Request Appointment
-                        </Button>
-                    </div>
-                </ScrollReveal>
             </Section>
         </div>
     )

@@ -1,0 +1,43 @@
+.safety-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-xl);
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: var(--space-xl) 0;
+}
+
+.safety-card {
+    background-color: rgba(255, 255, 255, 0.03);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 12px;
+    padding: var(--space-xl);
+    height: 100%;
+    transition: transform var(--transition-base), box-shadow var(--transition-base);
+}
+
+.safety-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    border-color: rgba(255, 215, 0, 0.3);
+}
+
+.safety-card__title {
+    color: var(--yellow);
+    margin-bottom: var(--space-md);
+    font-size: 1.25rem;
+    letter-spacing: 0.05em;
+}
+
+.safety-card__desc {
+    color: rgba(255, 255, 255, 0.85);
+    line-height: 1.8;
+    font-size: 1.1rem;
+}
+
+@media (max-width: 900px) {
+    .safety-grid {
+        grid-template-columns: 1fr;
+        gap: var(--space-lg);
+    }
+}

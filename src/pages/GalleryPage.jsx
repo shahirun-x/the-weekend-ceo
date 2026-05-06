@@ -103,7 +103,7 @@ function GalleryPage() {
                     <div className="gallery-cta">
                         <Text variant="h2" className="text-white">Your Vehicle Could Be Next.</Text>
                         <Button to="/appointment" variant="yellow" className="button--large">
-                            Request Your Spot
+                            Request a Slot
                         </Button>
                     </div>
                 </ScrollReveal>

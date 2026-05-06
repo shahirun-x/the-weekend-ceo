@@ -2,8 +2,6 @@ import { Link } from 'react-router-dom'
 import './Footer.css'
 
 function Footer() {
-    const currentYear = new Date().getFullYear()
-
     return (
         <footer className="footer">
             <div className="footer__container">
@@ -24,22 +22,22 @@ function Footer() {
                     <div className="footer__nav-group">
                         <span className="footer__nav-title">Navigate</span>
                         <Link to="/" className="footer__link">Home</Link>
-                        <Link to="/brand" className="footer__link">Brand</Link>
-                        <Link to="/services" className="footer__link">Services</Link>
-                        <Link to="/gallery" className="footer__link">Gallery</Link>
+                        <Link to="/brand" className="footer__link">Brand Story</Link>
+                        <Link to="/packages" className="footer__link">Packages</Link>
+                        <Link to="/safety-assurance" className="footer__link">Safety Assurance</Link>
+                        <Link to="/standards" className="footer__link">Standards</Link>
                     </div>
 
                     <div className="footer__nav-group">
                         <span className="footer__nav-title">Connect</span>
-                        <Link to="/areas" className="footer__link">Service Areas</Link>
-                        <Link to="/appointment" className="footer__link">Book Appointment</Link>
-                        <a href="mailto:hello@theweekendceo.in" className="footer__link">Email Us</a>
+                        <Link to="/areas" className="footer__link">Service Locations</Link>
+                        <Link to="/appointment" className="footer__link">Contact Us</Link>
                     </div>
                 </div>
 
                 <div className="footer__bottom">
                     <span className="footer__copyright">
-                        © {currentYear} The Weekend CEO. All rights reserved.
+                        © 2026 The Weekend CEO. All rights reserved.
                     </span>
                     <div className="footer__social">
                         <a href="#" className="footer__social-link" aria-label="Instagram">📸</a>

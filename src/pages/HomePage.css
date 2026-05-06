@@ -2,12 +2,65 @@
    HOME PAGE — BOLD CREATIVE STYLES
    ============================================ */
 
-/* Hero Doorstep Line */
+/* Founder Initials Watermark */
+.founder-initials {
+  position: absolute;
+  font-family: var(--font-heading);
+  font-size: 8rem;
+  font-weight: 700;
+  color: rgba(255, 255, 255, 0.03);
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 200px;
+  height: 200px;
+  border-radius: 50%;
+  border: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.founder-initials--hero {
+  top: 15%;
+  right: 5%;
+}
+
+.founder-initials--brand {
+  top: 50%;
+  left: 5%;
+  transform: translateY(-50%);
+}
+
+/* Hero Additions */
+.hero-badge {
+  display: inline-block;
+  background-color: var(--charcoal);
+  color: var(--yellow);
+  font-family: var(--font-heading);
+  font-size: 0.9rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  border: 1px solid rgba(255, 215, 0, 0.3);
+  margin-bottom: var(--space-md);
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hero-tagline {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--cream);
+  margin-bottom: var(--space-md);
+}
+
 .hero-doorstep {
   font-size: 1.1rem;
   color: rgba(255, 255, 255, 0.85);
   max-width: 700px;
-  margin: var(--space-md) auto var(--space-lg);
+  margin: 0 auto var(--space-lg);
   line-height: 1.7;
 }
 
@@ -16,6 +69,8 @@
   text-align: center;
   max-width: 900px;
   margin: 0 auto;
+  position: relative;
+  z-index: 1;
 }
 
 .home-statement__title {
@@ -42,33 +97,6 @@
   font-size: 1.5rem;
 }
 
-/* Differentiation Section */
-.home-differentiation {
-  text-align: center;
-  padding: var(--space-xl) 0;
-}
-
-.home-differentiation__text {
-  display: flex;
-  flex-direction: column;
-  gap: var(--space-sm);
-  margin-bottom: var(--space-lg);
-}
-
-.home-differentiation__text .text-h3 {
-  font-size: clamp(1.75rem, 4vw, 2.5rem);
-}
-
-.home-differentiation__italic {
-  font-style: italic;
-}
-
-.home-differentiation__statement {
-  font-size: 1.5rem;
-  max-width: 600px;
-  margin: 0 auto;
-}
-
 /* Standards Section */
 .home-standards-intro {
   text-align: center;
@@ -77,24 +105,17 @@
 
 .home-standards-intro .text-h2 {
   margin: var(--space-sm) 0;
+  max-width: 900px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .home-standards__subtitle {
   font-size: 1.25rem;
   color: var(--charcoal);
   opacity: 0.8;
-}
-
-.home-standards-pillars {
-  display: flex;
-  justify-content: center;
-  gap: var(--space-2xl);
-  margin-bottom: var(--space-2xl);
-  text-align: center;
-}
-
-.home-standards-pillars .text-h3 {
-  color: var(--teal);
+  font-style: italic;
+  margin-top: var(--space-sm);
 }
 
 .home-standards__grid {
@@ -109,39 +130,81 @@
   padding: var(--space-xl);
   background-color: var(--white);
   border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.03);
 }
 
 .home-standards__number {
   display: block;
   font-family: var(--font-heading);
-  font-size: 1.5rem;
+  font-size: 1.75rem;
   font-weight: 700;
   color: var(--teal);
   line-height: 1.2;
-  margin-bottom: var(--space-md);
+  margin-bottom: var(--space-sm);
 }
 
 .home-standards__item .text-h3 {
-  margin-bottom: var(--space-sm);
+  margin-bottom: var(--space-md);
   color: var(--charcoal);
+  font-size: 1.2rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
 }
 
-/* Beyond Location Section */
-.home-beyond {
+.home-standards-footer {
   text-align: center;
   max-width: 800px;
-  margin: 0 auto;
-  padding: var(--space-xl) 0;
+  margin: var(--space-xl) auto;
+  padding-top: var(--space-lg);
+  border-top: 1px solid rgba(0, 0, 0, 0.1);
 }
 
-.home-beyond .text-h2 {
-  margin: var(--space-sm) 0 var(--space-lg);
-}
-
-.home-beyond__desc {
-  font-size: 1.25rem;
-  color: rgba(255, 255, 255, 0.85);
+.home-standards__note {
+  font-size: 1.15rem;
   line-height: 1.8;
+  color: var(--charcoal);
+  font-weight: 500;
+}
+
+/* Our Process */
+.home-process {
+  max-width: 800px;
+  margin: var(--space-2xl) auto 0;
+  background-color: rgba(255, 255, 255, 0.5);
+  padding: var(--space-xl);
+  border-radius: 16px;
+}
+
+.home-process__title {
+  text-align: center;
+  color: var(--charcoal);
+  margin-bottom: var(--space-md);
+}
+
+.home-process__desc {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--charcoal);
+  margin-bottom: var(--space-lg);
+  text-align: center;
+}
+
+.home-process__list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-sm);
+}
+
+.home-process__list li {
+  font-size: 1.1rem;
+  color: var(--charcoal);
+  padding: var(--space-sm) var(--space-md);
+  background-color: var(--white);
+  border-radius: 8px;
+  border-left: 4px solid var(--teal);
 }
 
 /* CTA Section */
@@ -180,24 +243,25 @@
   .home-standards__grid {
     grid-template-columns: 1fr;
   }
-
-  .home-standards-pillars {
-    flex-direction: column;
-    gap: var(--space-md);
-  }
 }
 
 @media (max-width: 767px) {
-  .home-differentiation__text .text-h3 {
-    font-size: 1.5rem;
+  .founder-initials {
+    font-size: 5rem;
+    width: 120px;
+    height: 120px;
   }
 
-  .home-differentiation__statement {
+  .hero-tagline {
     font-size: 1.25rem;
   }
 
   .hero-doorstep {
     font-size: 1rem;
     padding: 0 var(--space-md);
+  }
+
+  .home-process {
+    padding: var(--space-md);
   }
 }

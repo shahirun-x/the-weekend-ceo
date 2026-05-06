@@ -9,6 +9,8 @@ import GalleryPage from './pages/GalleryPage'
 import AppointmentPage from './pages/AppointmentPage'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
+import SafetyAssurancePage from './pages/SafetyAssurancePage'
+import StandardsPage from './pages/StandardsPage'
 
 function App() {
     return (
@@ -16,8 +18,10 @@ function App() {
             {/* Public routes with Layout */}
             <Route path="/" element={<Layout><HomePage /></Layout>} />
             <Route path="/brand" element={<Layout><BrandPage /></Layout>} />
-            <Route path="/services" element={<Layout><ServicesPage /></Layout>} />
+            <Route path="/packages" element={<Layout><ServicesPage /></Layout>} />
+            <Route path="/safety-assurance" element={<Layout><SafetyAssurancePage /></Layout>} />
             <Route path="/areas" element={<Layout><AreasPage /></Layout>} />
+            <Route path="/standards" element={<Layout><StandardsPage /></Layout>} />
             <Route path="/gallery" element={<Layout><GalleryPage /></Layout>} />
             <Route path="/appointment" element={<Layout><AppointmentPage /></Layout>} />
 
