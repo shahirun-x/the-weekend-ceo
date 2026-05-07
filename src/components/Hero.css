@@ -1,7 +1,7 @@
 /* ============================================
-   HERO — SENSORY PRECISION
-   Phase 4: Calmed motion, quieter ambients,
-   refined pacing, premium breathing
+   HERO — CINEMATIC VIDEO BACKGROUND
+   Video layer with luxury automotive grading,
+   layered overlays, slow zoom, atmospheric depth
    ============================================ */
 
 .hero {
@@ -25,15 +25,98 @@
     padding: 0;
 }
 
-/* Cinematic Vignette — showroom darkening */
+/* ============================================
+   VIDEO BACKGROUND LAYER (z-index: 0)
+   ============================================ */
+
+.hero__video-wrapper {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    overflow: hidden;
+}
+
+.hero__video {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center center;
+
+    /* Cinematic grading — car visible, premium tone */
+    opacity: 0.62;
+    filter: brightness(0.78) contrast(1.05) saturate(0.92);
+
+    /* Slow cinematic zoom — luxury commercial feel */
+    animation: heroVideoZoom 14s ease-in-out infinite alternate;
+
+    /* GPU acceleration */
+    will-change: transform;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+}
+
+@keyframes heroVideoZoom {
+    0% {
+        transform: scale(1);
+    }
+    100% {
+        transform: scale(1.06);
+    }
+}
+
+/* ============================================
+   DARK CINEMATIC OVERLAY (z-index: 1)
+   Layered gradients for depth and focus
+   ============================================ */
+
+.hero__video-overlay {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+    pointer-events: none;
+    background:
+        /* Subtle top darkening — header blend only */
+        linear-gradient(to bottom,
+            rgba(5, 6, 8, 0.35) 0%,
+            rgba(5, 6, 8, 0.1) 12%,
+            transparent 28%
+        ),
+        /* Bottom fade — seamless section blend */
+        linear-gradient(to top,
+            var(--bg-primary) 0%,
+            rgba(5, 6, 8, 0.6) 6%,
+            rgba(5, 6, 8, 0.15) 18%,
+            transparent 35%
+        );
+}
+
+/* ============================================
+   CINEMATIC VIGNETTE (::before, z-index: 1)
+   ============================================ */
+
 .hero::before {
     content: '';
     position: absolute;
     inset: 0;
     background:
-        radial-gradient(ellipse at center, transparent 30%, rgba(5, 6, 8, 0.6) 80%, var(--bg-primary) 100%);
+        radial-gradient(ellipse at center,
+            transparent 30%,
+            rgba(5, 6, 8, 0.6) 80%,
+            var(--bg-primary) 100%
+        );
     pointer-events: none;
     z-index: 1;
+}
+
+/* Video variant — lighter vignette, car stays visible */
+.hero--video::before {
+    background:
+        radial-gradient(ellipse at center,
+            transparent 45%,
+            rgba(5, 6, 8, 0.25) 70%,
+            rgba(5, 6, 8, 0.5) 90%,
+            var(--bg-primary) 100%
+        );
 }
 
 /* Bottom Edge Fade — seamless section blend */
@@ -43,13 +126,16 @@
     bottom: 0;
     left: 0;
     right: 0;
-    height: 150px;
+    height: 200px;
     background: linear-gradient(to bottom, transparent, var(--bg-primary));
     pointer-events: none;
     z-index: 1;
 }
 
-/* Ambient Glow Lights — environmental */
+/* ============================================
+   AMBIENT GLOW LIGHTS (z-index: 1)
+   ============================================ */
+
 .hero__ambient {
     position: absolute;
     border-radius: 50%;
@@ -57,6 +143,7 @@
     pointer-events: none;
     transition: transform 0.8s var(--ease-out-expo);
     will-change: transform;
+    z-index: 1;
 }
 
 .hero__ambient--wine {
@@ -69,6 +156,13 @@
     animation: envDrift 26s var(--ease-luxury) infinite;
 }
 
+/* Video variant — slightly brighter wine glow to complement headlights */
+.hero--video .hero__ambient--wine {
+    opacity: 0.18;
+    top: -15%;
+    right: -8%;
+}
+
 .hero__ambient--blue {
     width: 500px;
     height: 500px;
@@ -79,7 +173,17 @@
     animation: envDrift 34s var(--ease-luxury) infinite reverse;
 }
 
-/* Showroom Spotlight Sweep — atmospheric light bar */
+/* Video variant — blue reflection accent */
+.hero--video .hero__ambient--blue {
+    opacity: 0.12;
+    bottom: -15%;
+    left: -8%;
+}
+
+/* ============================================
+   SHOWROOM SPOTLIGHT SWEEP (z-index: 1)
+   ============================================ */
+
 .hero__spotlight {
     position: absolute;
     top: 0;
@@ -101,7 +205,10 @@
     opacity: 0;
 }
 
-/* Atmospheric Haze — depth layer */
+/* ============================================
+   ATMOSPHERIC HAZE (z-index: 1)
+   ============================================ */
+
 .hero__haze {
     position: absolute;
     inset: 0;
@@ -113,7 +220,17 @@
     mix-blend-mode: screen;
 }
 
-/* Grain */
+/* Video variant — subtle haze to blend with headlight glow */
+.hero--video .hero__haze {
+    background:
+        radial-gradient(ellipse at 50% 70%, rgba(123, 16, 35, 0.025) 0%, transparent 45%),
+        radial-gradient(ellipse at 50% 30%, rgba(122, 174, 232, 0.02) 0%, transparent 40%);
+}
+
+/* ============================================
+   GRAIN (z-index: 1)
+   ============================================ */
+
 .hero__grain {
     position: absolute;
     inset: 0;
@@ -121,9 +238,18 @@
     background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
     pointer-events: none;
     mix-blend-mode: overlay;
+    z-index: 1;
 }
 
-/* Container */
+/* Video variant — minimal grain for cinematic texture */
+.hero--video .hero__grain {
+    opacity: 0.012;
+}
+
+/* ============================================
+   HERO CONTENT (z-index: 2)
+   ============================================ */
+
 .hero__container {
     position: relative;
     z-index: 2;
@@ -135,6 +261,14 @@
     flex-direction: column;
     align-items: center;
     gap: var(--space-lg);
+}
+
+/* Video variant — push content lower, let car dominate upper space */
+.hero--video .hero__container {
+    max-width: 800px;
+    justify-content: flex-end;
+    padding-bottom: 6rem;
+    padding-top: 12rem;
 }
 
 /* Eyebrow */
@@ -175,6 +309,11 @@
     max-width: 900px;
 }
 
+/* Video variant — add text shadow for readability over video */
+.hero--video .hero__title {
+    text-shadow: 0 2px 40px rgba(5, 6, 8, 0.6);
+}
+
 .hero__title-accent {
     display: block;
     background: linear-gradient(135deg, var(--wine-bright) 0%, var(--blue) 100%);
@@ -198,6 +337,12 @@
     max-width: 550px;
 }
 
+/* Video variant — slightly brighter subtitle for readability */
+.hero--video .hero__subtitle {
+    color: var(--text-service);
+    text-shadow: 0 1px 20px rgba(5, 6, 8, 0.5);
+}
+
 /* Content container */
 .hero__content {
     display: flex;
@@ -207,7 +352,10 @@
     margin-top: var(--space-sm);
 }
 
-/* Responsive */
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
 @media (max-width: 768px) {
     .hero {
         padding: 8rem 0 4rem;
@@ -234,5 +382,35 @@
 
     .hero__spotlight {
         display: none;
+    }
+
+    /* Video — slightly reduce on mobile, keep car visible */
+    .hero__video {
+        opacity: 0.45;
+        filter: brightness(0.65) contrast(1.05) saturate(0.88);
+        animation: none;
+    }
+
+    /* Lighter overlay on mobile — car still visible */
+    .hero--video .hero__video-overlay {
+        background:
+            linear-gradient(to bottom,
+                rgba(5, 6, 8, 0.5) 0%,
+                rgba(5, 6, 8, 0.15) 15%,
+                transparent 35%
+            ),
+            linear-gradient(to top,
+                var(--bg-primary) 0%,
+                rgba(5, 6, 8, 0.7) 8%,
+                rgba(5, 6, 8, 0.2) 22%,
+                transparent 45%
+            );
+    }
+}
+
+/* Small mobile — further reduce video for text priority */
+@media (max-width: 480px) {
+    .hero__video {
+        opacity: 0.35;
     }
 }

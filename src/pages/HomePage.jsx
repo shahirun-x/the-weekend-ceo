@@ -62,7 +62,7 @@ function HomePage() {
     return (
         <div className="home-page">
             {/* Hero */}
-            <Hero fullscreen>
+            <Hero fullscreen videoSrc="/videos/weekend ceo.mp4">
                 <span className="home-hero__eyebrow">
                     <span className="home-hero__dot"></span>
                     Limited to 96 Cars Per Year

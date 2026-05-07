@@ -10,9 +10,11 @@ function Hero({
     children,
     short = false,
     fullscreen = false,
+    videoSrc = null,
     className = ''
 }) {
     const heroRef = useRef(null)
+    const videoRef = useRef(null)
 
     // Subtle parallax drift on mouse movement (desktop only)
     useEffect(() => {
@@ -36,9 +38,39 @@ function Hero({
         return () => window.removeEventListener('mousemove', handleMouseMove)
     }, [])
 
+    // Ensure video plays on mount (autoplay policy workaround)
+    useEffect(() => {
+        const video = videoRef.current
+        if (video) {
+            video.play().catch(() => {})
+        }
+    }, [videoSrc])
+
     return (
-        <section ref={heroRef} className={`hero ${short ? 'hero--short' : ''} ${fullscreen ? 'hero--fullscreen' : ''} ${className}`}>
-            {/* Environmental lights */}
+        <section ref={heroRef} className={`hero ${short ? 'hero--short' : ''} ${fullscreen ? 'hero--fullscreen' : ''} ${videoSrc ? 'hero--video' : ''} ${className}`}>
+
+            {/* Video Background Layer (z-index: 0) */}
+            {videoSrc && (
+                <div className="hero__video-wrapper">
+                    <video
+                        ref={videoRef}
+                        className="hero__video"
+                        src={videoSrc}
+                        autoPlay
+                        muted
+                        loop
+                        playsInline
+                        preload="auto"
+                    />
+                </div>
+            )}
+
+            {/* Dark Gradient Overlay (z-index: 1) */}
+            {videoSrc && <div className="hero__video-overlay"></div>}
+
+            {/* Cinematic Vignette (z-index: 1 — via ::before) */}
+
+            {/* Environmental lights (z-index: 1) */}
             <div className="hero__ambient hero__ambient--wine"></div>
             <div className="hero__ambient hero__ambient--blue"></div>
 
@@ -51,6 +83,7 @@ function Hero({
             {/* Grain */}
             <div className="hero__grain"></div>
 
+            {/* Hero Content (z-index: 2) */}
             <div className="hero__container">
                 <ScrollReveal direction="fade" delay={200}>
                     {eyebrow && <span className="hero__eyebrow">{eyebrow}</span>}
