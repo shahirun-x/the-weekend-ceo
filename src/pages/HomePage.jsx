@@ -15,12 +15,12 @@ const stats = [
 ]
 
 const services = [
-    { icon: '◆', title: 'Paint Correction', desc: 'Multi-stage machine polishing restoring clarity, depth, and gloss.' },
-    { icon: '◇', title: 'Ceramic Coating', desc: 'Premium-grade surface protection with long-term hydrophobic finish.' },
-    { icon: '▣', title: 'Interior Detailing', desc: 'Deep cleaning, leather conditioning, and complete cabin restoration.' },
-    { icon: '◈', title: 'Exterior Detailing', desc: 'Decontamination, clay bar treatment, and hand-applied wax systems.' },
-    { icon: '⬡', title: 'Wheel & Engine', desc: 'Wheel deep cleaning, tire dressing, and engine bay safe detailing.' },
-    { icon: '◉', title: 'Mobile Service', desc: 'Full detailing delivered to your home, office, or private garage.' },
+    { title: 'Ceramic Coating', category: 'Protection', desc: 'Premium-grade surface protection. Long-term hydrophobic finish that shields against UV, chemical exposure, and environmental degradation.', image: '/images/services/ceramic-coating.png', featured: true },
+    { title: 'Paint Correction', category: 'Restoration', desc: 'Multi-stage machine polishing restoring clarity, depth, and showroom gloss.', image: '/images/services/paint-correction.png' },
+    { title: 'Interior Detailing', category: 'Refinement', desc: 'Deep cleaning, leather conditioning, and complete cabin restoration.', image: '/images/services/interior-detail.png' },
+    { title: 'Exterior Detailing', category: 'Precision', desc: 'Decontamination, clay bar treatment, and hand-applied wax systems.', image: '/images/services/exterior-wash.png' },
+    { title: 'Wheel & Engine', category: 'Engineering', desc: 'Wheel deep cleaning, tire dressing, and engine bay safe detailing.', image: '/images/services/wheel-detail.png' },
+    { title: 'Mobile Service', category: 'Convenience', desc: 'Full detailing delivered to your home, office, or private garage.', image: '/images/services/mobile-service.png' },
 ]
 
 const processSteps = [
@@ -85,7 +85,7 @@ function HomePage() {
                 </div>
             </Hero>
 
-            {/* Services Overview */}
+            {/* Services — Cinematic Bento Showcase */}
             <Section variant="darker" id="services" className="ambient-edge">
                 <ScrollReveal direction="up">
                     <div className="home-section-header">
@@ -98,14 +98,23 @@ function HomePage() {
                     </div>
                 </ScrollReveal>
 
-                <div className="home-services-grid">
+                <div className="bento-grid">
                     {services.map((svc, idx) => (
-                        <ScrollReveal key={idx} direction="up" delay={idx * 80}>
-                            <div className="home-service-card showroom-light">
-                                <span className="home-service-card__icon">{svc.icon}</span>
-                                <h3 className="home-service-card__title">{svc.title}</h3>
-                                <p className="home-service-card__desc">{svc.desc}</p>
-                            </div>
+                        <ScrollReveal key={idx} direction="up" delay={idx * 100}>
+                            <Link
+                                to="/packages"
+                                className={`bento-block ${svc.featured ? 'bento-block--featured' : ''}`}
+                            >
+                                <div className="bento-block__bg" style={{ backgroundImage: `url(${svc.image})` }}></div>
+                                <div className="bento-block__overlay"></div>
+                                <div className="bento-block__glow"></div>
+                                <div className="bento-block__content">
+                                    <span className="bento-block__category">{svc.category}</span>
+                                    <h3 className="bento-block__title">{svc.title}</h3>
+                                    <p className="bento-block__desc">{svc.desc}</p>
+                                    <span className="bento-block__cta">Explore →</span>
+                                </div>
+                            </Link>
                         </ScrollReveal>
                     ))}
                 </div>
