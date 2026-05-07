@@ -1,6 +1,7 @@
 /* ============================================
-   MEDIA GRID — CINEMATIC GALLERY
-   Phase 2: Slow zoom, ambient overlays, smooth lightbox
+   MEDIA GRID — CINEMATIC AUTOMOTIVE GALLERY
+   Masonry-style grid, premium lightbox with
+   keyboard/swipe, ambient lighting
    ============================================ */
 
 /* Filters */
@@ -12,11 +13,11 @@
 }
 
 .mg-filter {
-    font-family: var(--font-heading);
+    font-family: var(--font-nav, var(--font-heading));
     font-size: 0.7rem;
     font-weight: 600;
     text-transform: uppercase;
-    letter-spacing: 0.1em;
+    letter-spacing: 0.08em;
     color: var(--text-secondary);
     padding: 0.5rem 1.25rem;
     border: 1px solid var(--border);
@@ -41,7 +42,7 @@
     box-shadow: 0 3px 12px var(--glow-wine);
 }
 
-/* Grid */
+/* Grid — Asymmetric masonry feel */
 .mg-grid {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -53,12 +54,18 @@
     overflow: hidden;
     cursor: pointer;
     aspect-ratio: 4/3;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    transition: border-color 0.5s var(--ease-luxury);
 }
 
 .mg-item--featured {
     grid-column: span 2;
     grid-row: span 2;
     aspect-ratio: auto;
+}
+
+.mg-item:hover {
+    border-color: rgba(123, 16, 35, 0.15);
 }
 
 .mg-item__img {
@@ -68,12 +75,12 @@
     transition:
         transform 1.6s var(--ease-out-quint),
         filter 0.8s var(--ease-luxury);
-    filter: brightness(0.85) saturate(0.9);
+    filter: brightness(0.82) saturate(0.9);
     will-change: transform;
 }
 
 .mg-item:hover .mg-item__img {
-    transform: scale(1.04);
+    transform: scale(1.06);
     filter: brightness(1) saturate(1);
 }
 
@@ -101,7 +108,7 @@
 .mg-item__title {
     font-family: var(--font-heading);
     font-size: 1rem;
-    font-weight: 600;
+    font-weight: 700;
     color: var(--text-primary);
     transform: translateY(5px);
     transition: transform 0.6s var(--ease-out-expo);
@@ -112,10 +119,11 @@
 }
 
 .mg-item__subtitle {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--wine-bright);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    font-weight: 600;
     transform: translateY(5px);
     transition: transform 0.6s var(--ease-out-expo) 0.05s;
 }
@@ -124,14 +132,17 @@
     transform: translateY(0);
 }
 
-/* Lightbox — Cinematic */
+/* ============================================
+   LIGHTBOX — CINEMATIC FULLSCREEN VIEWER
+   ============================================ */
+
 .mg-lightbox {
     position: fixed;
     inset: 0;
     z-index: 2000;
-    background: rgba(5, 6, 8, 0.96);
-    backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    background: rgba(5, 6, 8, 0.97);
+    backdrop-filter: blur(30px);
+    -webkit-backdrop-filter: blur(30px);
     display: flex;
     align-items: center;
     justify-content: center;
@@ -142,12 +153,24 @@
 @keyframes lightboxReveal {
     from {
         opacity: 0;
-        backdrop-filter: blur(0);
     }
     to {
         opacity: 1;
-        backdrop-filter: blur(20px);
     }
+}
+
+/* Ambient wine glow behind image */
+.mg-lightbox__ambient {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(123, 16, 35, 0.12) 0%, transparent 70%);
+    filter: blur(80px);
+    pointer-events: none;
+    animation: envDrift 20s var(--ease-luxury) infinite;
 }
 
 .mg-lightbox__close {
@@ -155,27 +178,67 @@
     top: var(--space-lg);
     right: var(--space-lg);
     background: none;
-    border: none;
+    border: 1px solid rgba(255, 255, 255, 0.1);
     color: var(--text-primary);
-    font-size: 2rem;
+    font-size: 1.5rem;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     cursor: pointer;
-    opacity: 0.4;
-    transition: opacity 0.4s var(--ease-luxury), transform 0.4s var(--ease-out-expo);
+    opacity: 0.5;
+    transition: opacity 0.4s var(--ease-luxury), border-color 0.4s var(--ease-luxury);
     z-index: 10;
 }
 
 .mg-lightbox__close:hover {
     opacity: 1;
-    transform: scale(1.1);
+    border-color: rgba(255, 255, 255, 0.3);
+}
+
+/* Navigation arrows */
+.mg-lightbox__arrow {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(5, 6, 8, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+    color: var(--text-primary);
+    font-size: 2rem;
+    width: 52px;
+    height: 52px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    opacity: 0.4;
+    transition: opacity 0.4s var(--ease-luxury), background-color 0.3s var(--ease-luxury);
+    z-index: 10;
+}
+
+.mg-lightbox__arrow:hover {
+    opacity: 1;
+    background: rgba(123, 16, 35, 0.3);
+}
+
+.mg-lightbox__arrow--prev {
+    left: var(--space-lg);
+}
+
+.mg-lightbox__arrow--next {
+    right: var(--space-lg);
 }
 
 .mg-lightbox__content {
-    max-width: 90vw;
-    max-height: 90vh;
+    max-width: 85vw;
+    max-height: 85vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     animation: lightboxImageIn 0.7s var(--ease-out-expo) 0.1s both;
+    position: relative;
+    z-index: 5;
 }
 
 @keyframes lightboxImageIn {
@@ -191,9 +254,10 @@
 
 .mg-lightbox__content img {
     max-width: 100%;
-    max-height: 80vh;
+    max-height: 78vh;
     object-fit: contain;
-    border: 1px solid var(--border);
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    animation: lightboxImageIn 0.5s var(--ease-out-expo) both;
 }
 
 .mg-lightbox__info {
@@ -213,14 +277,25 @@
 .mg-lightbox__title {
     font-family: var(--font-heading);
     font-size: 1.125rem;
+    font-weight: 700;
     color: var(--text-primary);
 }
 
 .mg-lightbox__subtitle {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     color: var(--wine-bright);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
+    letter-spacing: 0.08em;
+    font-weight: 600;
+}
+
+.mg-lightbox__counter {
+    font-family: var(--font-heading);
+    font-size: 0.65rem;
+    font-weight: 500;
+    color: var(--text-muted);
+    letter-spacing: 0.1em;
+    margin-top: 0.25rem;
 }
 
 /* Responsive */
@@ -247,6 +322,18 @@
     .mg-item__subtitle {
         transform: translateY(0);
     }
+
+    /* Lightbox mobile */
+    .mg-lightbox__arrow {
+        width: 40px;
+        height: 40px;
+        font-size: 1.5rem;
+    }
+    .mg-lightbox__arrow--prev { left: var(--space-sm); }
+    .mg-lightbox__arrow--next { right: var(--space-sm); }
+    .mg-lightbox__close { top: var(--space-sm); right: var(--space-sm); }
+    .mg-lightbox__content { max-width: 95vw; }
+    .mg-lightbox__ambient { width: 300px; height: 300px; }
 }
 
 @media (max-width: 480px) {

@@ -54,6 +54,7 @@ html {
   /* Typography */
   --font-heading: 'Outfit', -apple-system, sans-serif;
   --font-body: 'Inter', -apple-system, sans-serif;
+  --font-nav: 'Plus Jakarta Sans', 'Outfit', -apple-system, sans-serif;
 
   /* Spacing */
   --space-xs: 0.5rem;

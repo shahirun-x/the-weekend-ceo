@@ -1,14 +1,33 @@
 /* ============================================
-   APPOINTMENT PAGE — PREMIUM CONVERSION
-   Phase 4: Refined trust signals, calmer focus, precision inputs
+   APPOINTMENT PAGE — LUXURY RESERVATION
+   Premium form experience with cinematic sections,
+   elevated inputs, and immersive booking feel
    ============================================ */
 
-.appt-content { max-width: 800px; margin: 0 auto; }
-.appt-intro { margin-bottom: var(--space-xl); display: flex; flex-direction: column; gap: var(--space-sm); }
+.appt-content {
+    max-width: 780px;
+    margin: 0 auto;
+    position: relative;
+}
 
+.appt-intro {
+    margin-bottom: var(--space-xl);
+    display: flex;
+    flex-direction: column;
+    gap: var(--space-sm);
+    text-align: center;
+    align-items: center;
+}
+
+.appt-intro .text--h3 {
+    font-size: clamp(1.5rem, 3vw, 2rem);
+    letter-spacing: -0.01em;
+}
+
+/* Error State */
 .appt-error {
-    background: rgba(166, 21, 52, 0.1);
-    border: 1px solid rgba(166, 21, 52, 0.3);
+    background: rgba(166, 21, 52, 0.08);
+    border: 1px solid rgba(166, 21, 52, 0.25);
     padding: var(--space-sm) var(--space-md);
     margin-bottom: var(--space-lg);
     animation: errorReveal 0.5s var(--ease-out-expo) forwards;
@@ -21,51 +40,95 @@
 
 .appt-error .text--body { color: #fca5a5; }
 
-.appt-form { display: flex; flex-direction: column; gap: var(--space-lg); }
+/* Form */
+.appt-form {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+}
 
+/* Section Labels — Step markers */
 .appt-section-label {
     font-family: var(--font-heading);
-    font-size: 0.7rem;
-    font-weight: 600;
+    font-size: 0.65rem;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.2em;
     color: var(--wine-bright);
-    padding-bottom: 0.5rem;
+    padding: var(--space-lg) 0 var(--space-sm);
     border-bottom: 1px solid var(--border);
+    margin-bottom: var(--space-md);
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
 }
 
-.appt-grid { display: grid; grid-template-columns: 1fr 1fr; gap: var(--space-md); }
-.appt-grid--three { grid-template-columns: repeat(3, 1fr); }
+.appt-section-label::before {
+    content: '';
+    width: 20px;
+    height: 1px;
+    background: var(--wine-bright);
+    opacity: 0.5;
+}
 
-.appt-field { display: flex; flex-direction: column; gap: 0.4rem; }
-.appt-field--full { grid-column: 1 / -1; }
+/* First label no top padding */
+.appt-form .appt-section-label:first-child {
+    padding-top: 0;
+}
+
+/* Grid */
+.appt-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: var(--space-md);
+    margin-bottom: var(--space-sm);
+}
+
+.appt-grid--three {
+    grid-template-columns: repeat(3, 1fr);
+}
+
+/* Field */
+.appt-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+    position: relative;
+}
+
+.appt-field--full {
+    grid-column: 1 / -1;
+}
 
 .appt-field label {
-    font-size: 0.8rem;
-    font-weight: 500;
+    font-family: var(--font-nav, var(--font-body));
+    font-size: 0.72rem;
+    font-weight: 600;
     color: var(--text-secondary);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    transition: color 0.3s var(--ease-luxury);
+    letter-spacing: 0.06em;
+    transition: color 0.4s var(--ease-luxury);
 }
 
 .appt-field:focus-within label {
     color: var(--wine-bright);
 }
 
+/* Inputs — Premium dark styling */
 .appt-field input,
 .appt-field select,
 .appt-field textarea {
     background: var(--bg-card);
     border: 1px solid var(--border);
-    padding: 0.875rem 1rem;
+    padding: 0.95rem 1.1rem;
     color: var(--text-primary);
     font-family: var(--font-body);
-    font-size: 0.95rem;
+    font-size: 0.92rem;
     transition:
         border-color 0.4s var(--ease-luxury),
         box-shadow 0.5s var(--ease-out-expo),
-        background-color 0.4s var(--ease-luxury);
+        background-color 0.4s var(--ease-luxury),
+        transform 0.3s var(--ease-out-expo);
     width: 100%;
 }
 
@@ -74,40 +137,99 @@
 .appt-field textarea:focus {
     outline: none;
     border-color: var(--wine-bright);
-    box-shadow: 0 0 0 2px rgba(166, 21, 52, 0.08);
+    box-shadow:
+        0 0 0 3px rgba(166, 21, 52, 0.06),
+        0 4px 16px rgba(0, 0, 0, 0.15);
     background: var(--bg-elevated);
 }
 
 .appt-field input::placeholder,
 .appt-field textarea::placeholder {
     color: var(--text-muted);
+    font-style: italic;
+    opacity: 0.6;
 }
 
+/* Filled state indicator */
+.appt-field input:not(:placeholder-shown),
+.appt-field textarea:not(:placeholder-shown) {
+    border-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Select */
 .appt-field select {
     appearance: none;
     cursor: pointer;
     background-image: url("data:image/svg+xml,%3Csvg width='12' height='8' viewBox='0 0 12 8' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M1 1.5L6 6.5L11 1.5' stroke='%237A7088' stroke-width='1.5' stroke-linecap='round'/%3E%3C/svg%3E");
     background-repeat: no-repeat;
-    background-position: right 1rem center;
+    background-position: right 1.1rem center;
     padding-right: 2.5rem;
 }
 
-.appt-field textarea {
-    resize: vertical;
-    min-height: 100px;
+.appt-field select option {
+    background: var(--bg-card);
+    color: var(--text-primary);
 }
 
+/* Textarea */
+.appt-field textarea {
+    resize: vertical;
+    min-height: 110px;
+    line-height: 1.6;
+}
+
+/* Disabled state */
+.appt-field input:disabled,
+.appt-field select:disabled,
+.appt-field textarea:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+}
+
+/* Submit Area */
 .appt-submit {
     display: flex;
     flex-direction: column;
     align-items: center;
     gap: var(--space-md);
-    padding-top: var(--space-md);
+    padding-top: var(--space-xl);
+    border-top: 1px solid var(--border);
+    margin-top: var(--space-lg);
 }
 
-.appt-disclaimer { text-align: center; max-width: 500px; }
+.appt-disclaimer {
+    text-align: center;
+    max-width: 480px;
+    font-size: 0.78rem;
+    color: var(--text-muted);
+    line-height: 1.6;
+}
 
-/* Success */
+/* Loading button state */
+.btn--loading {
+    position: relative;
+    color: transparent !important;
+}
+
+.btn--loading::after {
+    content: '';
+    position: absolute;
+    width: 18px;
+    height: 18px;
+    border: 2px solid rgba(255, 255, 255, 0.3);
+    border-top-color: var(--text-primary);
+    border-radius: 50%;
+    animation: btnSpin 0.8s linear infinite;
+}
+
+@keyframes btnSpin {
+    to { transform: rotate(360deg); }
+}
+
+/* ============================================
+   SUCCESS STATE — CINEMATIC CONFIRMATION
+   ============================================ */
+
 .appt-success {
     text-align: center;
     display: flex;
@@ -124,8 +246,8 @@
 }
 
 .appt-success__icon {
-    width: 60px;
-    height: 60px;
+    width: 68px;
+    height: 68px;
     border: 2px solid var(--wine-bright);
     display: flex;
     align-items: center;
@@ -134,6 +256,7 @@
     color: var(--wine-bright);
     margin-bottom: var(--space-sm);
     animation: checkReveal 0.6s var(--ease-out-expo) 0.3s both;
+    box-shadow: 0 0 30px rgba(166, 21, 52, 0.15);
 }
 
 @keyframes checkReveal {
@@ -141,8 +264,43 @@
     to { opacity: 1; transform: scale(1) rotate(0deg); }
 }
 
-.appt-success__actions { display: flex; gap: var(--space-sm); margin-top: var(--space-md); }
+.appt-success__actions {
+    display: flex;
+    gap: var(--space-sm);
+    margin-top: var(--space-md);
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
 
 @media (max-width: 768px) {
-    .appt-grid, .appt-grid--three { grid-template-columns: 1fr; }
+    .appt-grid,
+    .appt-grid--three {
+        grid-template-columns: 1fr;
+    }
+
+    .appt-content {
+        padding: 0 var(--space-xs);
+    }
+
+    .appt-field input,
+    .appt-field select,
+    .appt-field textarea {
+        padding: 0.85rem 1rem;
+        font-size: 16px; /* Prevents iOS zoom */
+    }
+
+    .appt-section-label {
+        padding: var(--space-md) 0 var(--space-xs);
+    }
+
+    .appt-success__actions {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    .appt-success__actions .btn {
+        width: 100%;
+    }
 }
