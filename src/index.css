@@ -67,7 +67,7 @@ html {
   /* Layout */
   --container-max: 1440px;
   --container-narrow: 900px;
-  --section-padding: clamp(5rem, 12vw, 10rem);
+  --section-padding: clamp(3.5rem, 8vw, 6rem);
 
   /* Cinematic Easing Library */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);

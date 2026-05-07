@@ -24,11 +24,11 @@ const services = [
 ]
 
 const processSteps = [
-    { step: '01', title: 'Inspection', desc: 'Full paint and surface condition assessment.' },
-    { step: '02', title: 'Decontamination', desc: 'Chemical and mechanical removal of bonded contaminants.' },
-    { step: '03', title: 'Correction', desc: 'Machine polishing to eliminate swirls and defects.' },
-    { step: '04', title: 'Protection', desc: 'Sealant, wax, or ceramic coating application.' },
-    { step: '05', title: 'Finalisation', desc: 'Controlled review and final detail inspection.' },
+    { step: '01', title: 'Inspection', desc: 'Full paint depth measurement, surface condition assessment, and defect mapping under controlled LED lighting.', image: '/images/process/inspection.png' },
+    { step: '02', title: 'Decontamination', desc: 'Chemical and mechanical removal of bonded contaminants — iron fallout, tar, and embedded particles.', image: '/images/process/decontamination.png' },
+    { step: '03', title: 'Correction', desc: 'Multi-stage machine polishing to eliminate swirls, holograms, and paint defects with precision.', image: '/images/process/correction.png' },
+    { step: '04', title: 'Protection', desc: 'Premium sealant, wax, or ceramic coating application — engineered for long-term surface defence.', image: '/images/process/protection.png' },
+    { step: '05', title: 'Finalisation', desc: 'Controlled environment review, final detail inspection, and handover preparation.', image: '/images/process/finalisation.png' },
 ]
 
 function AnimatedCounter({ value, suffix = '' }) {
@@ -56,6 +56,77 @@ function AnimatedCounter({ value, suffix = '' }) {
     }, [value])
 
     return <span ref={ref}>{count}{suffix}</span>
+}
+
+function ProcessTimeline({ steps }) {
+    const [activeStep, setActiveStep] = useState(0)
+    const stepRefs = useRef([])
+
+    useEffect(() => {
+        const observers = []
+        stepRefs.current.forEach((el, idx) => {
+            if (!el) return
+            const observer = new IntersectionObserver(
+                ([entry]) => {
+                    if (entry.isIntersecting) {
+                        setActiveStep(idx)
+                    }
+                },
+                { threshold: 0.6, rootMargin: '-10% 0px -40% 0px' }
+            )
+            observer.observe(el)
+            observers.push(observer)
+        })
+        return () => observers.forEach(o => o.disconnect())
+    }, [steps])
+
+    return (
+        <div className="process-cinema">
+            {/* Left: Steps */}
+            <div className="process-cinema__steps">
+                <div className="process-cinema__line">
+                    <div
+                        className="process-cinema__line-fill"
+                        style={{ height: `${((activeStep) / (steps.length - 1)) * 100}%` }}
+                    ></div>
+                </div>
+                {steps.map((step, idx) => (
+                    <div
+                        key={idx}
+                        ref={el => stepRefs.current[idx] = el}
+                        className={`process-step ${idx === activeStep ? 'process-step--active' : ''} ${idx < activeStep ? 'process-step--done' : ''}`}
+                        onClick={() => setActiveStep(idx)}
+                    >
+                        <span className="process-step__num">{step.step}</span>
+                        <div className="process-step__body">
+                            <h4 className="process-step__title">{step.title}</h4>
+                            <p className="process-step__desc">{step.desc}</p>
+                        </div>
+                        {/* Mobile inline image */}
+                        <div className="process-step__img-mobile">
+                            <img src={step.image} alt={step.title} loading="lazy" />
+                        </div>
+                    </div>
+                ))}
+            </div>
+
+            {/* Right: Sticky Image Panel */}
+            <div className="process-cinema__visual">
+                <div className="process-cinema__img-wrap">
+                    {steps.map((step, idx) => (
+                        <img
+                            key={idx}
+                            src={step.image}
+                            alt={step.title}
+                            className={`process-cinema__img ${idx === activeStep ? 'process-cinema__img--active' : ''}`}
+                            loading="lazy"
+                        />
+                    ))}
+                    <div className="process-cinema__img-overlay"></div>
+                </div>
+            </div>
+        </div>
+    )
 }
 
 function HomePage() {
@@ -153,7 +224,7 @@ function HomePage() {
                 </ScrollReveal>
             </Section>
 
-            {/* Process */}
+            {/* Process — Cinematic Scroll Timeline */}
             <Section variant="dark" id="process" className="ambient-edge">
                 <ScrollReveal direction="up">
                     <div className="home-section-header">
@@ -166,19 +237,7 @@ function HomePage() {
                     </div>
                 </ScrollReveal>
 
-                <div className="home-process-timeline">
-                    {processSteps.map((step, idx) => (
-                        <ScrollReveal key={idx} direction="up" delay={idx * 100}>
-                            <div className="home-process-step piano-black">
-                                <span className="home-process-step__num">{step.step}</span>
-                                <div className="home-process-step__content">
-                                    <h4 className="home-process-step__title">{step.title}</h4>
-                                    <p className="home-process-step__desc">{step.desc}</p>
-                                </div>
-                            </div>
-                        </ScrollReveal>
-                    ))}
-                </div>
+                <ProcessTimeline steps={processSteps} />
             </Section>
 
             {/* Gallery Teaser */}
@@ -193,19 +252,32 @@ function HomePage() {
                         <Text variant="h2">Selected <span className="text-wine">Works</span></Text>
                     </div>
                 </ScrollReveal>
-                <ScrollReveal direction="scale" delay={200}>
-                    <div className="home-gallery-teaser edge-fade">
-                        <div className="home-gallery-placeholder">
-                            <span>Gallery Preview</span>
+                <div className="home-gallery-teaser">
+                    <ScrollReveal direction="up" delay={100}>
+                        <div className="gallery-teaser-item gallery-teaser-item--wide">
+                            <img src="/images/gallery/hood.png" alt="Paint correction detail" loading="lazy" />
+                            <div className="gallery-teaser-item__overlay">
+                                <span className="gallery-teaser-item__label">Paint Perfection</span>
+                            </div>
                         </div>
-                        <div className="home-gallery-placeholder">
-                            <span>Gallery Preview</span>
+                    </ScrollReveal>
+                    <ScrollReveal direction="up" delay={200}>
+                        <div className="gallery-teaser-item">
+                            <img src="/images/gallery/coating.png" alt="Ceramic coating" loading="lazy" />
+                            <div className="gallery-teaser-item__overlay">
+                                <span className="gallery-teaser-item__label">Ceramic Shield</span>
+                            </div>
                         </div>
-                        <div className="home-gallery-placeholder home-gallery-placeholder--tall">
-                            <span>Gallery Preview</span>
+                    </ScrollReveal>
+                    <ScrollReveal direction="up" delay={300}>
+                        <div className="gallery-teaser-item">
+                            <img src="/images/gallery/showroom.png" alt="Showroom finish" loading="lazy" />
+                            <div className="gallery-teaser-item__overlay">
+                                <span className="gallery-teaser-item__label">Showroom Finish</span>
+                            </div>
                         </div>
-                    </div>
-                </ScrollReveal>
+                    </ScrollReveal>
+                </div>
                 <div className="home-gallery-cta">
                     <Button to="/gallery" variant="secondary">View Full Gallery</Button>
                 </div>
