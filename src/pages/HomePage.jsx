@@ -4,6 +4,7 @@ import Section from '../components/Section'
 import Text from '../components/Text'
 import Button from '../components/Button'
 import ScrollReveal from '../components/ScrollReveal'
+import RacingStripe from '../components/RacingStripe'
 import './HomePage.css'
 
 const stats = [
@@ -43,6 +44,9 @@ function AnimatedCounter({ value, suffix = '' }) {
 function HomePage() {
     return (
         <div className="home-page">
+            {/* 96 Stories League — Racing Stripe Signature */}
+            <RacingStripe />
+
             {/* Hero */}
             <Hero fullscreen videoSrc="/videos/weekend ceo.mp4">
                 <span className="home-hero__eyebrow">
