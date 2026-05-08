@@ -7,7 +7,7 @@ const navLinks = [
     { path: '/packages', label: 'Packages' },
     { path: '/safety-assurance', label: 'Safety Assurance' },
     { path: '/areas', label: 'Service Locations' },
-    { path: '/brand', label: 'Brand Story' },
+    { path: '/brand', label: 'Brand Story', featured: true },
     { path: '/standards', label: 'Standards' },
 ]
 
@@ -42,17 +42,39 @@ function Header() {
                 </Link>
 
                 <nav className={`header__nav ${isMobileMenuOpen ? 'header__nav--open' : ''}`}>
-                    <div className="header__nav-links">
-                        {navLinks.map((link, idx) => (
-                            <Link
-                                key={link.path}
-                                to={link.path}
-                                className={`header__link ${location.pathname === link.path ? 'header__link--active' : ''}`}
-                                style={{ transitionDelay: isMobileMenuOpen ? `${idx * 0.06}s` : '0s' }}
-                            >
-                                {link.label}
-                            </Link>
-                        ))}
+                <div className="header__nav-links">
+                        {navLinks.map((link, idx) => {
+                            const isActive = location.pathname === link.path
+                            const delay = isMobileMenuOpen ? `${idx * 0.06}s` : '0s'
+
+                            if (link.featured) {
+                                return (
+                                    <div
+                                        key={link.path}
+                                        className="header__brand-wrapper"
+                                        style={{ transitionDelay: delay }}
+                                    >
+                                        <Link
+                                            to={link.path}
+                                            className={`header__link header__link--brand${isActive ? ' header__link--active' : ''}`}
+                                        >
+                                            {link.label}
+                                        </Link>
+                                    </div>
+                                )
+                            }
+
+                            return (
+                                <Link
+                                    key={link.path}
+                                    to={link.path}
+                                    className={`header__link${isActive ? ' header__link--active' : ''}`}
+                                    style={{ transitionDelay: delay }}
+                                >
+                                    {link.label}
+                                </Link>
+                            )
+                        })}
                     </div>
                     <Link to="/appointment" className="header__cta">
                         <span>Request a Slot</span>

@@ -190,6 +190,84 @@
     transition-duration: 0.1s;
 }
 
+/* ============================================
+   BRAND STORY — EDITORIAL FOCAL POINT
+   Desktop: subtle capsule + cinematic hover
+   Mobile: premium glassmorphism container
+   ============================================ */
+
+/* Desktop: wrapper is layout-transparent */
+.header__brand-wrapper {
+    display: contents;
+}
+
+/* Capsule border — subtly present at rest, blooms on hover */
+.header__link--brand::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    border: 1px solid rgba(166, 21, 52, 0.22);
+    border-radius: 3px;
+    background: rgba(166, 21, 52, 0.025);
+    pointer-events: none;
+    transition:
+        border-color 0.6s var(--ease-out-expo),
+        background-color 0.6s var(--ease-out-expo),
+        box-shadow 0.7s var(--ease-out-expo);
+}
+
+.header__link--brand {
+    color: var(--text-service);
+    letter-spacing: 0.07em;
+    padding: 0.45rem 1.1rem;
+    transition:
+        color 0.5s var(--ease-out-expo),
+        text-shadow 0.6s var(--ease-out-expo),
+        letter-spacing 0.4s var(--ease-out-expo);
+}
+
+/* Premium gradient underline — partially visible at rest as editorial mark */
+.header__link--brand::after {
+    background: linear-gradient(90deg, transparent 0%, var(--wine-bright) 40%, var(--wine-bright) 60%, transparent 100%);
+    transform: translateX(-50%) scaleX(0.22);
+    opacity: 0.45;
+    width: calc(100% - 2rem);
+    transition:
+        transform 0.6s var(--ease-out-expo),
+        opacity 0.5s var(--ease-out-expo);
+}
+
+.header__link--brand:hover {
+    color: var(--text-primary);
+    text-shadow: 0 0 28px rgba(245, 247, 250, 0.1);
+    letter-spacing: 0.085em;
+}
+
+.header__link--brand:hover::before {
+    border-color: rgba(166, 21, 52, 0.5);
+    background-color: rgba(166, 21, 52, 0.055);
+    box-shadow:
+        0 0 18px rgba(166, 21, 52, 0.09),
+        inset 0 1px 0 rgba(255, 255, 255, 0.04),
+        0 4px 16px rgba(0, 0, 0, 0.2);
+}
+
+.header__link--brand:hover::after {
+    transform: translateX(-50%) scaleX(1);
+    opacity: 1;
+}
+
+/* Active state for Brand Story page */
+.header__link--brand.header__link--active::before {
+    border-color: rgba(166, 21, 52, 0.4);
+    background-color: rgba(166, 21, 52, 0.05);
+}
+
+.header__link--brand.header__link--active::after {
+    transform: translateX(-50%) scaleX(0.7);
+    opacity: 0.8;
+}
+
 /* Mobile Toggle */
 .header__mobile-toggle {
     display: none;
@@ -280,6 +358,7 @@
     .header__nav-links {
         flex-direction: column;
         gap: 0.5rem;
+        align-items: center;
     }
 
     .header__link {
@@ -303,6 +382,80 @@
 
     .header__link::after {
         display: none;
+    }
+
+    /* ── Brand Story wrapper: glass container + staggered reveal ── */
+    .header__brand-wrapper {
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        max-width: 320px;
+        margin: 0.6rem 0;
+        border-radius: 5px;
+        border: 1px solid rgba(166, 21, 52, 0.28);
+        background: linear-gradient(
+            135deg,
+            rgba(16, 20, 27, 0.82) 0%,
+            rgba(10, 12, 18, 0.65) 100%
+        );
+        box-shadow:
+            0 0 28px rgba(166, 21, 52, 0.07),
+            inset 0 1px 0 rgba(255, 255, 255, 0.035);
+        backdrop-filter: blur(16px);
+        -webkit-backdrop-filter: blur(16px);
+        /* Reveal animation — driven by transitionDelay from JSX */
+        opacity: 0;
+        transform: translateY(30px);
+        transition:
+            opacity 0.6s var(--ease-out-expo),
+            transform 0.6s var(--ease-out-expo),
+            border-color 0.35s var(--ease-luxury),
+            box-shadow 0.35s var(--ease-luxury);
+    }
+
+    .header__nav--open .header__brand-wrapper {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    /* Suppress link-level reveal — wrapper owns the animation */
+    .header__brand-wrapper .header__link--brand,
+    .header__nav--open .header__brand-wrapper .header__link--brand {
+        opacity: 1;
+        transform: none;
+        font-size: 1.55rem;
+        color: var(--text-service);
+        letter-spacing: 0.06em;
+        display: block;
+        width: 100%;
+        text-align: center;
+        padding: 1.15rem 2.5rem;
+        border-radius: 4px;
+        transition:
+            color 0.3s var(--ease-luxury);
+    }
+
+    /* Suppress desktop capsule pseudo-elements in mobile */
+    .header__link--brand::before {
+        display: none;
+    }
+
+    /* Touch tap feedback — wrapper glows, text brightens */
+    .header__brand-wrapper:hover,
+    .header__brand-wrapper:active {
+        border-color: rgba(166, 21, 52, 0.5);
+        box-shadow:
+            0 0 36px rgba(166, 21, 52, 0.13),
+            inset 0 1px 0 rgba(255, 255, 255, 0.05);
+    }
+
+    .header__brand-wrapper:hover .header__link--brand,
+    .header__brand-wrapper:active .header__link--brand {
+        color: var(--text-primary);
+    }
+
+    .header__brand-wrapper .header__link--brand.header__link--active {
+        color: var(--wine-bright);
     }
 
     .header__cta {
