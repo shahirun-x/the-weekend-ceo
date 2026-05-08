@@ -6,22 +6,21 @@ import ScrollReveal from '../components/ScrollReveal'
 import './SafetyAssurancePage.css'
 
 const principles = [
-    { num: '01', title: 'Insured Execution', desc: 'Each vehicle is handled under defined conditions. No uncontrolled movement. No unnecessary exposure. Work is executed with discipline and accountability.' },
-    { num: '02', title: 'Controlled Handling', desc: 'From the first interaction to final inspection, ownership is not delegated. The same level of responsibility is maintained throughout the process.' },
-    { num: '03', title: 'Responsibility at Every Stage', desc: 'Protection is not presented as a feature. It is embedded in every step of our process — from arrival to completion.' },
-    { num: '04', title: 'Professional Grade Systems', desc: 'Work is executed using globally recognised detailing systems. CarPro. Rupes. Swissvax. Tested, consistent, and performance-driven.' },
-    { num: '05', title: 'Fully Insured', desc: 'Every engagement is fully insured. From arrival to completion, the vehicle is covered against all risks. No verbal assurance. No uncertainty.' },
-    { num: '06', title: 'Surface-Safe Chemistry', desc: 'All products used are pH-balanced and material-safe. No harsh compounds. Every application is aligned to surface condition and requirement.' },
+    { num: '01', title: 'INSURED EXECUTION', desc: 'Every engagement is fully insured. From arrival to completion, the vehicle is covered against all risks. No dependency on verbal assurance. No uncertainty.' },
+    { num: '02', title: 'CONTROLLED HANDLING', desc: 'Each vehicle is handled under defined conditions. No uncontrolled movement. No unnecessary exposure. No third-party dependency. No compromise on environment. Work is executed with discipline and accountability.' },
+    { num: '03', title: 'RESPONSIBILITY AT EVERY STAGE', desc: 'Protection is not presented as a feature. From the first interaction to final inspection, ownership is not delegated. The same level of responsibility is maintained throughout the process.' },
+    { num: '04', title: 'PROFESSIONAL GRADE - SYSTEMS', desc: 'Work is executed using globally recognised detailing systems. CarPro. Rupes. Swissvax. Tested, consistent, and performance-driven. No generic or unverified products are introduced.' },
+    { num: '05', title: 'SURFACE - SAFE CHEMISTRY', desc: 'All products used are pH-balanced and material-safe. No harsh compounds. No unnecessary chemical exposure. Every application is aligned to surface condition and requirement.' },
 ]
 
 function SafetyAssurancePage() {
     return (
         <div className="safety-page">
             <Hero
-                eyebrow="Safety"
+                eyebrow="Safety Assurance"
                 title="PROTECTION IS"
-                titleAccent="BUILT-IN."
-                subtitle="Every step is controlled. Every surface is protected. Every engagement is insured."
+                titleAccent="BUILT - IN."
+                subtitle="SAFETY ASSURANCE"
                 short
             />
 

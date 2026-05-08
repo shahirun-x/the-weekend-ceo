@@ -5,10 +5,10 @@ import './Header.css'
 const navLinks = [
     { path: '/', label: 'Home' },
     { path: '/packages', label: 'Packages' },
-    { path: '/gallery', label: 'Gallery' },
-    { path: '/stories', label: '96 Stories' },
-    { path: '/brand', label: 'About' },
-    { path: '/contact', label: 'Contact' },
+    { path: '/safety-assurance', label: 'Safety Assurance' },
+    { path: '/areas', label: 'Service Locations' },
+    { path: '/brand', label: 'Brand Story' },
+    { path: '/standards', label: 'Standards' },
 ]
 
 function Header() {
@@ -55,7 +55,7 @@ function Header() {
                         ))}
                     </div>
                     <Link to="/appointment" className="header__cta">
-                        <span>Book Now</span>
+                        <span>Request a Slot</span>
                         <div className="header__cta-glow"></div>
                     </Link>
                 </nav>

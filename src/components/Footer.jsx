@@ -15,10 +15,10 @@ function Footer() {
                             <span className="footer__logo-text">THE WEEKEND <span>CEO</span></span>
                         </div>
                         <p className="footer__tagline">
-                            No ordinary touches. Only the CEO's touch.
+                            By appointment. By commitment. Beyond location.
                         </p>
                         <p className="footer__tagline footer__tagline--muted">
-                            Limited to 96 cars per year.
+                            Where the standard travels — not the car.
                         </p>
                     </div>
 
@@ -26,24 +26,23 @@ function Footer() {
                         <span className="footer__nav-title">Navigate</span>
                         <Link to="/" className="footer__link">Home</Link>
                         <Link to="/packages" className="footer__link">Packages</Link>
-                        <Link to="/gallery" className="footer__link">Gallery</Link>
-                        <Link to="/stories" className="footer__link">96 Stories</Link>
-                        <Link to="/brand" className="footer__link">About</Link>
+                        <Link to="/safety-assurance" className="footer__link">Safety Assurance</Link>
+                        <Link to="/areas" className="footer__link">Service Locations</Link>
+                        <Link to="/brand" className="footer__link">Brand Story</Link>
                     </div>
 
                     <div className="footer__nav-group">
                         <span className="footer__nav-title">Company</span>
                         <Link to="/standards" className="footer__link">Standards</Link>
-                        <Link to="/safety-assurance" className="footer__link">Safety</Link>
-                        <Link to="/areas" className="footer__link">Locations</Link>
-                        <Link to="/faq" className="footer__link">FAQ</Link>
-                        <Link to="/blog" className="footer__link">Blog</Link>
+                        <Link to="/gallery" className="footer__link">Gallery</Link>
+                        <Link to="/stories" className="footer__link">96 Stories</Link>
+                        <Link to="/contact" className="footer__link">Contact Us</Link>
                     </div>
 
                     <div className="footer__nav-group">
                         <span className="footer__nav-title">Connect</span>
-                        <Link to="/contact" className="footer__link">Contact</Link>
-                        <Link to="/appointment" className="footer__link">Book Now</Link>
+                        <Link to="/contact" className="footer__link">Contact Us</Link>
+                        <Link to="/appointment" className="footer__link">Request a Slot</Link>
                         <a href="#" className="footer__link">Instagram</a>
                         <a href="#" className="footer__link">YouTube</a>
                     </div>
@@ -61,7 +60,7 @@ function Footer() {
                         © 2026 The Weekend CEO. All rights reserved.
                     </span>
                     <span className="footer__legal">
-                        Crafted without shortcuts.
+                        Founder Led Luxury Automotive Craftmanship
                     </span>
                 </div>
             </div>

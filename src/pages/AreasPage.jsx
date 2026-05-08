@@ -18,18 +18,19 @@ function AreasPage() {
     return (
         <div className="areas-page">
             <Hero
-                eyebrow="Coverage"
+                eyebrow="Beyond Location"
                 title="SERVICE"
-                titleAccent="LOCATIONS"
-                subtitle="Our standards travel — not the car. Available across South India."
+                titleAccent="AREAS"
+                subtitle="Our Standards Travel – Not the Car."
                 short
             />
 
             <Section variant="darker" id="availability">
                 <ScrollReveal direction="up">
                     <div className="areas-statement">
-                        <Text variant="h2">We reach your location by<br /><span className="text-wine">Road, Rail, or Air.</span></Text>
-                        <Text>No additional travel charges. The full studio experience — wherever you are.</Text>
+                        <Text variant="h2">We are Prepared to reach your location by<br /><span className="text-wine">Road, Rail, or by Air</span></Text>
+                        <Text>without any additional travel charges.</Text>
+                        <Text style={{ marginTop: 'var(--space-sm)' }}>We are at present available at most parts of South India.</Text>
                     </div>
                 </ScrollReveal>
             </Section>
@@ -53,8 +54,8 @@ function AreasPage() {
                 <div className="areas-cta-ambient"></div>
                 <ScrollReveal direction="scale">
                     <div className="areas-cta-content">
-                        <Text variant="h3">Don't see your location?</Text>
-                        <Text className="areas-cta-sub">Reach out — we'll try our best to come to you.</Text>
+                        <Text variant="h3">Dont see your Location ?</Text>
+                        <Text className="areas-cta-sub">We hope your location is available above. If not but your interested in our craftmanship then please reach us. We will try the best possible to reach you.</Text>
                         <Button to="/appointment" variant="primary" className="btn--large">Request a Slot</Button>
                     </div>
                 </ScrollReveal>

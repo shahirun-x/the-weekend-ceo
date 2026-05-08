@@ -9,18 +9,18 @@ import './HomePage.css'
 
 const stats = [
     { value: 1, suffix: '', label: 'Car Crafted Per Day' },
-    { value: 96, suffix: '', label: 'Cars Per Year' },
-    { value: 8, suffix: '+', label: 'Hours Per Vehicle' },
+    { value: 96, suffix: '', label: 'Cars Crafted Per Year' },
+    { value: 8, suffix: '-', label: 'Cars Crafted Per Month' },
     { value: 25, suffix: '+', label: 'Steps Per Detail' },
 ]
 
 const services = [
-    { title: 'Ceramic Coating', category: 'Protection', desc: 'Premium-grade surface protection. Long-term hydrophobic finish that shields against UV, chemical exposure, and environmental degradation.', image: '/images/services/ceramic-coating.png', featured: true },
-    { title: 'Paint Correction', category: 'Restoration', desc: 'Multi-stage machine polishing restoring clarity, depth, and showroom gloss.', image: '/images/services/paint-correction.png' },
-    { title: 'Interior Detailing', category: 'Refinement', desc: 'Deep cleaning, leather conditioning, and complete cabin restoration.', image: '/images/services/interior-detail.png' },
-    { title: 'Exterior Detailing', category: 'Precision', desc: 'Decontamination, clay bar treatment, and hand-applied wax systems.', image: '/images/services/exterior-wash.png' },
-    { title: 'Wheel & Engine', category: 'Engineering', desc: 'Wheel deep cleaning, tire dressing, and engine bay safe detailing.', image: '/images/services/wheel-detail.png' },
-    { title: 'Mobile Service', category: 'Convenience', desc: 'Full detailing delivered to your home, office, or private garage.', image: '/images/services/mobile-service.png' },
+    { title: 'Paint Correction', category: 'Restoration', desc: 'Paint correction and refinement. Multi-stage machine polishing restoring clarity, depth, and showroom gloss.', image: '/images/services/paint-correction.png', featured: true },
+    { title: 'Hand-Applied Wax', category: 'Protection', desc: 'Hand-applied wax and sealant systems. Premium-grade surface protection with long-term hydrophobic finish.', image: '/images/services/ceramic-coating.png' },
+    { title: 'Interior Refinement', category: 'Refinement', desc: 'Deep cleaning, leather conditioning, and complete cabin restoration.', image: '/images/services/interior-detail.png' },
+    { title: 'Controlled Finishing', category: 'Precision', desc: 'Controlled finishing techniques. Decontamination, clay bar treatment, and precision enhancement.', image: '/images/services/exterior-wash.png' },
+    { title: 'Wheel & Engine', category: 'Engineering', desc: 'Wheel deep cleaning, tire dressing, and engine bay safe cleaning (non-invasive).', image: '/images/services/wheel-detail.png' },
+    { title: 'Doorstep Service', category: 'Convenience', desc: 'Delivered @ your Home, Office, Private garages executed with precision, discipline, and complete control.', image: '/images/services/mobile-service.png' },
 ]
 
 const processSteps = [
@@ -143,15 +143,20 @@ function HomePage() {
                     <span className="home-hero__title-accent">TOUCHES</span>
                 </h1>
                 <p className="home-hero__subtitle">
-                    Only the CEO's touch. Premium founder-led automotive detailing
-                    delivered at your doorstep with precision and discipline.
+                    Only the CEO's Touch.<br />
+                    For Those Who Refuse The Ordinary.<br />
+                    Limited to 96 Cars Per Year -
+                    Delivered @ your Home, Office,
+                    Private garages executed
+                    with precision, discipline, and
+                    complete control.
                 </p>
                 <div className="home-hero__actions">
-                    <Button to="/appointment" variant="primary" className="btn--large">Book Your Slot</Button>
+                    <Button to="/appointment" variant="primary" className="btn--large">Request a Slot</Button>
                     <Button to="/packages" variant="secondary">View Packages</Button>
                 </div>
                 <div className="home-hero__badge smoked-glass">
-                    <span className="home-hero__badge-label">96 Stories League</span>
+                    <span className="home-hero__badge-label">96 Car Stories League</span>
                     <span className="home-hero__badge-value">Slots Remaining</span>
                 </div>
             </Hero>
@@ -215,9 +220,10 @@ function HomePage() {
                             A car is never just transport.
                         </Text>
                         <Text className="home-statement__body">
-                            It is an asset. An expression. A reflection of its owner — even when parked still.
+                            It is an asset. An expression. An Emotion. A reflection of its owner — even when parked still.
                             The Weekend CEO was born from a belief that extraordinary cars demand patience,
-                            discipline, and leadership. Not routines. Not rush. Not volume.
+                            discipline, and leadership. No routines. No rush. No volume. No Shortcuts. No Offers.
+                            Every vehicle is treated as a prized asset — and every touch carries responsibility.
                         </Text>
                         <Button to="/brand" variant="ghost">Read Our Story →</Button>
                     </div>
@@ -233,7 +239,7 @@ function HomePage() {
                             <span className="section-marker__line"></span>
                         </div>
                         <Text variant="eyebrow">Our Process</Text>
-                        <Text variant="h2">Structured.<br /><span className="text-wine">Purpose-Driven.</span></Text>
+                        <Text variant="h2">Every vehicle undergoes a<br /><span className="text-wine">structured sequence.</span></Text>
                     </div>
                 </ScrollReveal>
 
@@ -292,7 +298,8 @@ function HomePage() {
                         <Text variant="eyebrow">Ready?</Text>
                         <Text variant="h1">No Ordinary Touches.<br /><span className="text-wine">Only the CEO's Touch.</span></Text>
                         <Text className="home-final-cta__sub">
-                            By appointment. By commitment. Beyond location.
+                            By appointment. By commitment. Beyond location.<br />
+                            Where the standard travels — not the car.
                         </Text>
                         <Button to="/appointment" variant="primary" className="btn--large">
                             Request a Slot

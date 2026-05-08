@@ -104,10 +104,10 @@ function AppointmentPage() {
                                             <label htmlFor="serviceInterest">Which experience interests you?</label>
                                             <select id="serviceInterest" name="serviceInterest" value={formData.serviceInterest} onChange={handleChange} required disabled={isLoading}>
                                                 <option value="">Select an option</option>
-                                                <option value="luxury-pro">CEO's Luxury Pro Pack (Rs.75,000)</option>
-                                                <option value="ultra-luxury">CEO's Ultra Luxury Pack (Rs.1,50,000)</option>
-                                                <option value="premium-signature">CEO's Premium Signature Pack (Rs.3,00,000)</option>
-                                                <option value="celebrities-signature">CEO's Celebrities Signature Pack (Rs.5,00,000)</option>
+                                                <option value="luxury-pro">CEO's Luxury Pro Pack (Rs.75,000/-)</option>
+                                                <option value="ultra-luxury">CEO's Ultra Luxury Pack (Rs.150,000/-)</option>
+                                                <option value="premium-signature">CEO's Premium Signature Pack (Rs.3,00,000/-)</option>
+                                                <option value="celebrities-signature">CEO's Celebritie's Signature Pack (Rs.5,00,000/-)</option>
                                                 <option value="undecided">Not sure yet — need guidance</option>
                                             </select>
                                         </div>
