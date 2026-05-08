@@ -5,7 +5,6 @@ import HomePage from './pages/HomePage'
 import BrandPage from './pages/BrandPage'
 import ServicesPage from './pages/ServicesPage'
 import AreasPage from './pages/AreasPage'
-import GalleryPage from './pages/GalleryPage'
 import AppointmentPage from './pages/AppointmentPage'
 import AdminLogin from './pages/AdminLogin'
 import AdminDashboard from './pages/AdminDashboard'
@@ -28,7 +27,6 @@ function App() {
             <Route path="/safety-assurance" element={<Layout><SafetyAssurancePage /></Layout>} />
             <Route path="/areas" element={<Layout><AreasPage /></Layout>} />
             <Route path="/standards" element={<Layout><StandardsPage /></Layout>} />
-            <Route path="/gallery" element={<Layout><GalleryPage /></Layout>} />
             <Route path="/stories" element={<Layout><StoriesPage /></Layout>} />
             <Route path="/stories/:id" element={<Layout><StoryDetailPage /></Layout>} />
             <Route path="/appointment" element={<Layout><AppointmentPage /></Layout>} />

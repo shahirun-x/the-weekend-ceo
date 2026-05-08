@@ -138,7 +138,7 @@ function AppointmentPage() {
                                 <Text variant="h2">Request <span className="text-wine">Received</span></Text>
                                 <Text>Thank you for your interest in The Weekend CEO. We've received your request and will review it personally. Expect to hear from us within 48 hours.</Text>
                                 <div className="appt-success__actions">
-                                    <Button to="/gallery" variant="secondary">View Our Work</Button>
+                                    <Button to="/packages" variant="secondary">View Packages</Button>
                                     <Button to="/brand" variant="ghost">Read Our Philosophy</Button>
                                 </div>
                             </div>

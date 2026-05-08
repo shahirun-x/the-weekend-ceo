@@ -34,7 +34,6 @@ function Footer() {
                     <div className="footer__nav-group">
                         <span className="footer__nav-title">Company</span>
                         <Link to="/standards" className="footer__link">Standards</Link>
-                        <Link to="/gallery" className="footer__link">Gallery</Link>
                         <Link to="/stories" className="footer__link">96 Stories</Link>
                         <Link to="/contact" className="footer__link">Contact Us</Link>
                     </div>

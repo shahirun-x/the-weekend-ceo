@@ -1,5 +1,4 @@
 import { useState, useEffect, useRef } from 'react'
-import { Link } from 'react-router-dom'
 import Hero from '../components/Hero'
 import Section from '../components/Section'
 import Text from '../components/Text'
@@ -105,49 +104,6 @@ function HomePage() {
                         <Button to="/brand" variant="ghost">Read Our Story →</Button>
                     </div>
                 </ScrollReveal>
-            </Section>
-
-            {/* Gallery Teaser */}
-            <Section variant="dark" id="gallery-teaser">
-                <ScrollReveal direction="up">
-                    <div className="home-section-header">
-                        <div className="section-marker">
-                            <span className="section-marker__num">01</span>
-                            <span className="section-marker__line"></span>
-                        </div>
-                        <Text variant="eyebrow">Portfolio</Text>
-                        <Text variant="h2">Selected <span className="text-wine">Works</span></Text>
-                    </div>
-                </ScrollReveal>
-                <div className="home-gallery-teaser">
-                    <ScrollReveal direction="up" delay={100}>
-                        <div className="gallery-teaser-item gallery-teaser-item--wide">
-                            <img src="/images/gallery/hood.png" alt="Paint correction detail" loading="lazy" />
-                            <div className="gallery-teaser-item__overlay">
-                                <span className="gallery-teaser-item__label">Paint Perfection</span>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-                    <ScrollReveal direction="up" delay={200}>
-                        <div className="gallery-teaser-item">
-                            <img src="/images/gallery/coating.png" alt="Ceramic coating" loading="lazy" />
-                            <div className="gallery-teaser-item__overlay">
-                                <span className="gallery-teaser-item__label">Ceramic Shield</span>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-                    <ScrollReveal direction="up" delay={300}>
-                        <div className="gallery-teaser-item">
-                            <img src="/images/gallery/showroom.png" alt="Showroom finish" loading="lazy" />
-                            <div className="gallery-teaser-item__overlay">
-                                <span className="gallery-teaser-item__label">Showroom Finish</span>
-                            </div>
-                        </div>
-                    </ScrollReveal>
-                </div>
-                <div className="home-gallery-cta">
-                    <Button to="/gallery" variant="secondary">View Full Gallery</Button>
-                </div>
             </Section>
 
             {/* Final CTA */}
